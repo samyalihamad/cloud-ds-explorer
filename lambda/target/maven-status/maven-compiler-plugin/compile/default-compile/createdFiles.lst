@@ -1,0 +1,6 @@
+software/amazon/awscdk/examples/lambda/DeleteItem.class
+software/amazon/awscdk/examples/lambda/GatewayResponse.class
+software/amazon/awscdk/examples/lambda/UpdateItem.class
+software/amazon/awscdk/examples/lambda/CreateItem.class
+software/amazon/awscdk/examples/lambda/GetOneItem.class
+software/amazon/awscdk/examples/lambda/GetAllItems.class

@@ -1,0 +1,32 @@
+{
+  "version": "31.0.0",
+  "files": {
+    "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b": {
+      "source": {
+        "path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "4d9c1f32925783e34fc08cbce4f316b7c00fa8d71f3b0cdf8ad259810a1630cd": {
+      "source": {
+        "path": "cdk-cors-lambda-crud-dynamodb-example.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "4d9c1f32925783e34fc08cbce4f316b7c00fa8d71f3b0cdf8ad259810a1630cd.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
