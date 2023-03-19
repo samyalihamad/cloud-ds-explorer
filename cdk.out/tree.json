@@ -215,7 +215,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
+                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -407,7 +407,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
+                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -440,17 +440,17 @@
               "version": "2.69.0"
             }
           },
-          "createItemFunction": {
-            "id": "createItemFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction",
+          "segmentTreeFunction": {
+            "id": "segmentTreeFunction",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/ImportServiceRole",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.69.0"
@@ -458,7 +458,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -497,11 +497,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/DefaultPolicy",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/DefaultPolicy/Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -538,10 +538,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "createItemFunctionServiceRoleDefaultPolicy8FAF1611",
+                            "policyName": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241",
                             "roles": [
                               {
-                                "Ref": "createItemFunctionServiceRole1BBF2178"
+                                "Ref": "segmentTreeFunctionServiceRole03310493"
                               }
                             ]
                           }
@@ -565,11 +565,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Code",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Code/Stage",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.69.0"
@@ -577,7 +577,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Code/AssetBucket",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.69.0"
@@ -591,7 +591,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -599,11 +599,11 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
+                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
-                        "createItemFunctionServiceRole1BBF2178",
+                        "segmentTreeFunctionServiceRole03310493",
                         "Arn"
                       ]
                     },
@@ -615,7 +615,7 @@
                         "PRIMARY_KEY": "itemId"
                       }
                     },
-                    "handler": "software.amazon.awscdk.examples.lambda.CreateItem",
+                    "handler": "software.amazon.awscdk.examples.lambda.SegmentTree",
                     "memorySize": 512,
                     "runtime": "java11",
                     "timeout": 30
@@ -791,7 +791,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
+                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -983,7 +983,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
+                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -1151,7 +1151,7 @@
                           "Ref": "itemsApi28111E1C"
                         },
                         "deploymentId": {
-                          "Ref": "itemsApiDeploymentFEC31BD0c6f17f806dc94be5ec60ec3f93f97425"
+                          "Ref": "itemsApiDeploymentFEC31BD05b3746869d95886c950b5ecaf92c9216"
                         },
                         "stageName": "prod"
                       }
@@ -1371,7 +1371,7 @@
                                 "action": "lambda:InvokeFunction",
                                 "functionName": {
                                   "Fn::GetAtt": [
-                                    "createItemFunction8D47E48A",
+                                    "segmentTreeFunction007D582E",
                                     "Arn"
                                   ]
                                 },
@@ -1420,7 +1420,7 @@
                                 "action": "lambda:InvokeFunction",
                                 "functionName": {
                                   "Fn::GetAtt": [
-                                    "createItemFunction8D47E48A",
+                                    "segmentTreeFunction007D582E",
                                     "Arn"
                                   ]
                                 },
@@ -1487,7 +1487,7 @@
                                         ":lambda:path/2015-03-31/functions/",
                                         {
                                           "Fn::GetAtt": [
-                                            "createItemFunction8D47E48A",
+                                            "segmentTreeFunction007D582E",
                                             "Arn"
                                           ]
                                         },

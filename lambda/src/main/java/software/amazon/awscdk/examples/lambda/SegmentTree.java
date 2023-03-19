@@ -10,10 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
-import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
-import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
-import software.amazon.awssdk.services.dynamodb.model.PutItemResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CreateItem implements RequestHandler<Map<String,Object>, GatewayResponse>{
+public class SegmentTree implements RequestHandler<Map<String,Object>, GatewayResponse>{
     @Override
     public GatewayResponse handleRequest(Map<String, Object> input, Context context) {
         LambdaLogger logger = context.getLogger();
@@ -32,14 +28,14 @@ public class CreateItem implements RequestHandler<Map<String,Object>, GatewayRes
         logger.log("Body is:"+body);
 
 
-        var output = createItem(body);
+        var output = execute(body);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         return new GatewayResponse(output.toString(), headers, 200);
     }
 
-    private List<String> createItem(String body) {
+    private List<String> execute(String body) {
         var output = new ArrayList<String>();
         try{
             JsonParser parser =  new JsonParser();

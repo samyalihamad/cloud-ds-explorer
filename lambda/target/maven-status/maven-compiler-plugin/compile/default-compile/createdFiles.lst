@@ -1,6 +1,6 @@
 software/amazon/awscdk/examples/lambda/DeleteItem.class
 Models/SegmentTree/SegmentInput.class
-software/amazon/awscdk/examples/lambda/CreateItem.class
+software/amazon/awscdk/examples/lambda/SegmentTree.class
 software/amazon/awscdk/examples/lambda/GetAllItems.class
 software/amazon/awscdk/examples/lambda/GatewayResponse.class
 DataStructures/NumArray.class

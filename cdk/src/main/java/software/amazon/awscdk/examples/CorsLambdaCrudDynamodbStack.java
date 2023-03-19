@@ -52,8 +52,8 @@ class CorsLambdaCrudDynamodbStack extends Stack {
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GetOneItem"));
         Function getAllItemsFunction = new Function(this, "getAllItemsFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GetAllItems"));
-        Function createItemFunction = new Function(this, "createItemFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.CreateItem"));
+        Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
         Function updateItemFunction = new Function(this, "updateItemFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.UpdateItem"));
         Function deleteItemFunction = new Function(this, "deleteItemFunction",
@@ -63,7 +63,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
 
         dynamodbTable.grantReadWriteData(getOneItemFunction);
         dynamodbTable.grantReadWriteData(getAllItemsFunction);
-        dynamodbTable.grantReadWriteData(createItemFunction);
+        dynamodbTable.grantReadWriteData(segmentTreeFunction);
         dynamodbTable.grantReadWriteData(updateItemFunction);
         dynamodbTable.grantReadWriteData(deleteItemFunction);
 
@@ -75,7 +75,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         Integration getAllIntegration = new LambdaIntegration(getAllItemsFunction);
         items.addMethod("GET", getAllIntegration);
 
-        Integration createOneIntegration = new LambdaIntegration(createItemFunction);
+        Integration createOneIntegration = new LambdaIntegration(segmentTreeFunction);
         items.addMethod("POST", createOneIntegration);
         addCorsOptions(items);
 

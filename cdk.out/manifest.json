@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1ec89a7085b6c8ae616941d6006ef518f3fb7d62960d48e326287fdc42c93d2a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2fdc5c587b9689180099cd4efddfba4c27766139e0c3f765206c87f9140c8b8c.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -83,22 +83,22 @@
             "data": "getAllItemsFunction0B7A913E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "createItemFunctionServiceRole1BBF2178"
+            "data": "segmentTreeFunctionServiceRole03310493"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/createItemFunction/ServiceRole/DefaultPolicy/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "createItemFunctionServiceRoleDefaultPolicy8FAF1611"
+            "data": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "createItemFunction8D47E48A"
+            "data": "segmentTreeFunction007D582E"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/Resource": [
@@ -158,7 +158,7 @@
         "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiDeploymentFEC31BD0c6f17f806dc94be5ec60ec3f93f97425"
+            "data": "itemsApiDeploymentFEC31BD05b3746869d95886c950b5ecaf92c9216"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/DeploymentStage.prod/Resource": [
