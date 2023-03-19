@@ -115,7 +115,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+     "S3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -133,7 +133,7 @@
     },
     "Handler": "software.amazon.awscdk.examples.lambda.GetOneItem",
     "MemorySize": 512,
-    "Runtime": "java8",
+    "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
@@ -142,7 +142,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Resource",
-    "aws:asset:path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+    "aws:asset:path": "asset.f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -235,7 +235,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+     "S3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -253,7 +253,7 @@
     },
     "Handler": "software.amazon.awscdk.examples.lambda.GetAllItems",
     "MemorySize": 512,
-    "Runtime": "java8",
+    "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
@@ -262,7 +262,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Resource",
-    "aws:asset:path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+    "aws:asset:path": "asset.f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -355,7 +355,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+     "S3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -373,7 +373,7 @@
     },
     "Handler": "software.amazon.awscdk.examples.lambda.CreateItem",
     "MemorySize": 512,
-    "Runtime": "java8",
+    "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
@@ -382,7 +382,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/createItemFunction/Resource",
-    "aws:asset:path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+    "aws:asset:path": "asset.f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -475,7 +475,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+     "S3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -493,7 +493,7 @@
     },
     "Handler": "software.amazon.awscdk.examples.lambda.UpdateItem",
     "MemorySize": 512,
-    "Runtime": "java8",
+    "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
@@ -502,7 +502,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Resource",
-    "aws:asset:path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+    "aws:asset:path": "asset.f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -595,7 +595,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+     "S3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -613,7 +613,7 @@
     },
     "Handler": "software.amazon.awscdk.examples.lambda.DeleteItem",
     "MemorySize": 512,
-    "Runtime": "java8",
+    "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
@@ -622,7 +622,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Resource",
-    "aws:asset:path": "asset.e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar",
+    "aws:asset:path": "asset.f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }

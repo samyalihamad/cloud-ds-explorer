@@ -215,7 +215,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -233,7 +233,7 @@
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.GetOneItem",
                     "memorySize": 512,
-                    "runtime": "java8",
+                    "runtime": "java11",
                     "timeout": 30
                   }
                 },
@@ -407,7 +407,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -425,7 +425,7 @@
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.GetAllItems",
                     "memorySize": 512,
-                    "runtime": "java8",
+                    "runtime": "java11",
                     "timeout": 30
                   }
                 },
@@ -599,7 +599,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -617,7 +617,7 @@
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.CreateItem",
                     "memorySize": 512,
-                    "runtime": "java8",
+                    "runtime": "java11",
                     "timeout": 30
                   }
                 },
@@ -791,7 +791,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -809,7 +809,7 @@
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.UpdateItem",
                     "memorySize": 512,
-                    "runtime": "java8",
+                    "runtime": "java11",
                     "timeout": 30
                   }
                 },
@@ -983,7 +983,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5a8efc1a841b24b8f871fa299f564b7635bcd9355532e44dce0d3318d64ac2b.jar"
+                      "s3Key": "f444929512b20794dbb37be34ead9184b917c28c0ef00393fd54dd5b463613af.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -1001,7 +1001,7 @@
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.DeleteItem",
                     "memorySize": 512,
-                    "runtime": "java8",
+                    "runtime": "java11",
                     "timeout": 30
                   }
                 },

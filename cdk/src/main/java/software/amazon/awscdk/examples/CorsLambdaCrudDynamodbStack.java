@@ -138,7 +138,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         return FunctionProps.builder()
                     .code(Code.fromAsset("./asset/lambda-1.0.0-jar-with-dependencies.jar"))
                     .handler(handler)
-                    .runtime(Runtime.JAVA_8)
+                    .runtime(Runtime.JAVA_11)
                     .environment(lambdaEnvMap)
                     .timeout(Duration.seconds(30))
                     .memorySize(512)

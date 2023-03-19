@@ -1,6 +1,11 @@
 software/amazon/awscdk/examples/lambda/DeleteItem.class
-software/amazon/awscdk/examples/lambda/GatewayResponse.class
-software/amazon/awscdk/examples/lambda/UpdateItem.class
+Models/SegmentTree/SegmentInput.class
 software/amazon/awscdk/examples/lambda/CreateItem.class
-software/amazon/awscdk/examples/lambda/GetOneItem.class
 software/amazon/awscdk/examples/lambda/GetAllItems.class
+software/amazon/awscdk/examples/lambda/GatewayResponse.class
+DataStructures/NumArray.class
+DataStructures/NumArray$SegmentNode.class
+software/amazon/awscdk/examples/lambda/UpdateItem.class
+software/amazon/awscdk/examples/lambda/DSInput.class
+Models/SegmentTree/Command.class
+software/amazon/awscdk/examples/lambda/GetOneItem.class
