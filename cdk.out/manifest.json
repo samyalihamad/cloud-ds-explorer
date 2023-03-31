@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2fdc5c587b9689180099cd4efddfba4c27766139e0c3f765206c87f9140c8b8c.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/663d43271bb3c3ae4a5d9cdf29753eaa8f4125e22d71138b9b96c51a3ddd4345.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -47,42 +47,6 @@
             "data": "items07D08F4B"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getOneItemFunctionServiceRoleCFD54796"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getOneItemFunctionServiceRoleDefaultPolicy6B743AA8"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getOneItemFunctionE3257B22"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getAllItemsFunctionServiceRoleCC084440"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getAllItemsFunctionServiceRoleDefaultPolicyF069C759"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "getAllItemsFunction0B7A913E"
-          }
-        ],
         "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -101,190 +65,118 @@
             "data": "segmentTreeFunction007D582E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "updateItemFunctionServiceRole40035396"
+            "data": "twoHeapsFunctionServiceRole9D680415"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/DefaultPolicy/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "updateItemFunctionServiceRoleDefaultPolicy6A793729"
+            "data": "twoHeapsFunctionServiceRoleDefaultPolicyD91E327D"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "updateItemFunction59415205"
+            "data": "twoHeapsFunction773205BE"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "deleteItemFunctionServiceRole5C201FCC"
+            "data": "dsexplorer45F728E1"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/DefaultPolicy/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "deleteItemFunctionServiceRoleDefaultPolicyDCE46F14"
+            "data": "dsexplorerCloudWatchRoleEFE7EED6"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "deleteItemFunction2918B1B0"
+            "data": "dsexplorerAccount272FA25F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApi28111E1C"
+            "data": "dsexplorerDeployment796B92932c5d425c31144c40d92be4aebcaec9b0"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/CloudWatchRole/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiCloudWatchRoleB5C7B431"
+            "data": "dsexplorerDeploymentStageprodF5DFB945"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Account": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Endpoint": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiAccount591BF3E1"
+            "data": "dsexplorerEndpointB31DEC7F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Deployment/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiDeploymentFEC31BD05b3746869d95886c950b5ecaf92c9216"
+            "data": "dsexplorersegmentTree62E3684E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/DeploymentStage.prod/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiDeploymentStageprodE77B897D"
+            "data": "dsexplorersegmentTreePOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTsegmentTree37352774"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Endpoint": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiEndpoint8392E274"
+            "data": "dsexplorersegmentTreePOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTsegmentTree3F379FF3"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitems9015DBED"
+            "data": "dsexplorersegmentTreePOSTCFC39CA9"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsGETApiPermissioncdkcorslambdacruddynamodbexampleitemsApiBC9B8415GETitems4B80D3BC"
+            "data": "dsexplorersegmentTreeOPTIONSA3C3E887"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsGETApiPermissionTestcdkcorslambdacruddynamodbexampleitemsApiBC9B8415GETitems1AB2C61A"
+            "data": "dsexplorertwoHeapMedian7387312A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsGET59B0F78A"
+            "data": "dsexplorertwoHeapMedianPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedian35CFF4A8"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsPOSTApiPermissioncdkcorslambdacruddynamodbexampleitemsApiBC9B8415POSTitems1A091488"
+            "data": "dsexplorertwoHeapMedianPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedianF072ECC3"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsPOSTApiPermissionTestcdkcorslambdacruddynamodbexampleitemsApiBC9B8415POSTitemsED19CE90"
+            "data": "dsexplorertwoHeapMedianPOSTC3E60ACE"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsPOSTDD3E83D0"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/OPTIONS/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsOPTIONSB46B4D53"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidA29927C2"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidGETApiPermissioncdkcorslambdacruddynamodbexampleitemsApiBC9B8415GETitemsid1F950844"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidGETApiPermissionTestcdkcorslambdacruddynamodbexampleitemsApiBC9B8415GETitemsid7C73FB50"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidGET38A333A8"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidPATCHApiPermissioncdkcorslambdacruddynamodbexampleitemsApiBC9B8415PATCHitemsidDEC2AA76"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidPATCHApiPermissionTestcdkcorslambdacruddynamodbexampleitemsApiBC9B8415PATCHitemsidE9DF0BEE"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidPATCH0548CB6A"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidDELETEApiPermissioncdkcorslambdacruddynamodbexampleitemsApiBC9B8415DELETEitemsidD1FAAE14"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidDELETEApiPermissionTestcdkcorslambdacruddynamodbexampleitemsApiBC9B8415DELETEitemsidB81F3A5C"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidDELETE21550005"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/OPTIONS/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "itemsApiitemsidOPTIONS62BD91D0"
+            "data": "dsexplorertwoHeapMedianOPTIONSBCC91405"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default": [

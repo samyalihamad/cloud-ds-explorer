@@ -47,50 +47,30 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         lambdaEnvMap.put("PRIMARY_KEY","itemId");
 
 
-
-        Function getOneItemFunction = new Function(this, "getOneItemFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GetOneItem"));
-        Function getAllItemsFunction = new Function(this, "getAllItemsFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GetAllItems"));
         Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
-        Function updateItemFunction = new Function(this, "updateItemFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.UpdateItem"));
-        Function deleteItemFunction = new Function(this, "deleteItemFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.DeleteItem"));
+        Function twoHeapMedianFunction = new Function(this, "twoHeapsFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.TwoHeaps"));
 
 
-
-        dynamodbTable.grantReadWriteData(getOneItemFunction);
-        dynamodbTable.grantReadWriteData(getAllItemsFunction);
+        dynamodbTable.grantReadWriteData(twoHeapMedianFunction);
         dynamodbTable.grantReadWriteData(segmentTreeFunction);
-        dynamodbTable.grantReadWriteData(updateItemFunction);
-        dynamodbTable.grantReadWriteData(deleteItemFunction);
 
-        RestApi api = new RestApi(this, "itemsApi",
-                RestApiProps.builder().restApiName("Items Service").build());
+        RestApi api = new RestApi(this, "ds-explorer",
+                RestApiProps.builder().restApiName("Cloud DS Explorer").build());
 
-        IResource items = api.getRoot().addResource("items");
+        IResource segmentTree = api.getRoot().addResource("segmentTree");
 
-        Integration getAllIntegration = new LambdaIntegration(getAllItemsFunction);
-        items.addMethod("GET", getAllIntegration);
+        Integration segmentTreeIntegration = new LambdaIntegration(segmentTreeFunction);
+        segmentTree.addMethod("POST", segmentTreeIntegration);
 
-        Integration createOneIntegration = new LambdaIntegration(segmentTreeFunction);
-        items.addMethod("POST", createOneIntegration);
-        addCorsOptions(items);
+        IResource twoHeapMedian = api.getRoot().addResource("twoHeapMedian");
 
+        Integration twoHeapMedianIntegration = new LambdaIntegration(twoHeapMedianFunction);
+        twoHeapMedian.addMethod("POST", twoHeapMedianIntegration);
 
-
-        IResource singleItem = items.addResource("{id}");
-        Integration getOneIntegration = new LambdaIntegration(getOneItemFunction);
-        singleItem.addMethod("GET",getOneIntegration);
-
-        Integration updateOneIntegration = new LambdaIntegration(updateItemFunction);
-        singleItem.addMethod("PATCH",updateOneIntegration);
-
-        Integration deleteOneIntegration = new LambdaIntegration(deleteItemFunction);
-        singleItem.addMethod("DELETE",deleteOneIntegration);
-        addCorsOptions(singleItem);
+        addCorsOptions(segmentTree);
+        addCorsOptions(twoHeapMedian);
     }
 
 

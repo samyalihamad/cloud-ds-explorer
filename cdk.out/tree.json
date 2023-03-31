@@ -39,7 +39,7 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "ScalingRole": {
@@ -47,397 +47,13 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/items/ScalingRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_dynamodb.Table",
-              "version": "2.69.0"
-            }
-          },
-          "getOneItemFunction": {
-            "id": "getOneItemFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction",
-            "children": {
-              "ServiceRole": {
-                "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole",
-                "children": {
-                  "ImportServiceRole": {
-                    "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/ImportServiceRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                      "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        },
-                        "managedPolicyArns": [
-                          {
-                            "Fn::Join": [
-                              "",
-                              [
-                                "arn:",
-                                {
-                                  "Ref": "AWS::Partition"
-                                },
-                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-                              ]
-                            ]
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/DefaultPolicy",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/ServiceRole/DefaultPolicy/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                          "aws:cdk:cloudformation:props": {
-                            "policyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": [
-                                    "dynamodb:BatchGetItem",
-                                    "dynamodb:GetRecords",
-                                    "dynamodb:GetShardIterator",
-                                    "dynamodb:Query",
-                                    "dynamodb:GetItem",
-                                    "dynamodb:Scan",
-                                    "dynamodb:ConditionCheckItem",
-                                    "dynamodb:BatchWriteItem",
-                                    "dynamodb:PutItem",
-                                    "dynamodb:UpdateItem",
-                                    "dynamodb:DeleteItem",
-                                    "dynamodb:DescribeTable"
-                                  ],
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::GetAtt": [
-                                        "items07D08F4B",
-                                        "Arn"
-                                      ]
-                                    },
-                                    {
-                                      "Ref": "AWS::NoValue"
-                                    }
-                                  ]
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            },
-                            "policyName": "getOneItemFunctionServiceRoleDefaultPolicy6B743AA8",
-                            "roles": [
-                              {
-                                "Ref": "getOneItemFunctionServiceRoleCFD54796"
-                              }
-                            ]
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.69.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
-                }
-              },
-              "Code": {
-                "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Code",
-                "children": {
-                  "Stage": {
-                    "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Code/Stage",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "AssetBucket": {
-                    "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Code/AssetBucket",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.69.0"
-                }
-              },
-              "Resource": {
-                "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getOneItemFunction/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
-                  "aws:cdk:cloudformation:props": {
-                    "code": {
-                      "s3Bucket": {
-                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
-                      },
-                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
-                    },
-                    "role": {
-                      "Fn::GetAtt": [
-                        "getOneItemFunctionServiceRoleCFD54796",
-                        "Arn"
-                      ]
-                    },
-                    "environment": {
-                      "variables": {
-                        "TABLE_NAME": {
-                          "Ref": "items07D08F4B"
-                        },
-                        "PRIMARY_KEY": "itemId"
-                      }
-                    },
-                    "handler": "software.amazon.awscdk.examples.lambda.GetOneItem",
-                    "memorySize": 512,
-                    "runtime": "java11",
-                    "timeout": 30
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.69.0"
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.69.0"
-            }
-          },
-          "getAllItemsFunction": {
-            "id": "getAllItemsFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction",
-            "children": {
-              "ServiceRole": {
-                "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole",
-                "children": {
-                  "ImportServiceRole": {
-                    "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/ImportServiceRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                      "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        },
-                        "managedPolicyArns": [
-                          {
-                            "Fn::Join": [
-                              "",
-                              [
-                                "arn:",
-                                {
-                                  "Ref": "AWS::Partition"
-                                },
-                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-                              ]
-                            ]
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/DefaultPolicy",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/ServiceRole/DefaultPolicy/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                          "aws:cdk:cloudformation:props": {
-                            "policyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": [
-                                    "dynamodb:BatchGetItem",
-                                    "dynamodb:GetRecords",
-                                    "dynamodb:GetShardIterator",
-                                    "dynamodb:Query",
-                                    "dynamodb:GetItem",
-                                    "dynamodb:Scan",
-                                    "dynamodb:ConditionCheckItem",
-                                    "dynamodb:BatchWriteItem",
-                                    "dynamodb:PutItem",
-                                    "dynamodb:UpdateItem",
-                                    "dynamodb:DeleteItem",
-                                    "dynamodb:DescribeTable"
-                                  ],
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::GetAtt": [
-                                        "items07D08F4B",
-                                        "Arn"
-                                      ]
-                                    },
-                                    {
-                                      "Ref": "AWS::NoValue"
-                                    }
-                                  ]
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            },
-                            "policyName": "getAllItemsFunctionServiceRoleDefaultPolicyF069C759",
-                            "roles": [
-                              {
-                                "Ref": "getAllItemsFunctionServiceRoleCC084440"
-                              }
-                            ]
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.69.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
-                }
-              },
-              "Code": {
-                "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Code",
-                "children": {
-                  "Stage": {
-                    "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Code/Stage",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "AssetBucket": {
-                    "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Code/AssetBucket",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.69.0"
-                }
-              },
-              "Resource": {
-                "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/getAllItemsFunction/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
-                  "aws:cdk:cloudformation:props": {
-                    "code": {
-                      "s3Bucket": {
-                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
-                      },
-                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
-                    },
-                    "role": {
-                      "Fn::GetAtt": [
-                        "getAllItemsFunctionServiceRoleCC084440",
-                        "Arn"
-                      ]
-                    },
-                    "environment": {
-                      "variables": {
-                        "TABLE_NAME": {
-                          "Ref": "items07D08F4B"
-                        },
-                        "PRIMARY_KEY": "itemId"
-                      }
-                    },
-                    "handler": "software.amazon.awscdk.examples.lambda.GetAllItems",
-                    "memorySize": 512,
-                    "runtime": "java11",
-                    "timeout": 30
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.69.0"
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           },
           "segmentTreeFunction": {
@@ -453,7 +69,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "Resource": {
@@ -492,7 +108,7 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -548,19 +164,19 @@
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.69.0"
+                          "version": "2.72.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Code": {
@@ -572,7 +188,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "AssetBucket": {
@@ -580,13 +196,13 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Resource": {
@@ -599,7 +215,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
+                      "s3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -623,34 +239,34 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           },
-          "updateItemFunction": {
-            "id": "updateItemFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction",
+          "twoHeapsFunction": {
+            "id": "twoHeapsFunction",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/ImportServiceRole",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -684,16 +300,16 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/DefaultPolicy",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/ServiceRole/DefaultPolicy/Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -730,60 +346,60 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "updateItemFunctionServiceRoleDefaultPolicy6A793729",
+                            "policyName": "twoHeapsFunctionServiceRoleDefaultPolicyD91E327D",
                             "roles": [
                               {
-                                "Ref": "updateItemFunctionServiceRole40035396"
+                                "Ref": "twoHeapsFunctionServiceRole9D680415"
                               }
                             ]
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.69.0"
+                          "version": "2.72.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Code": {
                 "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Code",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Code/Stage",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Code/AssetBucket",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Resource": {
                 "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/updateItemFunction/Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -791,11 +407,11 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
+                      "s3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
-                        "updateItemFunctionServiceRole40035396",
+                        "twoHeapsFunctionServiceRole9D680415",
                         "Arn"
                       ]
                     },
@@ -807,7 +423,7 @@
                         "PRIMARY_KEY": "itemId"
                       }
                     },
-                    "handler": "software.amazon.awscdk.examples.lambda.UpdateItem",
+                    "handler": "software.amazon.awscdk.examples.lambda.TwoHeaps",
                     "memorySize": 512,
                     "runtime": "java11",
                     "timeout": 30
@@ -815,240 +431,48 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           },
-          "deleteItemFunction": {
-            "id": "deleteItemFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction",
-            "children": {
-              "ServiceRole": {
-                "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole",
-                "children": {
-                  "ImportServiceRole": {
-                    "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/ImportServiceRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                      "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        },
-                        "managedPolicyArns": [
-                          {
-                            "Fn::Join": [
-                              "",
-                              [
-                                "arn:",
-                                {
-                                  "Ref": "AWS::Partition"
-                                },
-                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-                              ]
-                            ]
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/DefaultPolicy",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/ServiceRole/DefaultPolicy/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                          "aws:cdk:cloudformation:props": {
-                            "policyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": [
-                                    "dynamodb:BatchGetItem",
-                                    "dynamodb:GetRecords",
-                                    "dynamodb:GetShardIterator",
-                                    "dynamodb:Query",
-                                    "dynamodb:GetItem",
-                                    "dynamodb:Scan",
-                                    "dynamodb:ConditionCheckItem",
-                                    "dynamodb:BatchWriteItem",
-                                    "dynamodb:PutItem",
-                                    "dynamodb:UpdateItem",
-                                    "dynamodb:DeleteItem",
-                                    "dynamodb:DescribeTable"
-                                  ],
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::GetAtt": [
-                                        "items07D08F4B",
-                                        "Arn"
-                                      ]
-                                    },
-                                    {
-                                      "Ref": "AWS::NoValue"
-                                    }
-                                  ]
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            },
-                            "policyName": "deleteItemFunctionServiceRoleDefaultPolicyDCE46F14",
-                            "roles": [
-                              {
-                                "Ref": "deleteItemFunctionServiceRole5C201FCC"
-                              }
-                            ]
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.69.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
-                }
-              },
-              "Code": {
-                "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Code",
-                "children": {
-                  "Stage": {
-                    "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Code/Stage",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.69.0"
-                    }
-                  },
-                  "AssetBucket": {
-                    "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Code/AssetBucket",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.69.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.69.0"
-                }
-              },
-              "Resource": {
-                "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/deleteItemFunction/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
-                  "aws:cdk:cloudformation:props": {
-                    "code": {
-                      "s3Bucket": {
-                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
-                      },
-                      "s3Key": "e5eec1f335c91f006dcd668860b5b7118509d08e69a1ef312246b5b49a633bd5.jar"
-                    },
-                    "role": {
-                      "Fn::GetAtt": [
-                        "deleteItemFunctionServiceRole5C201FCC",
-                        "Arn"
-                      ]
-                    },
-                    "environment": {
-                      "variables": {
-                        "TABLE_NAME": {
-                          "Ref": "items07D08F4B"
-                        },
-                        "PRIMARY_KEY": "itemId"
-                      }
-                    },
-                    "handler": "software.amazon.awscdk.examples.lambda.DeleteItem",
-                    "memorySize": 512,
-                    "runtime": "java11",
-                    "timeout": 30
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.69.0"
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.69.0"
-            }
-          },
-          "itemsApi": {
-            "id": "itemsApi",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi",
+          "ds-explorer": {
+            "id": "ds-explorer",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
                   "aws:cdk:cloudformation:props": {
-                    "name": "Items Service"
+                    "name": "Cloud DS Explorer"
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.CfnRestApi",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "CloudWatchRole": {
                 "id": "CloudWatchRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/CloudWatchRole",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole",
                 "children": {
                   "ImportCloudWatchRole": {
                     "id": "ImportCloudWatchRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/CloudWatchRole/ImportCloudWatchRole",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole/ImportCloudWatchRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/CloudWatchRole/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1082,24 +506,24 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Account": {
                 "id": "Account",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Account",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
                   "aws:cdk:cloudformation:props": {
                     "cloudWatchRoleArn": {
                       "Fn::GetAtt": [
-                        "itemsApiCloudWatchRoleB5C7B431",
+                        "dsexplorerCloudWatchRoleEFE7EED6",
                         "Arn"
                       ]
                     }
@@ -1107,264 +531,112 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.CfnAccount",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Deployment": {
                 "id": "Deployment",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Deployment",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Deployment/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
                       "aws:cdk:cloudformation:props": {
                         "restApiId": {
-                          "Ref": "itemsApi28111E1C"
+                          "Ref": "dsexplorer45F728E1"
                         },
                         "description": "Automatically created by the RestApi construct"
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "DeploymentStage.prod": {
                 "id": "DeploymentStage.prod",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/DeploymentStage.prod",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/DeploymentStage.prod/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
                       "aws:cdk:cloudformation:props": {
                         "restApiId": {
-                          "Ref": "itemsApi28111E1C"
+                          "Ref": "dsexplorer45F728E1"
                         },
                         "deploymentId": {
-                          "Ref": "itemsApiDeploymentFEC31BD05b3746869d95886c950b5ecaf92c9216"
+                          "Ref": "dsexplorerDeployment796B92932c5d425c31144c40d92be4aebcaec9b0"
                         },
                         "stageName": "prod"
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.Stage",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Endpoint": {
                 "id": "Endpoint",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Endpoint",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Endpoint",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Default": {
                 "id": "Default",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default",
                 "children": {
-                  "items": {
-                    "id": "items",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items",
+                  "segmentTree": {
+                    "id": "segmentTree",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
                           "aws:cdk:cloudformation:props": {
                             "parentId": {
                               "Fn::GetAtt": [
-                                "itemsApi28111E1C",
+                                "dsexplorer45F728E1",
                                 "RootResourceId"
                               ]
                             },
-                            "pathPart": "items",
+                            "pathPart": "segmentTree",
                             "restApiId": {
-                              "Ref": "itemsApi28111E1C"
+                              "Ref": "dsexplorer45F728E1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
-                          "version": "2.69.0"
-                        }
-                      },
-                      "GET": {
-                        "id": "GET",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET",
-                        "children": {
-                          "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items": {
-                            "id": "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                              "aws:cdk:cloudformation:props": {
-                                "action": "lambda:InvokeFunction",
-                                "functionName": {
-                                  "Fn::GetAtt": [
-                                    "getAllItemsFunction0B7A913E",
-                                    "Arn"
-                                  ]
-                                },
-                                "principal": "apigateway.amazonaws.com",
-                                "sourceArn": {
-                                  "Fn::Join": [
-                                    "",
-                                    [
-                                      "arn:",
-                                      {
-                                        "Ref": "AWS::Partition"
-                                      },
-                                      ":execute-api:",
-                                      {
-                                        "Ref": "AWS::Region"
-                                      },
-                                      ":",
-                                      {
-                                        "Ref": "AWS::AccountId"
-                                      },
-                                      ":",
-                                      {
-                                        "Ref": "itemsApi28111E1C"
-                                      },
-                                      "/",
-                                      {
-                                        "Ref": "itemsApiDeploymentStageprodE77B897D"
-                                      },
-                                      "/GET/items"
-                                    ]
-                                  ]
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items": {
-                            "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                              "aws:cdk:cloudformation:props": {
-                                "action": "lambda:InvokeFunction",
-                                "functionName": {
-                                  "Fn::GetAtt": [
-                                    "getAllItemsFunction0B7A913E",
-                                    "Arn"
-                                  ]
-                                },
-                                "principal": "apigateway.amazonaws.com",
-                                "sourceArn": {
-                                  "Fn::Join": [
-                                    "",
-                                    [
-                                      "arn:",
-                                      {
-                                        "Ref": "AWS::Partition"
-                                      },
-                                      ":execute-api:",
-                                      {
-                                        "Ref": "AWS::Region"
-                                      },
-                                      ":",
-                                      {
-                                        "Ref": "AWS::AccountId"
-                                      },
-                                      ":",
-                                      {
-                                        "Ref": "itemsApi28111E1C"
-                                      },
-                                      "/test-invoke-stage/GET/items"
-                                    ]
-                                  ]
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/GET/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
-                              "aws:cdk:cloudformation:props": {
-                                "httpMethod": "GET",
-                                "resourceId": {
-                                  "Ref": "itemsApiitems9015DBED"
-                                },
-                                "restApiId": {
-                                  "Ref": "itemsApi28111E1C"
-                                },
-                                "authorizationType": "NONE",
-                                "integration": {
-                                  "type": "AWS_PROXY",
-                                  "uri": {
-                                    "Fn::Join": [
-                                      "",
-                                      [
-                                        "arn:",
-                                        {
-                                          "Ref": "AWS::Partition"
-                                        },
-                                        ":apigateway:",
-                                        {
-                                          "Ref": "AWS::Region"
-                                        },
-                                        ":lambda:path/2015-03-31/functions/",
-                                        {
-                                          "Fn::GetAtt": [
-                                            "getAllItemsFunction0B7A913E",
-                                            "Arn"
-                                          ]
-                                        },
-                                        "/invocations"
-                                      ]
-                                    ]
-                                  },
-                                  "integrationHttpMethod": "POST"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.69.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.69.0"
+                          "version": "2.72.0"
                         }
                       },
                       "POST": {
                         "id": "POST",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST",
                         "children": {
-                          "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items": {
-                            "id": "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items",
+                          "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": {
+                            "id": "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                               "aws:cdk:cloudformation:props": {
@@ -1394,13 +666,13 @@
                                       },
                                       ":",
                                       {
-                                        "Ref": "itemsApi28111E1C"
+                                        "Ref": "dsexplorer45F728E1"
                                       },
                                       "/",
                                       {
-                                        "Ref": "itemsApiDeploymentStageprodE77B897D"
+                                        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
                                       },
-                                      "/POST/items"
+                                      "/POST/segmentTree"
                                     ]
                                   ]
                                 }
@@ -1408,12 +680,12 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.69.0"
+                              "version": "2.72.0"
                             }
                           },
-                          "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items": {
-                            "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.POST..items",
+                          "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": {
+                            "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
                               "aws:cdk:cloudformation:props": {
@@ -1443,9 +715,9 @@
                                       },
                                       ":",
                                       {
-                                        "Ref": "itemsApi28111E1C"
+                                        "Ref": "dsexplorer45F728E1"
                                       },
-                                      "/test-invoke-stage/POST/items"
+                                      "/test-invoke-stage/POST/segmentTree"
                                     ]
                                   ]
                                 }
@@ -1453,21 +725,21 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.69.0"
+                              "version": "2.72.0"
                             }
                           },
                           "Resource": {
                             "id": "Resource",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/POST/Resource",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                               "aws:cdk:cloudformation:props": {
                                 "httpMethod": "POST",
                                 "resourceId": {
-                                  "Ref": "itemsApiitems9015DBED"
+                                  "Ref": "dsexplorersegmentTree62E3684E"
                                 },
                                 "restApiId": {
-                                  "Ref": "itemsApi28111E1C"
+                                  "Ref": "dsexplorer45F728E1"
                                 },
                                 "authorizationType": "NONE",
                                 "integration": {
@@ -1501,31 +773,31 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.69.0"
+                              "version": "2.72.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.69.0"
+                          "version": "2.72.0"
                         }
                       },
                       "OPTIONS": {
                         "id": "OPTIONS",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/OPTIONS",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/OPTIONS",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/OPTIONS/Resource",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/OPTIONS/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                               "aws:cdk:cloudformation:props": {
                                 "httpMethod": "OPTIONS",
                                 "resourceId": {
-                                  "Ref": "itemsApiitems9015DBED"
+                                  "Ref": "dsexplorersegmentTree62E3684E"
                                 },
                                 "restApiId": {
-                                  "Ref": "itemsApi28111E1C"
+                                  "Ref": "dsexplorer45F728E1"
                                 },
                                 "authorizationType": "NONE",
                                 "integration": {
@@ -1561,577 +833,276 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.69.0"
+                              "version": "2.72.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.69.0"
-                        }
-                      },
-                      "{id}": {
-                        "id": "{id}",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
-                              "aws:cdk:cloudformation:props": {
-                                "parentId": {
-                                  "Ref": "itemsApiitems9015DBED"
-                                },
-                                "pathPart": "{id}",
-                                "restApiId": {
-                                  "Ref": "itemsApi28111E1C"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "GET": {
-                            "id": "GET",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET",
-                            "children": {
-                              "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}": {
-                                "id": "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "getOneItemFunctionE3257B22",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/",
-                                          {
-                                            "Ref": "itemsApiDeploymentStageprodE77B897D"
-                                          },
-                                          "/GET/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}": {
-                                "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.GET..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "getOneItemFunctionE3257B22",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/test-invoke-stage/GET/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "Resource": {
-                                "id": "Resource",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/GET/Resource",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
-                                  "aws:cdk:cloudformation:props": {
-                                    "httpMethod": "GET",
-                                    "resourceId": {
-                                      "Ref": "itemsApiitemsidA29927C2"
-                                    },
-                                    "restApiId": {
-                                      "Ref": "itemsApi28111E1C"
-                                    },
-                                    "authorizationType": "NONE",
-                                    "integration": {
-                                      "type": "AWS_PROXY",
-                                      "uri": {
-                                        "Fn::Join": [
-                                          "",
-                                          [
-                                            "arn:",
-                                            {
-                                              "Ref": "AWS::Partition"
-                                            },
-                                            ":apigateway:",
-                                            {
-                                              "Ref": "AWS::Region"
-                                            },
-                                            ":lambda:path/2015-03-31/functions/",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "getOneItemFunctionE3257B22",
-                                                "Arn"
-                                              ]
-                                            },
-                                            "/invocations"
-                                          ]
-                                        ]
-                                      },
-                                      "integrationHttpMethod": "POST"
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                                  "version": "2.69.0"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "PATCH": {
-                            "id": "PATCH",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH",
-                            "children": {
-                              "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}": {
-                                "id": "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "updateItemFunction59415205",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/",
-                                          {
-                                            "Ref": "itemsApiDeploymentStageprodE77B897D"
-                                          },
-                                          "/PATCH/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}": {
-                                "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.PATCH..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "updateItemFunction59415205",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/test-invoke-stage/PATCH/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "Resource": {
-                                "id": "Resource",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/PATCH/Resource",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
-                                  "aws:cdk:cloudformation:props": {
-                                    "httpMethod": "PATCH",
-                                    "resourceId": {
-                                      "Ref": "itemsApiitemsidA29927C2"
-                                    },
-                                    "restApiId": {
-                                      "Ref": "itemsApi28111E1C"
-                                    },
-                                    "authorizationType": "NONE",
-                                    "integration": {
-                                      "type": "AWS_PROXY",
-                                      "uri": {
-                                        "Fn::Join": [
-                                          "",
-                                          [
-                                            "arn:",
-                                            {
-                                              "Ref": "AWS::Partition"
-                                            },
-                                            ":apigateway:",
-                                            {
-                                              "Ref": "AWS::Region"
-                                            },
-                                            ":lambda:path/2015-03-31/functions/",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "updateItemFunction59415205",
-                                                "Arn"
-                                              ]
-                                            },
-                                            "/invocations"
-                                          ]
-                                        ]
-                                      },
-                                      "integrationHttpMethod": "POST"
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                                  "version": "2.69.0"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "DELETE": {
-                            "id": "DELETE",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE",
-                            "children": {
-                              "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}": {
-                                "id": "ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/ApiPermission.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "deleteItemFunction2918B1B0",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/",
-                                          {
-                                            "Ref": "itemsApiDeploymentStageprodE77B897D"
-                                          },
-                                          "/DELETE/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}": {
-                                "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/ApiPermission.Test.cdkcorslambdacruddynamodbexampleitemsApiBC9B8415.DELETE..items.{id}",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "deleteItemFunction2918B1B0",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:",
-                                          {
-                                            "Ref": "AWS::Region"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "AWS::AccountId"
-                                          },
-                                          ":",
-                                          {
-                                            "Ref": "itemsApi28111E1C"
-                                          },
-                                          "/test-invoke-stage/DELETE/items/*"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.69.0"
-                                }
-                              },
-                              "Resource": {
-                                "id": "Resource",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/DELETE/Resource",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
-                                  "aws:cdk:cloudformation:props": {
-                                    "httpMethod": "DELETE",
-                                    "resourceId": {
-                                      "Ref": "itemsApiitemsidA29927C2"
-                                    },
-                                    "restApiId": {
-                                      "Ref": "itemsApi28111E1C"
-                                    },
-                                    "authorizationType": "NONE",
-                                    "integration": {
-                                      "type": "AWS_PROXY",
-                                      "uri": {
-                                        "Fn::Join": [
-                                          "",
-                                          [
-                                            "arn:",
-                                            {
-                                              "Ref": "AWS::Partition"
-                                            },
-                                            ":apigateway:",
-                                            {
-                                              "Ref": "AWS::Region"
-                                            },
-                                            ":lambda:path/2015-03-31/functions/",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "deleteItemFunction2918B1B0",
-                                                "Arn"
-                                              ]
-                                            },
-                                            "/invocations"
-                                          ]
-                                        ]
-                                      },
-                                      "integrationHttpMethod": "POST"
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                                  "version": "2.69.0"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                              "version": "2.69.0"
-                            }
-                          },
-                          "OPTIONS": {
-                            "id": "OPTIONS",
-                            "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/OPTIONS",
-                            "children": {
-                              "Resource": {
-                                "id": "Resource",
-                                "path": "cdk-cors-lambda-crud-dynamodb-example/itemsApi/Default/items/{id}/OPTIONS/Resource",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
-                                  "aws:cdk:cloudformation:props": {
-                                    "httpMethod": "OPTIONS",
-                                    "resourceId": {
-                                      "Ref": "itemsApiitemsidA29927C2"
-                                    },
-                                    "restApiId": {
-                                      "Ref": "itemsApi28111E1C"
-                                    },
-                                    "authorizationType": "NONE",
-                                    "integration": {
-                                      "type": "MOCK",
-                                      "requestTemplates": {
-                                        "application/json": "{\"statusCode\": 200}"
-                                      },
-                                      "passthroughBehavior": "NEVER",
-                                      "integrationResponses": [
-                                        {
-                                          "statusCode": "200",
-                                          "responseParameters": {
-                                            "method.response.header.Access-Control-Allow-Credentials": "'false'",
-                                            "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE'",
-                                            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                                            "method.response.header.Access-Control-Allow-Origin": "'*'"
-                                          }
-                                        }
-                                      ]
-                                    },
-                                    "methodResponses": [
-                                      {
-                                        "statusCode": "200",
-                                        "responseParameters": {
-                                          "method.response.header.Access-Control-Allow-Credentials": true,
-                                          "method.response.header.Access-Control-Allow-Methods": true,
-                                          "method.response.header.Access-Control-Allow-Headers": true,
-                                          "method.response.header.Access-Control-Allow-Origin": true
-                                        }
-                                      }
-                                    ]
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                                  "version": "2.69.0"
-                                }
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                              "version": "2.69.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
-                          "version": "2.69.0"
+                          "version": "2.72.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.Resource",
-                      "version": "2.69.0"
+                      "version": "2.72.0"
+                    }
+                  },
+                  "twoHeapMedian": {
+                    "id": "twoHeapMedian",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "dsexplorer45F728E1",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "twoHeapMedian",
+                            "restApiId": {
+                              "Ref": "dsexplorer45F728E1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.72.0"
+                        }
+                      },
+                      "POST": {
+                        "id": "POST",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST",
+                        "children": {
+                          "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": {
+                            "id": "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "twoHeapsFunction773205BE",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "dsexplorer45F728E1"
+                                      },
+                                      "/",
+                                      {
+                                        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+                                      },
+                                      "/POST/twoHeapMedian"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                              "version": "2.72.0"
+                            }
+                          },
+                          "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": {
+                            "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": {
+                                  "Fn::GetAtt": [
+                                    "twoHeapsFunction773205BE",
+                                    "Arn"
+                                  ]
+                                },
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "dsexplorer45F728E1"
+                                      },
+                                      "/test-invoke-stage/POST/twoHeapMedian"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                              "version": "2.72.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "POST",
+                                "resourceId": {
+                                  "Ref": "dsexplorertwoHeapMedian7387312A"
+                                },
+                                "restApiId": {
+                                  "Ref": "dsexplorer45F728E1"
+                                },
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "AWS_PROXY",
+                                  "uri": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":apigateway:",
+                                        {
+                                          "Ref": "AWS::Region"
+                                        },
+                                        ":lambda:path/2015-03-31/functions/",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "twoHeapsFunction773205BE",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/invocations"
+                                      ]
+                                    ]
+                                  },
+                                  "integrationHttpMethod": "POST"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.72.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.72.0"
+                        }
+                      },
+                      "OPTIONS": {
+                        "id": "OPTIONS",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "OPTIONS",
+                                "resourceId": {
+                                  "Ref": "dsexplorertwoHeapMedian7387312A"
+                                },
+                                "restApiId": {
+                                  "Ref": "dsexplorer45F728E1"
+                                },
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{\"statusCode\": 200}"
+                                  },
+                                  "passthroughBehavior": "NEVER",
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "200",
+                                      "responseParameters": {
+                                        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+                                        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE'",
+                                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                                        "method.response.header.Access-Control-Allow-Origin": "'*'"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200",
+                                    "responseParameters": {
+                                      "method.response.header.Access-Control-Allow-Credentials": true,
+                                      "method.response.header.Access-Control-Allow-Methods": true,
+                                      "method.response.header.Access-Control-Allow-Headers": true,
+                                      "method.response.header.Access-Control-Allow-Origin": true
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.72.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.72.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.72.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           },
           "CDKMetadata": {
@@ -2143,7 +1114,7 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               },
               "Condition": {
@@ -2151,13 +1122,13 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Condition",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnCondition",
-                  "version": "2.69.0"
+                  "version": "2.72.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.1.282"
+              "version": "10.1.296"
             }
           },
           "BootstrapVersion": {
@@ -2165,7 +1136,7 @@
             "path": "cdk-cors-lambda-crud-dynamodb-example/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           },
           "CheckBootstrapVersion": {
@@ -2173,13 +1144,13 @@
             "path": "cdk-cors-lambda-crud-dynamodb-example/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
-              "version": "2.69.0"
+              "version": "2.72.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "aws-cdk-lib.Stack",
-          "version": "2.69.0"
+          "version": "2.72.0"
         }
       },
       "Tree": {
@@ -2187,13 +1158,13 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.1.282"
+          "version": "10.1.296"
         }
       }
     },
     "constructInfo": {
       "fqn": "aws-cdk-lib.App",
-      "version": "2.69.0"
+      "version": "2.72.0"
     }
   }
 }

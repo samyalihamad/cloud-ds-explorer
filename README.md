@@ -12,6 +12,13 @@ CDK toolkit if you wish to synthesize/deploy stacks.
 
 If you need to modify the lambda code then do mvn package and copy the
 jar file to asset directory in the parent module
+
+## Deploying
+1. Run `mvn package` to create new .jar file containing changes
+2. Copy the .jar file to the asset directory in the parent module
+3. Run `cdk deploy` on the cdk folder first
+4. Run `cdk deploy` on the root folder
+
 ## CDK Toolkit
 
 The [`cdk.json`](./cdk.json) file in the root of this repository includes

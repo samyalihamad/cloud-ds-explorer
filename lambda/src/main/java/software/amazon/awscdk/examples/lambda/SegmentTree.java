@@ -1,8 +1,7 @@
 package software.amazon.awscdk.examples.lambda;
 
 import DataStructures.NumArray;
-import Models.SegmentTree.Command;
-import Models.SegmentTree.SegmentInput;
+import Models.SegmentTree.*;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -10,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import util.JsonUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,10 +23,8 @@ public class SegmentTree implements RequestHandler<Map<String,Object>, GatewayRe
         LambdaLogger logger = context.getLogger();
         logger.log("Inside software.amazon.awscdk.examples.lambda: getOneItem "+input.getClass()+ " data:"+input);
 
-
         String body = (String)input.get("body");
         logger.log("Body is:"+body);
-
 
         var output = execute(body);
 
@@ -35,41 +33,42 @@ public class SegmentTree implements RequestHandler<Map<String,Object>, GatewayRe
         return new GatewayResponse(output.toString(), headers, 200);
     }
 
-    private List<String> execute(String body) {
-        var output = new ArrayList<String>();
+    private List<Integer> execute(String body) {
+        var output = new ArrayList<Integer>();
         try{
-            JsonParser parser =  new JsonParser();
-            JsonElement element = parser.parse(body);
-            JsonObject jsonObject = element.getAsJsonObject();
+            SegmentInput input = JsonUtil.parseJson(body, SegmentInput.class);
+            var numArray = new NumArray(input.getInitialInput().stream().mapToInt(i->i).toArray());
 
-            // Convert the JSON object to a Java object using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
-            SegmentInput input = objectMapper.readValue(jsonObject.toString(), SegmentInput.class);
+            List<ICommand> commandList = new ArrayList<ICommand>();
+            var commands = input.getCommands();
+            for(int i = 0; i < commands.size(); i++) {
+                if(commands.get(i).equals("update"))
+                    commandList.add(new UpdateCommand(input.getInputs().get(i).get(0), input.getInputs().get(i).get(1)));
+                else if(commands.get(i).equals("sumRange"))
+                    commandList.add(new QueryCommand(input.getInputs().get(i).get(0), input.getInputs().get(i).get(1)));
+                else
+                    System.out.println("Invalid command");
+            }
 
-            System.out.println("Input Array: " + input.getInputArray());
-            List<Command> commands = input.getCommandArray();
-            System.out.println("Command Array: " + input.getCommandArray());
-
-            var numArray = new NumArray(input.getInputArray().stream().mapToInt(i->i).toArray());
-
-            for(Command cmd : commands) {
-                System.out.println("--------------------");
-                System.out.println("Command: " + cmd.getCommand());
-                System.out.println("Left: " + cmd.getLeft());
-                System.out.println("Right: " + cmd.getRight());
-
-                if(cmd.getCommand().equals("update")) {
-                    numArray.update(cmd.getLeft(), cmd.getRight());
-                } else if(cmd.getCommand().equals("sumRange")) {
-                    var sum = "Sum: " + numArray.sumRange(cmd.getLeft(), cmd.getRight());
+            for(var command : commandList) {
+                if(command.getCommand().equals("update")) {
+                    UpdateCommand updateCommand = (UpdateCommand) command;
+                    numArray.update(updateCommand.getIndex(), updateCommand.getValue());
+                }
+                else if(command.equals("sumRange")) {
+                    QueryCommand queryCommand = (QueryCommand) command;
+                    var sum = numArray.sumRange(queryCommand.getLeft(), queryCommand.getRight());
                     System.out.println("Sum: " + sum);
                     output.add(sum);
+                }
+                else {
+                    System.out.println("Invalid command");
                 }
             }
 
             return output;
-        } catch (IOException e) {
-            output.add(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return output;
         }
     }
