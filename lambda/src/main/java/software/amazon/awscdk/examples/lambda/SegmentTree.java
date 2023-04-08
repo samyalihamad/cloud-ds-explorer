@@ -5,13 +5,8 @@ import Models.SegmentTree.*;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import util.JsonUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +50,7 @@ public class SegmentTree implements RequestHandler<Map<String,Object>, GatewayRe
                     UpdateCommand updateCommand = (UpdateCommand) command;
                     numArray.update(updateCommand.getIndex(), updateCommand.getValue());
                 }
-                else if(command.equals("sumRange")) {
+                else if(command.getCommand().equals("sumRange")) {
                     QueryCommand queryCommand = (QueryCommand) command;
                     var sum = numArray.sumRange(queryCommand.getLeft(), queryCommand.getRight());
                     System.out.println("Sum: " + sum);

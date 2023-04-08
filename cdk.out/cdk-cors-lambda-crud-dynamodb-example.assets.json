@@ -1,20 +1,20 @@
 {
   "version": "31.0.0",
   "files": {
-    "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2": {
+    "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3": {
       "source": {
-        "path": "asset.0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar",
+        "path": "asset.7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
         "packaging": "file"
       },
       "destinations": {
         "current_account-current_region": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar",
+          "objectKey": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }
     },
-    "663d43271bb3c3ae4a5d9cdf29753eaa8f4125e22d71138b9b96c51a3ddd4345": {
+    "8036a4dc18256e2185f59bb1e3c265eb18b8ccdba87395c54ce228c57bb3e9d8": {
       "source": {
         "path": "cdk-cors-lambda-crud-dynamodb-example.template.json",
         "packaging": "file"
@@ -22,7 +22,7 @@
       "destinations": {
         "current_account-current_region": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "663d43271bb3c3ae4a5d9cdf29753eaa8f4125e22d71138b9b96c51a3ddd4345.json",
+          "objectKey": "8036a4dc18256e2185f59bb1e3c265eb18b8ccdba87395c54ce228c57bb3e9d8.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }

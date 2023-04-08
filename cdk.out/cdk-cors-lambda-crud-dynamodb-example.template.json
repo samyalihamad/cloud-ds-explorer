@@ -115,7 +115,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
+     "S3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -142,7 +142,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
-    "aws:asset:path": "asset.0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar",
+    "aws:asset:path": "asset.7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -235,7 +235,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
+     "S3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -262,7 +262,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
-    "aws:asset:path": "asset.0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar",
+    "aws:asset:path": "asset.7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -752,7 +752,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuWVgHEuduiAMSYhrcJzcxnWmTVI3DVFX977gpaOPk773YT3a2+nGrNyu4xLWxzbqlSo/vDKZRYp1GO3hwwYr5AVWLav/pM0yqBVdZ0ONz8oYp+Pnplg/YO4pR1KQInB6PYZnP9RBaMkPuyzSpeH+CGJGjLuciWu+SaZB3EFFBRzUwXmCQIIxcdpSzrlgaE5Jn9YRdGwaHguLeKLmqzgssIKMh9QZz/J/4zVz4Ffkc7GwtNE3XvrzjHES+njveEneJ/40L74O3xPkLXuAb7opCb3TxsPqKROtetiWH+rjUH9YkehWJAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuaaADiXM3xAEJMQ3uk5uYYtokVeMwVVX/O24K2jj5ey/2k52tftjqcgPnWBjbFh3VenpjMK0S6zTZ0YMLVsx3qDtU+w+fYVYduNqCnp6SN0zBL0/XfMDBUYyiZkXg9HQM63yuh9CRGXNfplnFuxPEiBx1tRTRepdMi7yDiAp6aoDxDKMEYeSqp5x1wcqYkDyrR+y7MDoUFPdKyVVNXmAFGQ1pMJjj/8Rv5sovyJ/BLtZK83zpyzsuQeSbpeM1cZ/437jwPnhLnL/gGb7hpiz1rS7vN1+RqBhkW3Koj2v9Aab3YRmJAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default"

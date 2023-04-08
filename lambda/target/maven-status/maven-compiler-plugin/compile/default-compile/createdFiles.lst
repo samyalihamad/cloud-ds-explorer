@@ -2,6 +2,7 @@ util/JsonUtil.class
 software/amazon/awscdk/examples/lambda/SegmentTree.class
 Models/SegmentTree/QueryCommand.class
 Models/TwoHeaps/TwoHeapsInput.class
+Models/QuadTree/QuadTreeNode.class
 software/amazon/awscdk/examples/lambda/DeleteItem.class
 Models/SegmentTree/ICommand.class
 Models/SegmentTree/SegmentInput.class
@@ -11,6 +12,7 @@ software/amazon/awscdk/examples/lambda/TwoHeaps.class
 DataStructures/NumArray.class
 DataStructures/NumArray$SegmentNode.class
 Models/SegmentTree/UpdateCommand.class
+DataStructures/QuadTree.class
 DataStructures/TwoHeapMedian.class
 software/amazon/awscdk/examples/lambda/UpdateItem.class
 software/amazon/awscdk/examples/lambda/DSInput.class

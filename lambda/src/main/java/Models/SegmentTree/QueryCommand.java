@@ -6,7 +6,7 @@ public class QueryCommand implements ICommand {
     private int right;
 
     public QueryCommand(int left, int right) {
-        this.command = "query";
+        this.command = "sumRange";
         this.left = left;
         this.right = right;
     }

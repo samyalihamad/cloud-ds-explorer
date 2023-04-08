@@ -39,7 +39,7 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "ScalingRole": {
@@ -47,13 +47,13 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/items/ScalingRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_dynamodb.Table",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           },
           "segmentTreeFunction": {
@@ -69,7 +69,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "Resource": {
@@ -108,7 +108,7 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "DefaultPolicy": {
@@ -164,19 +164,19 @@
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Code": {
@@ -188,7 +188,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "AssetBucket": {
@@ -196,13 +196,13 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Resource": {
@@ -215,7 +215,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
+                      "s3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -239,13 +239,13 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           },
           "twoHeapsFunction": {
@@ -261,7 +261,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "Resource": {
@@ -300,7 +300,7 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "DefaultPolicy": {
@@ -356,19 +356,19 @@
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Code": {
@@ -380,7 +380,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "AssetBucket": {
@@ -388,13 +388,13 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Resource": {
@@ -407,7 +407,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "0787fcdfc21c907478107a7984a642d582693ea6ea92797663e200d482d03ad2.jar"
+                      "s3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -431,13 +431,13 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.Function",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           },
           "ds-explorer": {
@@ -455,7 +455,7 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.CfnRestApi",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "CloudWatchRole": {
@@ -467,7 +467,7 @@
                     "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole/ImportCloudWatchRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "Resource": {
@@ -506,13 +506,13 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Account": {
@@ -531,7 +531,7 @@
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.CfnAccount",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Deployment": {
@@ -552,13 +552,13 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "DeploymentStage.prod": {
@@ -582,13 +582,13 @@
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.Stage",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Endpoint": {
@@ -596,7 +596,7 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Endpoint",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Default": {
@@ -627,7 +627,7 @@
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       },
                       "POST": {
@@ -680,7 +680,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           },
                           "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": {
@@ -725,7 +725,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           },
                           "Resource": {
@@ -773,13 +773,13 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       },
                       "OPTIONS": {
@@ -833,19 +833,19 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.Resource",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   },
                   "twoHeapMedian": {
@@ -872,7 +872,7 @@
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       },
                       "POST": {
@@ -925,7 +925,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           },
                           "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": {
@@ -970,7 +970,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           },
                           "Resource": {
@@ -1018,13 +1018,13 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       },
                       "OPTIONS": {
@@ -1078,31 +1078,31 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.72.0"
+                              "version": "2.72.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.72.0"
+                          "version": "2.72.1"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.Resource",
-                      "version": "2.72.0"
+                      "version": "2.72.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           },
           "CDKMetadata": {
@@ -1114,7 +1114,7 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               },
               "Condition": {
@@ -1122,13 +1122,13 @@
                 "path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Condition",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnCondition",
-                  "version": "2.72.0"
+                  "version": "2.72.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.1.296"
+              "version": "10.1.297"
             }
           },
           "BootstrapVersion": {
@@ -1136,7 +1136,7 @@
             "path": "cdk-cors-lambda-crud-dynamodb-example/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           },
           "CheckBootstrapVersion": {
@@ -1144,13 +1144,13 @@
             "path": "cdk-cors-lambda-crud-dynamodb-example/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
-              "version": "2.72.0"
+              "version": "2.72.1"
             }
           }
         },
         "constructInfo": {
           "fqn": "aws-cdk-lib.Stack",
-          "version": "2.72.0"
+          "version": "2.72.1"
         }
       },
       "Tree": {
@@ -1158,13 +1158,13 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.1.296"
+          "version": "10.1.297"
         }
       }
     },
     "constructInfo": {
       "fqn": "aws-cdk-lib.App",
-      "version": "2.72.0"
+      "version": "2.72.1"
     }
   }
 }
