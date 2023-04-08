@@ -81,7 +81,6 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
             adjacencyList.get(edgeB).add(new PointEdge(edgeA, weight));
         }
 
-
         // TODO: Refactor to save in batches
         for(var point : adjacencyList.entrySet()) {
             mapsRepository.savePoint(point.getKey(), point.getValue());

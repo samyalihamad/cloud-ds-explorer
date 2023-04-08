@@ -5,9 +5,10 @@ import Models.Point;
 import Models.PointEdge;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.*;
+import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
+import com.amazonaws.services.dynamodbv2.document.utils.NameMap;
+import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,10 +29,16 @@ public class GMapsDataRepository implements MapsRepository {
 
     @Override
     public Point getPoint(int x, int y) {
-        Item item = table.getItem("point", x + "," + y);
-        if(item != null) {
-            return new Point(x, y);
-        }
+        String point = x + "," + y;
+        QuerySpec querySpec = new QuerySpec()
+                .withKeyConditionExpression("#point = :pointValue")
+                .withNameMap(new NameMap().with("#point", "point"))
+                .withValueMap(new ValueMap().withString(":pointValue", point));
+
+        ItemCollection<QueryOutcome> items = table.query(querySpec);
+
+        for(Item item : items)
+            System.out.println(item.toJSONPretty());
 
         return null;
     }
