@@ -1,14 +1,11 @@
 package software.amazon.awscdk.examples.lambda.GMaps;
-
-import DataStructures.QuadTree;
+import Models.Point;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import software.amazon.awscdk.examples.lambda.GatewayResponse;
-import util.JsonUtil;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FindShortestPath implements RequestHandler<Map<String, Object>, GatewayResponse> {
@@ -29,11 +26,11 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
 
     // TODO: Currently returning shortest distance, need to return shortest path
     private Integer execute(String body) {
-        QuadTree quadTree = new QuadTree(0, 0, 1024, 1024, 4, false);
+        Point src = new Point(12, 13);
+        Point dest = new Point(1, 18);
 
-//        System.out.println(quadTree.root.x1 + " " + quadTree.root.y1 + " " + quadTree.root.x2 + " " + quadTree.root.y2);
-//        System.out.println("(511, 1023) -> Quad ID: " + quadTree.findQuadId(511, 1023));
-//        System.out.println("(1, 513) -> Quad ID: " + quadTree.findQuadId(1, 513));
+
+
         return 0;
     }
 }

@@ -8,37 +8,49 @@ import javafx.util.Pair;
 import java.util.*;
 
 public class PrimMST {
-    private int[][] points;
+    private List<Point> points;
     List<GraphEdge> edges = new ArrayList<>();
-    public PrimMST(int[][] points) {
+    public PrimMST(List<Point> points) {
         this.points = points;
         getEdges();
     }
 
     private void getEdges() {
-        for(int i = 0; i < points.length; i++) {
-            for(int j = 0; j < points.length; j++) {
-                if(i != j) {
-                    int xWeight = Math.abs(points[i][0] - points[j][0]);
-                    int yWeight = Math.abs(points[i][1] - points[j][1]);
+        for(var point : points) {
+            for (var otherPoint : points) {
+                if (point != otherPoint) {
+                    int xWeight = Math.abs(point.x - otherPoint.x);
+                    int yWeight = Math.abs(point.y - otherPoint.y);
                     int weight = xWeight + yWeight;
 
-                    Point a = new Point(points[i][0], points[i][1]);
-                    Point b = new Point(points[j][0], points[j][1]);
-                    GraphEdge edge = new GraphEdge(a, b, weight);
+                    GraphEdge edge = new GraphEdge(point, otherPoint, weight);
                     edges.add(edge);
                 }
             }
         }
+//        for(int i = 0; i < points.length; i++) {
+//            for(int j = 0; j < points.length; j++) {
+//                if(i != j) {
+//                    int xWeight = Math.abs(points[i][0] - points[j][0]);
+//                    int yWeight = Math.abs(points[i][1] - points[j][1]);
+//                    int weight = xWeight + yWeight;
+//
+//                    Point a = new Point(points[i][0], points[i][1]);
+//                    Point b = new Point(points[j][0], points[j][1]);
+//                    GraphEdge edge = new GraphEdge(a, b, weight);
+//                    edges.add(edge);
+//                }
+//            }
+//        }
     }
 
     public List<GraphEdge> getMST() {
-        int n = points.length;
+        int n = points.size();
 
         // Build Adjacency List
         Map<Point, ArrayList<Pair<Integer, Point>>> adjacencyList = new HashMap<>();
-        for(int i = 0; i < points.length; i++) {
-            adjacencyList.put(new Point(points[i][0], points[i][1]), new ArrayList<>());
+        for(var point : points) {
+            adjacencyList.put(point, new ArrayList<>());
         }
 
         for(GraphEdge edge : edges) {
@@ -95,9 +107,9 @@ public class PrimMST {
         }
 
         for(var edge : mst) {
-            System.out.println("a: " + edge.a.x + ", " + edge.a.y + " b: " + edge.b.x + ", " + edge.b.y + " weight: " + edge.weight);
+            System.out.println("(" + edge.a.x + ", " + edge.a.y + ") --> (" + edge.b.x + ", " + edge.b.y + ") weight: " + edge.weight);
         }
 
-        return edges;
+        return mst;
     }
 }

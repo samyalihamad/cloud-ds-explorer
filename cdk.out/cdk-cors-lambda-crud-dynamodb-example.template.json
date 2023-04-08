@@ -1,17 +1,25 @@
 {
  "Resources": {
-  "items07D08F4B": {
+  "GeoMapsE3CED104": {
    "Type": "AWS::DynamoDB::Table",
    "Properties": {
     "KeySchema": [
      {
-      "AttributeName": "itemId",
+      "AttributeName": "point",
       "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "quadId",
+      "KeyType": "RANGE"
      }
     ],
     "AttributeDefinitions": [
      {
-      "AttributeName": "itemId",
+      "AttributeName": "point",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "quadId",
       "AttributeType": "S"
      }
     ],
@@ -19,12 +27,12 @@
      "ReadCapacityUnits": 5,
      "WriteCapacityUnits": 5
     },
-    "TableName": "items"
+    "TableName": "GeoMaps"
    },
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/items/Resource"
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/GeoMaps/Resource"
    }
   },
   "segmentTreeFunctionServiceRole03310493": {
@@ -61,53 +69,6 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/Resource"
    }
   },
-  "segmentTreeFunctionServiceRoleDefaultPolicy8531C241": {
-   "Type": "AWS::IAM::Policy",
-   "Properties": {
-    "PolicyDocument": {
-     "Statement": [
-      {
-       "Action": [
-        "dynamodb:BatchGetItem",
-        "dynamodb:GetRecords",
-        "dynamodb:GetShardIterator",
-        "dynamodb:Query",
-        "dynamodb:GetItem",
-        "dynamodb:Scan",
-        "dynamodb:ConditionCheckItem",
-        "dynamodb:BatchWriteItem",
-        "dynamodb:PutItem",
-        "dynamodb:UpdateItem",
-        "dynamodb:DeleteItem",
-        "dynamodb:DescribeTable"
-       ],
-       "Effect": "Allow",
-       "Resource": [
-        {
-         "Fn::GetAtt": [
-          "items07D08F4B",
-          "Arn"
-         ]
-        },
-        {
-         "Ref": "AWS::NoValue"
-        }
-       ]
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "PolicyName": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241",
-    "Roles": [
-     {
-      "Ref": "segmentTreeFunctionServiceRole03310493"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource"
-   }
-  },
   "segmentTreeFunction007D582E": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
@@ -115,7 +76,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
+     "S3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -126,9 +87,9 @@
     "Environment": {
      "Variables": {
       "TABLE_NAME": {
-       "Ref": "items07D08F4B"
+       "Ref": "GeoMapsE3CED104"
       },
-      "PRIMARY_KEY": "itemId"
+      "PRIMARY_KEY": "point"
      }
     },
     "Handler": "software.amazon.awscdk.examples.lambda.SegmentTree",
@@ -137,12 +98,11 @@
     "Timeout": 30
    },
    "DependsOn": [
-    "segmentTreeFunctionServiceRoleDefaultPolicy8531C241",
     "segmentTreeFunctionServiceRole03310493"
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
-    "aws:asset:path": "asset.7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
+    "aws:asset:path": "asset.9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -181,7 +141,79 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/Resource"
    }
   },
-  "twoHeapsFunctionServiceRoleDefaultPolicyD91E327D": {
+  "twoHeapsFunction773205BE": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "twoHeapsFunctionServiceRole9D680415",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "GeoMapsE3CED104"
+      },
+      "PRIMARY_KEY": "point"
+     }
+    },
+    "Handler": "software.amazon.awscdk.examples.lambda.TwoHeaps",
+    "MemorySize": 512,
+    "Runtime": "java11",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "twoHeapsFunctionServiceRole9D680415"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
+    "aws:asset:path": "asset.9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "gMapsFunctionServiceRoleAF4FC3FB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/Resource"
+   }
+  },
+  "gMapsFunctionServiceRoleDefaultPolicy49161819": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -205,7 +237,7 @@
        "Resource": [
         {
          "Fn::GetAtt": [
-          "items07D08F4B",
+          "GeoMapsE3CED104",
           "Arn"
          ]
         },
@@ -217,52 +249,52 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "twoHeapsFunctionServiceRoleDefaultPolicyD91E327D",
+    "PolicyName": "gMapsFunctionServiceRoleDefaultPolicy49161819",
     "Roles": [
      {
-      "Ref": "twoHeapsFunctionServiceRole9D680415"
+      "Ref": "gMapsFunctionServiceRoleAF4FC3FB"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/DefaultPolicy/Resource"
    }
   },
-  "twoHeapsFunction773205BE": {
+  "gMapsFunctionDE6AF9D0": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar"
+     "S3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
     },
     "Role": {
      "Fn::GetAtt": [
-      "twoHeapsFunctionServiceRole9D680415",
+      "gMapsFunctionServiceRoleAF4FC3FB",
       "Arn"
      ]
     },
     "Environment": {
      "Variables": {
       "TABLE_NAME": {
-       "Ref": "items07D08F4B"
+       "Ref": "GeoMapsE3CED104"
       },
-      "PRIMARY_KEY": "itemId"
+      "PRIMARY_KEY": "point"
      }
     },
-    "Handler": "software.amazon.awscdk.examples.lambda.TwoHeaps",
+    "Handler": "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator",
     "MemorySize": 512,
     "Runtime": "java11",
     "Timeout": 30
    },
    "DependsOn": [
-    "twoHeapsFunctionServiceRoleDefaultPolicyD91E327D",
-    "twoHeapsFunctionServiceRole9D680415"
+    "gMapsFunctionServiceRoleDefaultPolicy49161819",
+    "gMapsFunctionServiceRoleAF4FC3FB"
    ],
    "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
-    "aws:asset:path": "asset.7c0159d853d3961a2864584f0011adbd43277735d2f59444fdef7f27ec1a45a3.jar",
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Resource",
+    "aws:asset:path": "asset.9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -331,7 +363,7 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account"
    }
   },
-  "dsexplorerDeployment796B92932c5d425c31144c40d92be4aebcaec9b0": {
+  "dsexplorerDeployment796B9293626f63e92eb54abe2efc063a29979d67": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -340,6 +372,9 @@
     "Description": "Automatically created by the RestApi construct"
    },
    "DependsOn": [
+    "dsexplorergMapsOPTIONS1AACEF90",
+    "dsexplorergMapsPOST6766FA0E",
+    "dsexplorergMaps449AB82F",
     "dsexplorersegmentTreeOPTIONSA3C3E887",
     "dsexplorersegmentTreePOSTCFC39CA9",
     "dsexplorersegmentTree62E3684E",
@@ -358,7 +393,7 @@
      "Ref": "dsexplorer45F728E1"
     },
     "DeploymentId": {
-     "Ref": "dsexplorerDeployment796B92932c5d425c31144c40d92be4aebcaec9b0"
+     "Ref": "dsexplorerDeployment796B9293626f63e92eb54abe2efc063a29979d67"
     },
     "StageName": "prod"
    },
@@ -749,10 +784,200 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS/Resource"
    }
   },
+  "dsexplorergMaps449AB82F": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "dsexplorer45F728E1",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "gMaps",
+    "RestApiId": {
+     "Ref": "dsexplorer45F728E1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/Resource"
+   }
+  },
+  "dsexplorergMapsPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTgMaps6331CB64": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "gMapsFunctionDE6AF9D0",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/",
+       {
+        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+       },
+       "/POST/gMaps"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..gMaps"
+   }
+  },
+  "dsexplorergMapsPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTgMaps1DF25385": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "gMapsFunctionDE6AF9D0",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/test-invoke-stage/POST/gMaps"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..gMaps"
+   }
+  },
+  "dsexplorergMapsPOST6766FA0E": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "POST",
+    "ResourceId": {
+     "Ref": "dsexplorergMaps449AB82F"
+    },
+    "RestApiId": {
+     "Ref": "dsexplorer45F728E1"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "gMapsFunctionDE6AF9D0",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/Resource"
+   }
+  },
+  "dsexplorergMapsOPTIONS1AACEF90": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Ref": "dsexplorergMaps449AB82F"
+    },
+    "RestApiId": {
+     "Ref": "dsexplorer45F728E1"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Credentials": "'false'",
+        "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE'",
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "PassthroughBehavior": "NEVER",
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Credentials": true,
+       "method.response.header.Access-Control-Allow-Methods": true,
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true
+      },
+      "StatusCode": "200"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/OPTIONS/Resource"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuaaADiXM3xAEJMQ3uk5uYYtokVeMwVVX/O24K2jj5ey/2k52tftjqcgPnWBjbFh3VenpjMK0S6zTZ0YMLVsx3qDtU+w+fYVYduNqCnp6SN0zBL0/XfMDBUYyiZkXg9HQM63yuh9CRGXNfplnFuxPEiBx1tRTRepdMi7yDiAp6aoDxDKMEYeSqp5x1wcqYkDyrR+y7MDoUFPdKyVVNXmAFGQ1pMJjj/8Rv5sovyJ/BLtZK83zpyzsuQeSbpeM1cZ/437jwPnhLnL/gGb7hpiz1rS7vN1+RqBhkW3Koj2v9Aab3YRmJAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuWVgZEuduiAMSYhrcJzcxnWmTVI3DVFX977gpaOPk773YT3bu9eNWb1ZwiWtjm3VLlR7fGUyjxDqNdvDgghXzA6oW1f7TZ5hUC66yoMfn5A1T8PPTLR+wdxSjqEkROD0ewzKf6yG0ZIbcl2lScXuCGJGjLuciWu+SaZB3EFFBRzUwXmCQIIxcdpSzrlgaE5Jn9YRdGwaHguLeKLmqzgssIKMh9QZz/J/4zVz4Ffkc7GwtNE3XvrzjHES+njveEneJ/40L74O3xPkLXuAb7opCb3TxsPqKROtetiWH+rjUH1XSnyWJAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default"
