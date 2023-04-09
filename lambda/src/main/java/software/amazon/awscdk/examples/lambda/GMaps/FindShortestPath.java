@@ -41,8 +41,8 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
     }
 
     private Point execute(String body) {
-        Point src = new Point(6, 3);
-        Point dest = new Point(9, 9);
+        Point src = new Point(12, 3);
+        Point dest = new Point(18, 7);
 
         var srcPointWithAdjList =  mapsRepository.getPoint(src.x, src.y);
         var destPointWithAdjList = mapsRepository.getPoint(dest.x, dest.y);

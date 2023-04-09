@@ -10,9 +10,13 @@ import Models.PointEdge;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import software.amazon.awscdk.examples.lambda.GatewayResponse;
+import util.StringUtil;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 // Description:  This lambda function generates a random graph of points and edges
 // Input: Takes in a x1,y1,x2,y2 and a depth value. The x1,y1,x2,y2 values are the coordinates of the main quadtree
@@ -41,12 +45,13 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        return new GatewayResponse(output.toString(), headers, 200);
+        return new GatewayResponse("success", headers, 200);
     }
 
     private List<GraphEdge> execute(String body) {
         QuadTree quadTree = new QuadTree(0, 0, 20, 20, 2);
         Set<Point> points = new HashSet<>();
+        Map<String, List<GraphEdge>> quadPointGraphEdges = new HashMap<>();
 
         Random random = new Random();
 
@@ -57,31 +62,136 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
             int x2 = Integer.parseInt(quadValues[2]);
             int y2 = Integer.parseInt(quadValues[3]);
 
+            String quadId = QuadTree.findQuadId(x1 + 1, y1 + 1, quadTree.root);
+            List<Point> subPoints = new ArrayList<>();
             for(int i = 0; i < 2; i++) {
                 int x = random.nextInt(x2 - x1 - 1) + x1 + 1;
                 int y = random.nextInt(y2 - y1 - 1) + y1 + 1;
 
-                String quadId = QuadTree.findQuadId(x, y, quadTree.root);
 
                 Point point = new Point(x, y, quadId);
-                points.add(point);
+
+                if(subPoints.contains(point)) {
+                    i--;
+                    continue;
+                }
+
+                subPoints.add(point);
+            }
+
+            points.addAll(subPoints);
+
+            PrimMST primMSTSubQuad = new PrimMST(subPoints);
+            var subQuadEdges = primMSTSubQuad.getMST();
+            quadPointGraphEdges.put(quadId, subQuadEdges);
+        }
+
+        for(var point : quadPointGraphEdges.entrySet()) {
+            var quadId = point.getKey();
+            var currPoints = point.getValue();
+
+            //TODO: Try to pick points in neighboring quads that are closest to the current quad
+            //  To connect two minimum spanning trees (MSTs) while maintaining their structure, you can follow these steps:
+            //  1. Identify the MSTs. Let's call them MST1 and MST2.
+            //  2. Find the minimum-weight edge connecting the two MSTs. To do this, iterate through all the edges between the
+            // vertices in MST1 and MST2, and choose the edge with the smallest weight.
+            // 3. Add this minimum-weight edge to the MST1 (or MST2) to connect the two MSTs
+//            int closestNorthY = Integer.MIN_VALUE;
+//            int closestSouthY = Integer.MAX_VALUE;
+//            int closestEastX = Integer.MIN_VALUE;;
+//            int closestWestX = Integer.MAX_VALUE;
+//
+//            for(var pt : currPoints) {
+//                if(pt.a.x > closestEastX)
+//                    closestEastX = pt.a.x;
+//
+//                if(pt.b.x > closestEastX)
+//                    closestEastX = pt.b.x;
+//
+//                if(pt.a.x < closestWestX)
+//                    closestWestX = pt.a.x;
+//
+//                if(pt.b.x < closestWestX)
+//                    closestWestX = pt.b.x;
+//
+//                if(pt.a.y > closestNorthY)
+//                    closestNorthY = pt.a.y;
+//
+//                if(pt.b.y > closestNorthY)
+//                    closestNorthY = pt.b.y;
+//
+//                if(pt.a.y < closestSouthY)
+//                    closestSouthY = pt.a.y;
+//
+//                if(pt.a.y < closestSouthY)
+//                    closestSouthY = pt.a.y;
+//            }
+
+            var quadNeighbors = StringUtil.getNeighborQuad(quadId);
+
+            // TODO: If we connect two quads we should not connect them again in the next iteration
+            for(var neighbor : quadNeighbors.entrySet()) {
+                if(neighbor.getKey() == "north" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
+                    var northPoints = quadPointGraphEdges.get(neighbor.getValue());
+
+                    var northPoint = northPoints.get(0).a;
+                    var currPoint = currPoints.get(0).a;
+
+                    int weight = Math.abs(northPoint.x - currPoint.x) + Math.abs(northPoint.y - currPoint.y);
+                    GraphEdge edge = new GraphEdge(northPoint, currPoint, weight);
+                    currPoints.add(edge);
+                }
+
+                if(neighbor.getKey() == "south" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
+                    var southPoints = quadPointGraphEdges.get(neighbor.getValue());
+
+                    var southPoint = southPoints.get(0).a;
+                    var currPoint = currPoints.get(0).a;
+
+                    int weight = Math.abs(southPoint.x - currPoint.x) + Math.abs(southPoint.y - currPoint.y);
+                    GraphEdge edge = new GraphEdge(southPoint, currPoint, weight);
+                    currPoints.add(edge);
+                }
+
+                if(neighbor.getKey() == "east" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
+                    var eastPoints = quadPointGraphEdges.get(neighbor.getValue());
+
+                    var eastPoint = eastPoints.get(0).a;
+                    var currPoint = currPoints.get(0).a;
+
+                    int weight = Math.abs(eastPoint.x - currPoint.x) + Math.abs(eastPoint.y - currPoint.y);
+                    GraphEdge edge = new GraphEdge(eastPoint, currPoint, weight);
+                    currPoints.add(edge);
+                }
+
+                if(neighbor.getKey() == "west" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
+                    var westPoints = quadPointGraphEdges.get(neighbor.getValue());
+
+                    var westPoint = westPoints.get(0).a;
+                    var currPoint = currPoints.get(0).a;
+
+                    int weight = Math.abs(westPoint.x - currPoint.x) + Math.abs(westPoint.y - currPoint.y);
+                    GraphEdge edge = new GraphEdge(westPoint, currPoint, weight);
+                    currPoints.add(edge);
+                }
             }
         }
 
-        List<Point> pointsList = new ArrayList<>();
-        for(var point : points) {
-            pointsList.add(point);
+        List<GraphEdge> outputEdges = new ArrayList<>();
+        for(var quadEdges : quadPointGraphEdges.entrySet()) {
+            outputEdges.addAll(quadEdges.getValue());
         }
 
-        PrimMST primMST = new PrimMST(pointsList);
-        List<GraphEdge> edges = primMST.getMST();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(outputEdges));
+
 
         Map<Point, ArrayList<PointEdge>> adjacencyList = new HashMap<>();
         for(var point : points) {
             adjacencyList.put(point, new ArrayList<>());
         }
 
-        for(var edge : edges) {
+        for(var edge : outputEdges) {
             Point edgeA = edge.a;
             Point edgeB = edge.b;
             int weight = edge.weight;
@@ -95,6 +205,6 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
             mapsRepository.savePoint(point.getKey(), point.getValue());
         }
 
-        return edges;
+        return outputEdges;
     }
 }

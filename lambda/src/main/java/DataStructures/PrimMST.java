@@ -16,6 +16,11 @@ public class PrimMST {
     }
 
     private void getEdges() {
+        System.out.println("--------------------");
+        System.out.println("Points: " + points.size());
+        for(var point : points) {
+            System.out.println("x: " + point.x + " y: " + point.y);
+        }
         for(var point : points) {
             for (var otherPoint : points) {
                 if (point != otherPoint) {
@@ -28,6 +33,7 @@ public class PrimMST {
                 }
             }
         }
+        System.out.println("Edges: " + edges.size());
 //        for(int i = 0; i < points.length; i++) {
 //            for(int j = 0; j < points.length; j++) {
 //                if(i != j) {
