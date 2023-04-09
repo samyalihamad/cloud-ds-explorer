@@ -1,8 +1,13 @@
 package Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Point {
     public int x, y;
     public String quadId;
+
+    public List<PointEdge> edges = new ArrayList<>();
 
     public Point(int x, int y, String quadId) {
         this.x = x;

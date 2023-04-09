@@ -1,14 +1,18 @@
 package Repository;
 
 import Interfaces.MapsRepository;
+import Models.Mappers.GeoMapsConverter;
 import Models.Point;
 import Models.PointEdge;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
+import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.NameMap;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +32,7 @@ public class GMapsDataRepository implements MapsRepository {
     }
 
     @Override
-    public Point getPoint(int x, int y) {
+    public List<Point> getPoint(int x, int y) {
         String point = x + "," + y;
         QuerySpec querySpec = new QuerySpec()
                 .withKeyConditionExpression("#point = :pointValue")
@@ -37,10 +41,20 @@ public class GMapsDataRepository implements MapsRepository {
 
         ItemCollection<QueryOutcome> items = table.query(querySpec);
 
-        for(Item item : items)
-            System.out.println(item.toJSONPretty());
+        return GeoMapsConverter.convertToGeoPointQuery(items);
+    }
 
-        return null;
+    @Override
+    public List<Point> getPointsInQuad(String quadId) {
+        ScanSpec scanSpec = new ScanSpec()
+                .withFilterExpression("begins_with(#quadId, :quadIdValue)")
+                .withNameMap(new NameMap().with("#quadId", "quadId"))
+                .withValueMap(new ValueMap().withString(":quadIdValue", quadId));
+
+        ItemCollection<ScanOutcome> items = table.scan(scanSpec);
+
+
+        return GeoMapsConverter.convertToGeoPointScan(items);
     }
 
     @Override
@@ -58,4 +72,8 @@ public class GMapsDataRepository implements MapsRepository {
 
         table.putItem(item);
     }
+
+
+
+
 }

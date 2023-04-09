@@ -14,6 +14,16 @@ import software.amazon.awscdk.examples.lambda.GatewayResponse;
 
 import java.util.*;
 
+// Description:  This lambda function generates a random graph of points and edges
+// Input: Takes in a x1,y1,x2,y2 and a depth value. The x1,y1,x2,y2 values are the coordinates of the main quadtree
+        // The depth value is the depth of the quadtree (i.e. how many times we divide the quadtree)
+// Logic:
+    // 1. Using the x,y coordinates and the depth value, we create a quadtree and list of quadIds
+    // 2. For each of the leaf quadIds we generate random numbers and assign them to the quadId
+    // 3. Create a Minimum Spanning Tree using the random points
+    // 4. Save the points and edges that define the MST to the database (DynamoDB)
+// TODO: The MST does not guarantee that a group of points are connected. Add logic to ensure that subgraphs are connected.
+// TODO: IDEA: Create an MST for each QuadId (subgraph) and then connect the subgraphs to each other
 public class GMapDataGenerator implements RequestHandler<Map<String, Object>, GatewayResponse> {
     private final MapsRepository mapsRepository;
     public GMapDataGenerator() {
@@ -51,8 +61,7 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
                 int x = random.nextInt(x2 - x1 - 1) + x1 + 1;
                 int y = random.nextInt(y2 - y1 - 1) + y1 + 1;
 
-                // TODO: Refactor should be a static method
-                String quadId = quadTree.findQuadId(x, y);
+                String quadId = QuadTree.findQuadId(x, y, quadTree.root);
 
                 Point point = new Point(x, y, quadId);
                 points.add(point);

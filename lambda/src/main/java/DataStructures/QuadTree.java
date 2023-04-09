@@ -43,7 +43,7 @@ public class QuadTree {
         }
     }
 
-    public String findQuadId(int x, int y) {
+    public static String findQuadId(int x, int y, QuadTreeNode root) {
         var curr = root;
         String id = "";
         while(curr != null) {
