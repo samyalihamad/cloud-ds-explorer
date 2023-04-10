@@ -56,11 +56,16 @@ class CorsLambdaCrudDynamodbStack extends Stack {
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
         Function twoHeapMedianFunction = new Function(this, "twoHeapsFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.TwoHeaps"));
-        Function gMapsFunction = new Function(this, "gMapsFunction",
+        Function gMapsDataGeneratorFunction = new Function(this, "gMapsDataGeneratorFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator"));
+        Function gMapsGetShortestPath = new Function(this, "gMapsGetShortestPath",
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath"));
 
 
-        gMapsTable.grantReadWriteData(gMapsFunction);
+
+        gMapsTable.grantReadWriteData(gMapsDataGeneratorFunction);
+        gMapsTable.grantReadWriteData(gMapsGetShortestPath);
+        gMapsTable.grantReadWriteData(segmentTreeFunction);
 
         RestApi api = new RestApi(this, "ds-explorer",
                 RestApiProps.builder().restApiName("Cloud DS Explorer").build());
@@ -79,9 +84,19 @@ class CorsLambdaCrudDynamodbStack extends Stack {
 
         // GMaps
         IResource gMaps = api.getRoot().addResource("gMaps");
-        Integration gMapsIntegration = new LambdaIntegration(gMapsFunction);
+        // GMapsDataGenerator
+        Integration gMapsIntegration = new LambdaIntegration(gMapsDataGeneratorFunction);
         gMaps.addMethod("POST", gMapsIntegration);
         addCorsOptions(gMaps);
+
+        // GMapsGetShortestPath
+        IResource gMapsGetShortestPathSrcResource = gMaps.addResource("{src}");
+        IResource gMapsGetShortestPathDestResource = gMapsGetShortestPathSrcResource.addResource("{dest}");
+
+        Integration gMapsGetShortestPathIntegration = new LambdaIntegration(gMapsGetShortestPath);
+
+        gMapsGetShortestPathDestResource.addMethod("GET", gMapsGetShortestPathIntegration);
+        addCorsOptions(gMapsGetShortestPathDestResource);
     }
 
 

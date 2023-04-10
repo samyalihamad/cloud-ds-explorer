@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f0a996669f9dd5ef59d09961212c5c756a3e12acb7e7bb2423a410cd962870aa.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a9f4dd89c1c1fa079fc3fe4443fccb023224a70f4fbd0f691eb3cbda3076b15f.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -53,6 +53,12 @@
             "data": "segmentTreeFunctionServiceRole03310493"
           }
         ],
+        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241"
+          }
+        ],
         "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -71,22 +77,40 @@
             "data": "twoHeapsFunction773205BE"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "gMapsFunctionServiceRoleAF4FC3FB"
+            "data": "gMapsDataGeneratorFunctionServiceRoleABC75C5B"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/DefaultPolicy/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "gMapsFunctionServiceRoleDefaultPolicy49161819"
+            "data": "gMapsDataGeneratorFunctionServiceRoleDefaultPolicyE37B4B03"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "gMapsFunctionDE6AF9D0"
+            "data": "gMapsDataGeneratorFunctionAAFDDEC8"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathServiceRole46E6B049"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathServiceRoleDefaultPolicy6BC9D26B"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathF87DA254"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Resource": [
@@ -110,7 +134,7 @@
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorerDeployment796B9293626f63e92eb54abe2efc063a29979d67"
+            "data": "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource": [
@@ -213,6 +237,42 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapsOPTIONS1AACEF90"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcC50F70EF"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcdest73447F59"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcdestGETApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31GETgMapssrcdestFE9C2F17"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcdestGETApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31GETgMapssrcdest2D5C633A"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcdestGET79121287"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorergMapssrcdestOPTIONSFA61D73F"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default": [

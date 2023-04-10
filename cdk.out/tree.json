@@ -118,6 +118,68 @@
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
                       "version": "2.73.0"
                     }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:BatchGetItem",
+                                    "dynamodb:GetRecords",
+                                    "dynamodb:GetShardIterator",
+                                    "dynamodb:Query",
+                                    "dynamodb:GetItem",
+                                    "dynamodb:Scan",
+                                    "dynamodb:ConditionCheckItem",
+                                    "dynamodb:BatchWriteItem",
+                                    "dynamodb:PutItem",
+                                    "dynamodb:UpdateItem",
+                                    "dynamodb:DeleteItem",
+                                    "dynamodb:DescribeTable"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "GeoMapsE3CED104",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241",
+                            "roles": [
+                              {
+                                "Ref": "segmentTreeFunctionServiceRole03310493"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.73.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.73.0"
+                    }
                   }
                 },
                 "constructInfo": {
@@ -161,7 +223,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
+                      "s3Key": "156e9dafe8ebde09050d627e19d7906cd99cdbc760e11b02b2e6e15d5ac1aae3.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -291,7 +353,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
+                      "s3Key": "156e9dafe8ebde09050d627e19d7906cd99cdbc760e11b02b2e6e15d5ac1aae3.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -324,17 +386,17 @@
               "version": "2.73.0"
             }
           },
-          "gMapsFunction": {
-            "id": "gMapsFunction",
-            "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction",
+          "gMapsDataGeneratorFunction": {
+            "id": "gMapsDataGeneratorFunction",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/ImportServiceRole",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.73.0"
@@ -342,7 +404,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -381,11 +443,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/DefaultPolicy",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/ServiceRole/DefaultPolicy/Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -422,10 +484,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "gMapsFunctionServiceRoleDefaultPolicy49161819",
+                            "policyName": "gMapsDataGeneratorFunctionServiceRoleDefaultPolicyE37B4B03",
                             "roles": [
                               {
-                                "Ref": "gMapsFunctionServiceRoleAF4FC3FB"
+                                "Ref": "gMapsDataGeneratorFunctionServiceRoleABC75C5B"
                               }
                             ]
                           }
@@ -449,11 +511,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Code",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Code/Stage",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.73.0"
@@ -461,7 +523,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Code/AssetBucket",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.73.0"
@@ -475,7 +537,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsFunction/Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -483,11 +545,11 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "9c7400d823f26dec4e5fe66a2a778d4f57f2bd33170986fe7a652bba7fd406e4.jar"
+                      "s3Key": "156e9dafe8ebde09050d627e19d7906cd99cdbc760e11b02b2e6e15d5ac1aae3.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
-                        "gMapsFunctionServiceRoleAF4FC3FB",
+                        "gMapsDataGeneratorFunctionServiceRoleABC75C5B",
                         "Arn"
                       ]
                     },
@@ -500,6 +562,198 @@
                       }
                     },
                     "handler": "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator",
+                    "memorySize": 512,
+                    "runtime": "java11",
+                    "timeout": 30
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.73.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.73.0"
+            }
+          },
+          "gMapsGetShortestPath": {
+            "id": "gMapsGetShortestPath",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.73.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.73.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:BatchGetItem",
+                                    "dynamodb:GetRecords",
+                                    "dynamodb:GetShardIterator",
+                                    "dynamodb:Query",
+                                    "dynamodb:GetItem",
+                                    "dynamodb:Scan",
+                                    "dynamodb:ConditionCheckItem",
+                                    "dynamodb:BatchWriteItem",
+                                    "dynamodb:PutItem",
+                                    "dynamodb:UpdateItem",
+                                    "dynamodb:DeleteItem",
+                                    "dynamodb:DescribeTable"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "GeoMapsE3CED104",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "gMapsGetShortestPathServiceRoleDefaultPolicy6BC9D26B",
+                            "roles": [
+                              {
+                                "Ref": "gMapsGetShortestPathServiceRole46E6B049"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.73.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.73.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.73.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.73.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.73.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.73.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                      },
+                      "s3Key": "156e9dafe8ebde09050d627e19d7906cd99cdbc760e11b02b2e6e15d5ac1aae3.jar"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "gMapsGetShortestPathServiceRole46E6B049",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "TABLE_NAME": {
+                          "Ref": "GeoMapsE3CED104"
+                        },
+                        "PRIMARY_KEY": "point"
+                      }
+                    },
+                    "handler": "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath",
                     "memorySize": 512,
                     "runtime": "java11",
                     "timeout": 30
@@ -651,7 +905,7 @@
                           "Ref": "dsexplorer45F728E1"
                         },
                         "deploymentId": {
-                          "Ref": "dsexplorerDeployment796B9293626f63e92eb54abe2efc063a29979d67"
+                          "Ref": "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf"
                         },
                         "stageName": "prod"
                       }
@@ -1209,7 +1463,7 @@
                                 "action": "lambda:InvokeFunction",
                                 "functionName": {
                                   "Fn::GetAtt": [
-                                    "gMapsFunctionDE6AF9D0",
+                                    "gMapsDataGeneratorFunctionAAFDDEC8",
                                     "Arn"
                                   ]
                                 },
@@ -1258,7 +1512,7 @@
                                 "action": "lambda:InvokeFunction",
                                 "functionName": {
                                   "Fn::GetAtt": [
-                                    "gMapsFunctionDE6AF9D0",
+                                    "gMapsDataGeneratorFunctionAAFDDEC8",
                                     "Arn"
                                   ]
                                 },
@@ -1325,7 +1579,7 @@
                                         ":lambda:path/2015-03-31/functions/",
                                         {
                                           "Fn::GetAtt": [
-                                            "gMapsFunctionDE6AF9D0",
+                                            "gMapsDataGeneratorFunctionAAFDDEC8",
                                             "Arn"
                                           ]
                                         },
@@ -1407,6 +1661,278 @@
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
                           "version": "2.73.0"
                         }
+                      },
+                      "{src}": {
+                        "id": "{src}",
+                        "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                              "aws:cdk:cloudformation:props": {
+                                "parentId": {
+                                  "Ref": "dsexplorergMaps449AB82F"
+                                },
+                                "pathPart": "{src}",
+                                "restApiId": {
+                                  "Ref": "dsexplorer45F728E1"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                              "version": "2.73.0"
+                            }
+                          },
+                          "{dest}": {
+                            "id": "{dest}",
+                            "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Ref": "dsexplorergMapssrcC50F70EF"
+                                    },
+                                    "pathPart": "{dest}",
+                                    "restApiId": {
+                                      "Ref": "dsexplorer45F728E1"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                                  "version": "2.73.0"
+                                }
+                              },
+                              "GET": {
+                                "id": "GET",
+                                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET",
+                                "children": {
+                                  "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": {
+                                    "id": "ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}",
+                                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "gMapsGetShortestPathF87DA254",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:",
+                                              {
+                                                "Ref": "AWS::Region"
+                                              },
+                                              ":",
+                                              {
+                                                "Ref": "AWS::AccountId"
+                                              },
+                                              ":",
+                                              {
+                                                "Ref": "dsexplorer45F728E1"
+                                              },
+                                              "/",
+                                              {
+                                                "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+                                              },
+                                              "/GET/gMaps/*/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.73.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": {
+                                    "id": "ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}",
+                                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "gMapsGetShortestPathF87DA254",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:",
+                                              {
+                                                "Ref": "AWS::Region"
+                                              },
+                                              ":",
+                                              {
+                                                "Ref": "AWS::AccountId"
+                                              },
+                                              ":",
+                                              {
+                                                "Ref": "dsexplorer45F728E1"
+                                              },
+                                              "/test-invoke-stage/GET/gMaps/*/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.73.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "GET",
+                                        "resourceId": {
+                                          "Ref": "dsexplorergMapssrcdest73447F59"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "dsexplorer45F728E1"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:",
+                                                {
+                                                  "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "gMapsGetShortestPathF87DA254",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                      "version": "2.73.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                                  "version": "2.73.0"
+                                }
+                              },
+                              "OPTIONS": {
+                                "id": "OPTIONS",
+                                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "OPTIONS",
+                                        "resourceId": {
+                                          "Ref": "dsexplorergMapssrcdest73447F59"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "dsexplorer45F728E1"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "MOCK",
+                                          "requestTemplates": {
+                                            "application/json": "{\"statusCode\": 200}"
+                                          },
+                                          "passthroughBehavior": "NEVER",
+                                          "integrationResponses": [
+                                            {
+                                              "statusCode": "200",
+                                              "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Credentials": "'false'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE'",
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "methodResponses": [
+                                          {
+                                            "statusCode": "200",
+                                            "responseParameters": {
+                                              "method.response.header.Access-Control-Allow-Credentials": true,
+                                              "method.response.header.Access-Control-Allow-Methods": true,
+                                              "method.response.header.Access-Control-Allow-Headers": true,
+                                              "method.response.header.Access-Control-Allow-Origin": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                      "version": "2.73.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                                  "version": "2.73.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                              "version": "2.73.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                          "version": "2.73.0"
+                        }
                       }
                     },
                     "constructInfo": {
@@ -1449,7 +1975,7 @@
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.1.305"
+              "version": "10.1.306"
             }
           },
           "BootstrapVersion": {
@@ -1479,7 +2005,7 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.1.305"
+          "version": "10.1.306"
         }
       }
     },

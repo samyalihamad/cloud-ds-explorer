@@ -31,18 +31,28 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
         String body = (String)input.get("body");
         logger.log("Body is:"+body);
 
-        var output = execute(body);
+        Map<String, Object> pathParameters = (Map<String, Object>)input.get("pathParameters");
+        String src = (String)pathParameters.get("src");
+        String dest = (String)pathParameters.get("dest");
 
-        System.out.println("Found point: " + output.x + ", " + output.y);
+        String x1 = src.split(",")[0];
+        String y1 = src.split(",")[1];
+
+        String x2 = dest.split(",")[0];
+        String y2 = dest.split(",")[1];
+
+        Point srcPoint = new Point(Integer.parseInt(x1), Integer.parseInt(y1));
+        Point destPoint = new Point(Integer.parseInt(x2), Integer.parseInt(y2));
+
+        var output = execute(srcPoint, destPoint);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        return new GatewayResponse(output.toString(), headers, 200);
+        headers.put("Access-Control-Allow-Origin", "*" );
+        return new GatewayResponse(output, headers, 200);
     }
 
-    private Point execute(String body) {
-        Point src = new Point(12, 3);
-        Point dest = new Point(18, 7);
+    private String execute(Point src, Point dest) {
 
         var srcPointWithAdjList =  mapsRepository.getPoint(src.x, src.y);
         var destPointWithAdjList = mapsRepository.getPoint(dest.x, dest.y);
@@ -64,9 +74,9 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        var output = gson.toJson(graphEdges);
+        System.out.println(output);
 
-        System.out.println(gson.toJson(graphEdges));
-
-        return src;
+        return output;
     }
 }
