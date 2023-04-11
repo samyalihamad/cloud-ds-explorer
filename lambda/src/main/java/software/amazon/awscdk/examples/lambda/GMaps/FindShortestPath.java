@@ -47,12 +47,15 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
 
         var output = execute(srcPoint, destPoint);
 
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        var jsonOutput = gson.toJson(output);
+
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        return new GatewayResponse(output, headers, 200);
+        return new GatewayResponse(jsonOutput, headers, 200);
     }
 
-    private String execute(Point src, Point dest) {
+    private List<Point> execute(Point src, Point dest) {
 
         var srcPointWithAdjList =  mapsRepository.getPoint(src.x, src.y);
         var destPointWithAdjList = mapsRepository.getPoint(dest.x, dest.y);
@@ -111,14 +114,7 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
 
         var shortestPath = dijktra.findShortestPath(src, dest);
 
-        StringBuilder builder = new StringBuilder();
-        for(var point : shortestPath) {
-            builder.append("--> " + point.x + "," + point.y + " ");
-        }
-
-        System.out.println(builder.toString());
-
-        return builder.toString();
+        return shortestPath;
 
 //        List<GraphEdge> graphEdges = new ArrayList<>();
 //        for(var point : pointsInBaseQuad) {

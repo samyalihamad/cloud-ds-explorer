@@ -40,7 +40,7 @@ public class Dijkstra {
             }
 
             for(var neighbor : currentNodeNeighbors) {
-                if(!shortestTableLookup.containsKey(neighbor.point))
+                if(visited.contains(neighbor.point) || !shortestTableLookup.containsKey(neighbor.point))
                     continue;
 
                 var currentDistance = shortestTableLookup.get(currentNode).getKey();
@@ -51,9 +51,7 @@ public class Dijkstra {
                 }
 
                 // Add the neighbor to the next closest nodes if it has not been visited
-                if(!visited.contains(neighbor.point)) {
-                    nextClosestNodes.add(new PointEdge(neighbor.point, shortestTableLookup.get(neighbor.point).getKey()));
-                }
+                nextClosestNodes.add(new PointEdge(neighbor.point, shortestTableLookup.get(neighbor.point).getKey()));
             }
 
             // Get the next closest node to visit
