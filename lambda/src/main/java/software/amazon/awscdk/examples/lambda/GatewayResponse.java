@@ -14,6 +14,9 @@ public class GatewayResponse {
     public GatewayResponse(final String body, final Map<String, String> headers, final int statusCode) {
         this.statusCode = statusCode;
         this.body = body;
+        // When configuring the proxy integration on the API Gateway,
+        // the Lambda function needs to return a response in a specific format.
+        headers.put("Access-Control-Allow-Origin", "*" );
         this.headers = Collections.unmodifiableMap(new HashMap<>(headers));
     }
 

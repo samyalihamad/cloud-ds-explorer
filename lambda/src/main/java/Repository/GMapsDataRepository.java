@@ -45,7 +45,7 @@ public class GMapsDataRepository implements MapsRepository {
     }
 
     @Override
-    public List<Point> getPointsInQuad(String quadId) {
+    public Map<Point, List<PointEdge>> getPointsInQuad(String quadId) {
         ScanSpec scanSpec = new ScanSpec()
                 .withFilterExpression("begins_with(#quadId, :quadIdValue)")
                 .withNameMap(new NameMap().with("#quadId", "quadId"))

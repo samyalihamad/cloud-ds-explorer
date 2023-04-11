@@ -8,6 +8,7 @@ import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.ScanOutcome;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,11 +24,13 @@ public class GeoMapsConverter {
         return points;
     }
 
-    public static List<Point> convertToGeoPointScan(ItemCollection<ScanOutcome> dbPoints) {
-        List<Point> points = new ArrayList<>();
+    public static Map<Point, List<PointEdge>> convertToGeoPointScan(ItemCollection<ScanOutcome> dbPoints) {
+        Map<Point, List<PointEdge>> points = new HashMap<>();
 
-        for (var dbPoint : dbPoints) {
-            points.add(convertToGeoPoint(dbPoint));
+        for (Item dbPoint : dbPoints) {
+            Point convertedPoint = convertToGeoPoint(dbPoint);
+            var point = new Point(convertedPoint.x, convertedPoint.y, convertedPoint.quadId);
+            points.put(point, convertedPoint.edges);
         }
 
         return points;

@@ -1,4 +1,5 @@
 package software.amazon.awscdk.examples.lambda.GMaps;
+import DataStructures.Dijkstra;
 import Factories.DIFactory;
 import Interfaces.MapsRepository;
 import Models.GraphEdge;
@@ -48,7 +49,6 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("Access-Control-Allow-Origin", "*" );
         return new GatewayResponse(output, headers, 200);
     }
 
@@ -65,18 +65,74 @@ public class FindShortestPath implements RequestHandler<Map<String, Object>, Gat
         // Query all points in the base quad
         var pointsInBaseQuad = mapsRepository.getPointsInQuad(baseQuadId);
 
+        // TESTING
+//        Map<Point, List<PointEdge>> pointsInBaseQuad = new HashMap<>();
+//        // Add A
+//        var pointA = new Point(0, 4);
+//        var pointAEdges = new ArrayList<PointEdge>();
+//        pointAEdges.add(new PointEdge(new Point(1, 0), 2));
+//        pointAEdges.add(new PointEdge(new Point(0, 0), 4));
+//        pointAEdges.add(new PointEdge(new Point(3, 4), 3));
+//        pointsInBaseQuad.put(pointA, pointAEdges);
+//
+//        // Add B
+//        var pointB = new Point(3, 4);
+//        var pointBEdges = new ArrayList<PointEdge>();
+//        pointBEdges.add(new PointEdge(new Point(0, 4), 3));
+//        pointBEdges.add(new PointEdge(new Point(1, 0), 6));
+//        pointBEdges.add(new PointEdge(new Point(4, 3), 1));
+//        pointsInBaseQuad.put(pointB, pointBEdges);
+//
+//        // Add C
+//        var pointC = new Point(0, 0);
+//        var pointCEdges = new ArrayList<PointEdge>();
+//        pointCEdges.add(new PointEdge(new Point(0, 4), 4));
+//        pointCEdges.add(new PointEdge(new Point(1, 0), 1));
+//        pointsInBaseQuad.put(pointC, pointCEdges);
+//
+//        // Add D
+//        var pointD = new Point(1, 0);
+//        var pointDEdges = new ArrayList<PointEdge>();
+//        pointDEdges.add(new PointEdge(new Point(0, 0), 1));
+//        pointDEdges.add(new PointEdge(new Point(0, 4), 2));
+//        pointDEdges.add(new PointEdge(new Point(3, 4), 6));
+//        pointDEdges.add(new PointEdge(new Point(4, 3), 5));
+//        pointsInBaseQuad.put(pointD, pointDEdges);
+//
+//        // Add E
+//        var pointE = new Point(4, 3);
+//        var pointEEdges = new ArrayList<PointEdge>();
+//        pointEEdges.add(new PointEdge(new Point(1, 0), 5));
+//        pointEEdges.add(new PointEdge(new Point(3, 4), 1));
+//        pointsInBaseQuad.put(pointE, pointEEdges);
+        // TESTING
 
-        List<GraphEdge> graphEdges = new ArrayList<>();
-        for(var point : pointsInBaseQuad) {
-            for(var edge : point.edges) {
-                graphEdges.add(new GraphEdge(new Point(point.x, point.y), edge.point, edge.weight));
-            }
+        var dijktra = new Dijkstra(pointsInBaseQuad);
+
+        var shortestPath = dijktra.findShortestPath(src, dest);
+
+        StringBuilder builder = new StringBuilder();
+        for(var point : shortestPath) {
+            builder.append("--> " + point.x + "," + point.y + " ");
         }
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        var output = gson.toJson(graphEdges);
-        System.out.println(output);
+        System.out.println(builder.toString());
 
-        return output;
+        return builder.toString();
+
+//        List<GraphEdge> graphEdges = new ArrayList<>();
+//        for(var point : pointsInBaseQuad) {
+//            for(var edge : point.edges) {
+//                graphEdges.add(new GraphEdge(new Point(point.x, point.y), edge.point, edge.weight));
+//            }
+//        }
+//
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        var output = gson.toJson(graphEdges);
+//        System.out.println(output);
+
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        var shortestPathJson = gson.toJson(shortestPath);
+//        return shortestPathJson;
     }
 }
