@@ -17,6 +17,54 @@ public class Dijkstra {
         List<Point> shortestPath = new ArrayList<>();
 
         // Shortest Path Lookup Table
+        // The benefit of this format is we solve the shortest distance and shortest path at the same time
+        HashMap<Point, Pair<Integer, Point>> shortestTableLookup = new HashMap<>();
+
+        PriorityQueue<Pair <PointEdge, Point>> nextClosestNodes = new PriorityQueue<>((a, b) -> a.getKey().weight - b.getKey().weight);
+        nextClosestNodes.add(new Pair(new PointEdge(start, 0), null));
+        while(!nextClosestNodes.isEmpty()) {
+            var currentNode = nextClosestNodes.poll();
+
+            if(shortestTableLookup.containsKey(currentNode.getKey().point)) {
+                continue;
+            }
+
+            shortestTableLookup.putIfAbsent(currentNode.getKey().point, new Pair(currentNode.getKey().weight, currentNode.getValue()));
+
+            var currentNodeNeighbors = points.get(currentNode.getKey().point);
+            if(currentNodeNeighbors == null) {
+                continue;
+            }
+
+            for(var neighbor : currentNodeNeighbors) {
+                if(shortestTableLookup.containsKey(neighbor.point))
+                    continue;
+
+                var newDistance = currentNode.getKey().weight + neighbor.weight;
+
+                // Add the neighbor to the next closest nodes if it has not been visited
+                nextClosestNodes.add(new Pair(new PointEdge(neighbor.point, newDistance), currentNode.getKey().point));
+            }
+        }
+
+        // Build the shortest path
+        var current = end;
+        while(current != null) {
+            shortestPath.add(current);
+            var temp = shortestTableLookup.get(current);
+            current = temp.getValue();
+        }
+
+        Collections.reverse(shortestPath);
+
+        return shortestPath;
+    }
+
+
+    public List<Point> findShortestPathUnoptimized(Point start, Point end) {
+        List<Point> shortestPath = new ArrayList<>();
+
+        // Shortest Path Lookup Table
         HashMap<Point, Pair<Integer, Point>> shortestTableLookup = new HashMap<>();
 
         // Set the start point to have a distance of 0
