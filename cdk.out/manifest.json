@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1458a779b7251b06446127a192d4b7fe3426ea7ebafce7cf09c3b890f3fd8720.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5d3e8fea42887c8434a77bdc7f3c16386dcdba664e54d16d981c7866e6dd90b0.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -134,7 +134,7 @@
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf"
+            "data": "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource": [
@@ -273,6 +273,24 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapssrcdestOPTIONSFA61D73F"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/dsExplorerUsagePlan/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorerdsExplorerUsagePlanA6AA7D29"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/freeTier/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "freeTier72956893"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/UsagePlanKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UsagePlanKey"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default": [

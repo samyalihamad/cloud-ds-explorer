@@ -1,5 +1,6 @@
 package software.amazon.awscdk.examples;
 
+import software.amazon.awscdk.services.lambda.Runtime;
 import software.constructs.Construct;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.RemovalPolicy;
@@ -9,10 +10,7 @@ import software.amazon.awscdk.services.dynamodb.Attribute;
 import software.amazon.awscdk.services.dynamodb.AttributeType;
 import software.amazon.awscdk.services.dynamodb.Table;
 import software.amazon.awscdk.services.dynamodb.TableProps;
-import software.amazon.awscdk.services.lambda.Code;
-import software.amazon.awscdk.services.lambda.Function;
-import software.amazon.awscdk.services.lambda.FunctionProps;
-import software.amazon.awscdk.services.lambda.Runtime;
+import software.amazon.awscdk.services.lambda.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,11 +44,10 @@ class CorsLambdaCrudDynamodbStack extends Stack {
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .build();
         Table gMapsTable = new Table(this, "GeoMaps", gMapsTableProps);
-//
+
         Map<String, String> lambdaEnvMap = new HashMap<>();
         lambdaEnvMap.put("TABLE_NAME", gMapsTable.getTableName());
         lambdaEnvMap.put("PRIMARY_KEY","point");
-
 
         Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
@@ -67,39 +64,72 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         gMapsTable.grantReadWriteData(gMapsGetShortestPath);
         gMapsTable.grantReadWriteData(segmentTreeFunction);
 
+        // Create the API Gateway
         RestApi api = new RestApi(this, "ds-explorer",
                 RestApiProps.builder().restApiName("Cloud DS Explorer").build());
+
+        // Create an API Key
+        ApiKey apiKey = new ApiKey(this, "freeTier",
+                ApiKeyProps.builder().apiKeyName("freeTier").build());
+
+
+        // Create a Usage Plan and associate it with the API Key
+        UsagePlan usagePlan = api.addUsagePlan("dsExplorerUsagePlan", UsagePlanProps.builder()
+            .name("freeTierPlan")
+            .throttle(ThrottleSettings.builder()
+                .rateLimit(10)
+                .burstLimit(2)
+                .build())
+            .apiStages(List.of(UsagePlanPerApiStage.builder()
+                .api(api)
+                .stage(api.getDeploymentStage())
+                .build()))
+            .build()
+        );
+
+        // Attach the Usage Plan to the API Stage
+        CfnUsagePlanKey.Builder.create(this, "UsagePlanKey")
+                .keyId(apiKey.getKeyId())
+                .keyType("API_KEY")
+                .usagePlanId(usagePlan.getUsagePlanId())
+                .build();
+
 
         // Segment Tree
         IResource segmentTree = api.getRoot().addResource("segmentTree");
         Integration segmentTreeIntegration = new LambdaIntegration(segmentTreeFunction);
-        segmentTree.addMethod("POST", segmentTreeIntegration);
+        addMethod(segmentTree, "POST", segmentTreeIntegration);
         addCorsOptions(segmentTree);
 
         // Two Heaps
         IResource twoHeapMedian = api.getRoot().addResource("twoHeapMedian");
         Integration twoHeapMedianIntegration = new LambdaIntegration(twoHeapMedianFunction);
-        twoHeapMedian.addMethod("POST", twoHeapMedianIntegration);
+        addMethod(twoHeapMedian, "POST", twoHeapMedianIntegration);
         addCorsOptions(twoHeapMedian);
 
         // GMaps
         IResource gMaps = api.getRoot().addResource("gMaps");
         // GMapsDataGenerator
         Integration gMapsIntegration = new LambdaIntegration(gMapsDataGeneratorFunction);
-        gMaps.addMethod("POST", gMapsIntegration);
+        addMethod(gMaps, "POST", gMapsIntegration);
         addCorsOptions(gMaps);
 
         // GMapsGetShortestPath
         IResource gMapsGetShortestPathSrcResource = gMaps.addResource("{src}");
         IResource gMapsGetShortestPathDestResource = gMapsGetShortestPathSrcResource.addResource("{dest}");
-
         Integration gMapsGetShortestPathIntegration = new LambdaIntegration(gMapsGetShortestPath);
 
-        gMapsGetShortestPathDestResource.addMethod("GET", gMapsGetShortestPathIntegration);
+        addMethod(gMapsGetShortestPathDestResource, "GET", gMapsGetShortestPathIntegration);
         addCorsOptions(gMapsGetShortestPathDestResource);
     }
 
+    private void addMethod(IResource resource, String method, Integration integration) {
+        MethodOptions methodOptions = MethodOptions.builder()
+                .apiKeyRequired(true)
+                .build();
 
+        resource.addMethod(method, integration, methodOptions);
+    }
 
     private void addCorsOptions(IResource item) {
         List<MethodResponse> methoedResponses = new ArrayList<>();

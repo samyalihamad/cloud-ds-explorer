@@ -1,10 +1,12 @@
 Factories/DIFactory.class
 software/amazon/awscdk/examples/lambda/SegmentTree.class
+software/amazon/awscdk/examples/lambda/authorizer/SymmetricKeyAuthorizer$1.class
 Models/GraphEdge.class
 Models/Point.class
 Repository/GMapsDataRepository.class
 DataStructures/Dijkstra.class
 Models/SegmentTree/QueryCommand.class
+software/amazon/awscdk/examples/lambda/authorizer/SymmetricKeyAuthorizer.class
 Models/SegmentTree/SegmentInput.class
 software/amazon/awscdk/examples/lambda/TwoHeaps.class
 DataStructures/NumArray.class

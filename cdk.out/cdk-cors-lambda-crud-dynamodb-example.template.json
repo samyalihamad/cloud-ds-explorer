@@ -123,7 +123,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+     "S3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -150,7 +150,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
-    "aws:asset:path": "asset.dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar",
+    "aws:asset:path": "asset.4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -196,7 +196,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+     "S3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -222,7 +222,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
-    "aws:asset:path": "asset.dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar",
+    "aws:asset:path": "asset.4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -315,7 +315,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+     "S3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -342,7 +342,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource",
-    "aws:asset:path": "asset.dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar",
+    "aws:asset:path": "asset.4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -435,7 +435,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+     "S3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -462,7 +462,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource",
-    "aws:asset:path": "asset.dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar",
+    "aws:asset:path": "asset.4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -531,7 +531,7 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account"
    }
   },
-  "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf": {
+  "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -565,7 +565,7 @@
      "Ref": "dsexplorer45F728E1"
     },
     "DeploymentId": {
-     "Ref": "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf"
+     "Ref": "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65"
     },
     "StageName": "prod"
    },
@@ -688,6 +688,7 @@
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
     },
+    "ApiKeyRequired": true,
     "AuthorizationType": "NONE",
     "Integration": {
      "IntegrationHttpMethod": "POST",
@@ -878,6 +879,7 @@
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
     },
+    "ApiKeyRequired": true,
     "AuthorizationType": "NONE",
     "Integration": {
      "IntegrationHttpMethod": "POST",
@@ -1068,6 +1070,7 @@
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
     },
+    "ApiKeyRequired": true,
     "AuthorizationType": "NONE",
     "Integration": {
      "IntegrationHttpMethod": "POST",
@@ -1270,6 +1273,7 @@
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
     },
+    "ApiKeyRequired": true,
     "AuthorizationType": "NONE",
     "Integration": {
      "IntegrationHttpMethod": "POST",
@@ -1348,10 +1352,59 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS/Resource"
    }
   },
+  "dsexplorerdsExplorerUsagePlanA6AA7D29": {
+   "Type": "AWS::ApiGateway::UsagePlan",
+   "Properties": {
+    "ApiStages": [
+     {
+      "ApiId": {
+       "Ref": "dsexplorer45F728E1"
+      },
+      "Stage": {
+       "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+      },
+      "Throttle": {}
+     }
+    ],
+    "Throttle": {
+     "BurstLimit": 2,
+     "RateLimit": 10
+    },
+    "UsagePlanName": "freeTierPlan"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/dsExplorerUsagePlan/Resource"
+   }
+  },
+  "freeTier72956893": {
+   "Type": "AWS::ApiGateway::ApiKey",
+   "Properties": {
+    "Enabled": true,
+    "Name": "freeTier"
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/freeTier/Resource"
+   }
+  },
+  "UsagePlanKey": {
+   "Type": "AWS::ApiGateway::UsagePlanKey",
+   "Properties": {
+    "KeyId": {
+     "Ref": "freeTier72956893"
+    },
+    "KeyType": "API_KEY",
+    "UsagePlanId": {
+     "Ref": "dsexplorerdsExplorerUsagePlanA6AA7D29"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/UsagePlanKey"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuWVgZEuduiAMSYhrcJzcxnWmTVI3DVFX977gpaOPk773YT3bu9eNWb1ZwiWtjm3VLlR7fGUyjxDqNdvDgghXzA6oW1f7TZ5hUC66yoMfn5A1T8PPTLR+wdxSjqEkROD0ewzKf6yG0ZIbcl2lScXuCGJGjLuciWu+SaZB3EFFBRzUwXmCQIIxcdpSzrlgaE5Jn9YRdGwaHguLeKLmqzgssIKMh9QZz/J/4zVz4Ffkc7GwtNE3XvrzjHES+njveEneJ/40L74O3xPkLXuAb7opCb3TxsPqKROtetiWH+rjUH1XSnyWJAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuadgYEuduiAMIUQ04T27iFdMmqZqEqar633HTQcfJ33PiF7/cyvutXK/g7DOl66yhUg5vAVQtuHUcdG/BOM3NdygbFPuTTTCKBkypQQ6P0apAzk5H11xgZ8h7VqMgMHI4uHk+1cI1pPp0L9Eo/PYI3mPwMp8Ka7mLqsawA48CWqog4Bl6NkIf8paS14K5Ui7aIB6wbVxvkJG7V4pTVWmBGXjUxU5hsv8VF8+ZXzB8Oj21LvThebBoIOVbBC/wjCnLQn+nrMdx8U/ZpgXIVtO91xjaGP49y7x3VlNIX/cE33Cz2ci13NytvjxR1nFKMigPc/0BacQFccEBAAA="
    },
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default"

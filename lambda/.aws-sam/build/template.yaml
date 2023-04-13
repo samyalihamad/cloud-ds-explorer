@@ -4,7 +4,7 @@ Resources:
     Properties:
       Timeout: 900
       MemorySize: 1024
-      Handler: software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath
+      Handler: software.amazon.awscdk.examples.lambda.Search.LastGoodVersion
       CodeUri: Function
       Runtime: java11
       Architectures:

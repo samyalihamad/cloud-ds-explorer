@@ -223,7 +223,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+                      "s3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -353,7 +353,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+                      "s3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -545,7 +545,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+                      "s3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -737,7 +737,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "dcafd367eba4de957d1f366a0c2ef978c9dd21647ea6ff12a985ea90bf28ee6e.jar"
+                      "s3Key": "4159b66568345fa467d314d7e4b69e9a00b77acae7e45f95ef141dc149548188.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -905,7 +905,7 @@
                           "Ref": "dsexplorer45F728E1"
                         },
                         "deploymentId": {
-                          "Ref": "dsexplorerDeployment796B929303369a5fcd379d319a50f6f3219adfcf"
+                          "Ref": "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65"
                         },
                         "stageName": "prod"
                       }
@@ -1071,6 +1071,7 @@
                                 "restApiId": {
                                   "Ref": "dsexplorer45F728E1"
                                 },
+                                "apiKeyRequired": true,
                                 "authorizationType": "NONE",
                                 "integration": {
                                   "type": "AWS_PROXY",
@@ -1316,6 +1317,7 @@
                                 "restApiId": {
                                   "Ref": "dsexplorer45F728E1"
                                 },
+                                "apiKeyRequired": true,
                                 "authorizationType": "NONE",
                                 "integration": {
                                   "type": "AWS_PROXY",
@@ -1561,6 +1563,7 @@
                                 "restApiId": {
                                   "Ref": "dsexplorer45F728E1"
                                 },
+                                "apiKeyRequired": true,
                                 "authorizationType": "NONE",
                                 "integration": {
                                   "type": "AWS_PROXY",
@@ -1821,6 +1824,7 @@
                                         "restApiId": {
                                           "Ref": "dsexplorer45F728E1"
                                         },
+                                        "apiKeyRequired": true,
                                         "authorizationType": "NONE",
                                         "integration": {
                                           "type": "AWS_PROXY",
@@ -1945,10 +1949,94 @@
                   "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
                   "version": "2.73.0"
                 }
+              },
+              "dsExplorerUsagePlan": {
+                "id": "dsExplorerUsagePlan",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/dsExplorerUsagePlan",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/dsExplorerUsagePlan/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::UsagePlan",
+                      "aws:cdk:cloudformation:props": {
+                        "apiStages": [
+                          {
+                            "apiId": {
+                              "Ref": "dsexplorer45F728E1"
+                            },
+                            "stage": {
+                              "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+                            },
+                            "throttle": {}
+                          }
+                        ],
+                        "throttle": {
+                          "burstLimit": 2,
+                          "rateLimit": 10
+                        },
+                        "usagePlanName": "freeTierPlan"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnUsagePlan",
+                      "version": "2.73.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.UsagePlan",
+                  "version": "2.73.0"
+                }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
+              "version": "2.73.0"
+            }
+          },
+          "freeTier": {
+            "id": "freeTier",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/freeTier",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cdk-cors-lambda-crud-dynamodb-example/freeTier/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::ApiKey",
+                  "aws:cdk:cloudformation:props": {
+                    "enabled": true,
+                    "name": "freeTier"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnApiKey",
+                  "version": "2.73.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.ApiKey",
+              "version": "2.73.0"
+            }
+          },
+          "UsagePlanKey": {
+            "id": "UsagePlanKey",
+            "path": "cdk-cors-lambda-crud-dynamodb-example/UsagePlanKey",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::ApiGateway::UsagePlanKey",
+              "aws:cdk:cloudformation:props": {
+                "keyId": {
+                  "Ref": "freeTier72956893"
+                },
+                "keyType": "API_KEY",
+                "usagePlanId": {
+                  "Ref": "dsexplorerdsExplorerUsagePlanA6AA7D29"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.CfnUsagePlanKey",
               "version": "2.73.0"
             }
           },
@@ -1975,7 +2063,7 @@
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.1.307"
+              "version": "10.0.12"
             }
           },
           "BootstrapVersion": {
@@ -2005,7 +2093,7 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.1.307"
+          "version": "10.0.12"
         }
       }
     },
