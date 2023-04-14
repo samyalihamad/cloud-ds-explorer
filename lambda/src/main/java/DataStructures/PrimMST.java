@@ -33,21 +33,6 @@ public class PrimMST {
                 }
             }
         }
-        System.out.println("Edges: " + edges.size());
-//        for(int i = 0; i < points.length; i++) {
-//            for(int j = 0; j < points.length; j++) {
-//                if(i != j) {
-//                    int xWeight = Math.abs(points[i][0] - points[j][0]);
-//                    int yWeight = Math.abs(points[i][1] - points[j][1]);
-//                    int weight = xWeight + yWeight;
-//
-//                    Point a = new Point(points[i][0], points[i][1]);
-//                    Point b = new Point(points[j][0], points[j][1]);
-//                    GraphEdge edge = new GraphEdge(a, b, weight);
-//                    edges.add(edge);
-//                }
-//            }
-//        }
     }
 
     public List<GraphEdge> getMST() {

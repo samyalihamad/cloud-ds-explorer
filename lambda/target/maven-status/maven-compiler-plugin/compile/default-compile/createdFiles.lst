@@ -1,6 +1,8 @@
 Factories/DIFactory.class
 software/amazon/awscdk/examples/lambda/SegmentTree.class
+software/amazon/awscdk/examples/lambda/Search/LastGoodVersion.class
 software/amazon/awscdk/examples/lambda/authorizer/SymmetricKeyAuthorizer$1.class
+Models/Mappers/GraphConverter.class
 Models/GraphEdge.class
 Models/Point.class
 Repository/GMapsDataRepository.class
@@ -8,12 +10,14 @@ DataStructures/Dijkstra.class
 Models/SegmentTree/QueryCommand.class
 software/amazon/awscdk/examples/lambda/authorizer/SymmetricKeyAuthorizer.class
 Models/SegmentTree/SegmentInput.class
+Models/Vector.class
 software/amazon/awscdk/examples/lambda/TwoHeaps.class
 DataStructures/NumArray.class
 DataStructures/QuadTree.class
 Models/Mappers/GeoMapsConverter.class
 util/JsonUtil.class
 DataStructures/PrimMST.class
+Models/GMaps/ShortestPathResponse.class
 software/amazon/awscdk/examples/lambda/GMaps/GMapDataGenerator.class
 Models/TwoHeaps/TwoHeapsInput.class
 Models/QuadTree/QuadTreeNode.class
@@ -25,4 +29,5 @@ DataStructures/NumArray$SegmentNode.class
 Models/SegmentTree/UpdateCommand.class
 Interfaces/MapsRepository.class
 util/StringUtil.class
+DataStructures/BinarySearch.class
 DataStructures/TwoHeapMedian.class
