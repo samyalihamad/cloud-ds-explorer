@@ -3,9 +3,9 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 900
-      MemorySize: 1024
-      Handler: software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath
-      CodeUri: /Users/samyalihamad/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - Samy’s iMac/Projects/cloud-ds-explorer/lambda
+      MemorySize: 1152
+      Handler: software.amazon.awscdk.examples.lambda.TwoHeaps
+      CodeUri: /Users/samyalihamad/Documents/cloud-ds-explorer/lambda
       Runtime: java11
       Architectures:
         - x86_64
