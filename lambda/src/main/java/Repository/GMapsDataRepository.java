@@ -17,6 +17,7 @@ import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -32,7 +33,7 @@ public class GMapsDataRepository implements MapsRepository {
     }
 
     @Override
-    public List<Point> getPoint(int x, int y) {
+    public Point getPoint(int x, int y) {
         String point = x + "," + y;
         QuerySpec querySpec = new QuerySpec()
                 .withKeyConditionExpression("#point = :pointValue")
@@ -40,8 +41,13 @@ public class GMapsDataRepository implements MapsRepository {
                 .withValueMap(new ValueMap().withString(":pointValue", point));
 
         ItemCollection<QueryOutcome> items = table.query(querySpec);
+        List<Point> points = GeoMapsConverter.convertToGeoPointQuery(items);
 
-        return GeoMapsConverter.convertToGeoPointQuery(items);
+        if(points.size() > 1)
+            throw new RuntimeException("More than one point found");
+        else if (points.size() == 1)
+            return points.get(0);
+        else return null;
     }
 
     @Override
@@ -58,7 +64,7 @@ public class GMapsDataRepository implements MapsRepository {
     }
 
     @Override
-    public void savePoint(Point point, List<PointEdge> edges) {
+    public void savePoint(Point point, Set<PointEdge> edges) {
 
         Item item = new Item()
                 .withPrimaryKey("point", point.x + "," + point.y)

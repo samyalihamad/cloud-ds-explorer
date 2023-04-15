@@ -51,7 +51,7 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
     private List<GraphEdge> execute(String body) {
         QuadTree quadTree = new QuadTree(0, 0, 20, 20, 2);
         Set<Point> points = new HashSet<>();
-        Map<String, List<GraphEdge>> quadPointGraphEdges = new HashMap<>();
+        Map<String, Set<GraphEdge>> quadPointGraphEdges = new HashMap<>();
 
         Random random = new Random();
 
@@ -134,8 +134,8 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
                 if(neighbor.getKey() == "north" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
                     var northPoints = quadPointGraphEdges.get(neighbor.getValue());
 
-                    var northPoint = northPoints.get(0).a;
-                    var currPoint = currPoints.get(0).a;
+                    var northPoint = northPoints.stream().findFirst().get().a;
+                    var currPoint = currPoints.stream().findFirst().get().a;
 
                     int weight = Math.abs(northPoint.x - currPoint.x) + Math.abs(northPoint.y - currPoint.y);
                     GraphEdge edge = new GraphEdge(northPoint, currPoint, weight);
@@ -145,8 +145,8 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
                 if(neighbor.getKey() == "south" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
                     var southPoints = quadPointGraphEdges.get(neighbor.getValue());
 
-                    var southPoint = southPoints.get(0).a;
-                    var currPoint = currPoints.get(0).a;
+                    var southPoint = southPoints.stream().findFirst().get().a;
+                    var currPoint = currPoints.stream().findFirst().get().a;
 
                     int weight = Math.abs(southPoint.x - currPoint.x) + Math.abs(southPoint.y - currPoint.y);
                     GraphEdge edge = new GraphEdge(southPoint, currPoint, weight);
@@ -156,8 +156,8 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
                 if(neighbor.getKey() == "east" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
                     var eastPoints = quadPointGraphEdges.get(neighbor.getValue());
 
-                    var eastPoint = eastPoints.get(0).a;
-                    var currPoint = currPoints.get(0).a;
+                    var eastPoint = eastPoints.stream().findFirst().get().a;
+                    var currPoint = currPoints.stream().findFirst().get().a;
 
                     int weight = Math.abs(eastPoint.x - currPoint.x) + Math.abs(eastPoint.y - currPoint.y);
                     GraphEdge edge = new GraphEdge(eastPoint, currPoint, weight);
@@ -167,8 +167,8 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
                 if(neighbor.getKey() == "west" && quadPointGraphEdges.containsKey(neighbor.getValue())) {
                     var westPoints = quadPointGraphEdges.get(neighbor.getValue());
 
-                    var westPoint = westPoints.get(0).a;
-                    var currPoint = currPoints.get(0).a;
+                    var westPoint = westPoints.stream().findFirst().get().a;
+                    var currPoint = currPoints.stream().findFirst().get().a;
 
                     int weight = Math.abs(westPoint.x - currPoint.x) + Math.abs(westPoint.y - currPoint.y);
                     GraphEdge edge = new GraphEdge(westPoint, currPoint, weight);
@@ -186,9 +186,9 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
         System.out.println(gson.toJson(outputEdges));
 
 
-        Map<Point, ArrayList<PointEdge>> adjacencyList = new HashMap<>();
+        Map<Point, Set<PointEdge>> adjacencyList = new HashMap<>();
         for(var point : points) {
-            adjacencyList.put(point, new ArrayList<>());
+            adjacencyList.put(point, new HashSet<>());
         }
 
         for(var edge : outputEdges) {

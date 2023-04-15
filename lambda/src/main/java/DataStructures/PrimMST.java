@@ -35,13 +35,13 @@ public class PrimMST {
         }
     }
 
-    public List<GraphEdge> getMST() {
+    public Set<GraphEdge> getMST() {
         int n = points.size();
 
         // Build Adjacency List
-        Map<Point, ArrayList<Pair<Integer, Point>>> adjacencyList = new HashMap<>();
+        Map<Point, Set<Pair<Integer, Point>>> adjacencyList = new HashMap<>();
         for(var point : points) {
-            adjacencyList.put(point, new ArrayList<>());
+            adjacencyList.put(point, new HashSet<>());
         }
 
         for(GraphEdge edge : edges) {
@@ -65,7 +65,7 @@ public class PrimMST {
         }
 
         int mstCost = 0;
-        List<GraphEdge> mst = new ArrayList<>();
+        Set<GraphEdge> mst = new HashSet<>();
         // This is our starting point and it doesn't cost us
         // anything to visit it.
         visited.add(start);

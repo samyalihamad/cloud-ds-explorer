@@ -1,15 +1,26 @@
 package Models.GMaps;
 
-import Models.Point;
-import Models.Vector;
-import java.util.List;
-
 public class ShortestPathResponse {
-	public List<Vector> vicinityPaths;
-	public List<Vector> shortestPaths;
+	private ShortestPath shortestPath;
+	private String errorMessage;
 
-	public ShortestPathResponse(List<Vector> vicinityPaths, List<Vector> shortestPaths) {
-		this.shortestPaths = shortestPaths;
-		this.vicinityPaths = vicinityPaths;
+	public ShortestPathResponse(ShortestPath shortestPath) {
+		this.shortestPath = shortestPath;
+	}
+
+	public ShortestPathResponse(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public boolean hasError() {
+		return errorMessage != null;
+	}
+
+	public ShortestPath getShortestPath() {
+		return shortestPath;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 }
