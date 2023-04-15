@@ -68,7 +68,14 @@
         </plugins>
     </build>
 
+    <!-- https://mvnrepository.com/artifact-->
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>6.2.3.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

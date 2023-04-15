@@ -3,8 +3,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 900
-      MemorySize: 1024
-      Handler: software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath
+      MemorySize: 1152
+      Handler: software.amazon.awscdk.examples.lambda.TwoHeaps
       CodeUri: Function
       Runtime: java11
       Architectures:

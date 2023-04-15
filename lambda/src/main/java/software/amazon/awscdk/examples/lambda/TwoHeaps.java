@@ -4,6 +4,7 @@ import DataStructures.NumArray;
 import DataStructures.TwoHeapMedian;
 import Models.SegmentTree.SegmentInput;
 import Models.TwoHeaps.TwoHeapsInput;
+import Repository.RedisConnection;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.lettuce.core.api.sync.RedisCommands;
 import util.JsonUtil;
 
 import java.io.IOException;
@@ -27,11 +29,19 @@ public class TwoHeaps implements RequestHandler<Map<String,Object>, GatewayRespo
         String body = (String)input.get("body");
         logger.log("Body is:"+body);
 
-        var output = execute(body);
+//        var output = execute(body);
+
+        RedisCommands<String, String> redisCommands = RedisConnection.getCommands();
+
+        // Example usage
+        redisCommands.set("007", "James Bond");
+
+        var agent = redisCommands.get("007");
+        System.out.println(agent);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        return new GatewayResponse(output.toString(), headers, 200);
+        return new GatewayResponse("success", headers, 200);
     }
 
     private List<Double> execute(String body) {
