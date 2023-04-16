@@ -5,14 +5,13 @@ import java.util.PriorityQueue;
 
 public class TwoHeapMedian {
     // Create a custom comparator to reverse the default order
-    Comparator<Integer> maxHeapComparator = (a, b) -> b - a;
     PriorityQueue<Integer> smallMaxHeap;
     PriorityQueue<Integer> largeMinHeap;
     public TwoHeapMedian() {
         // small (max) heap   large (min) heap
         // 1 2 3 4 5 6 7 8    9 10 11 12 13 14 15
         // Create a max priority queue using the custom comparator
-        smallMaxHeap = new PriorityQueue<>(maxHeapComparator);
+        smallMaxHeap = new PriorityQueue<>((a, b) -> b - a);
 
         // Create a min priority queue
         largeMinHeap = new PriorityQueue<>();
@@ -22,7 +21,7 @@ public class TwoHeapMedian {
         // Default add to the small heap
         smallMaxHeap.add(num);
 
-        // Verify that the small heap is not larger than the large heap
+        // If the small heap max value is greater than the large heap min value, swap
         if(!smallMaxHeap.isEmpty() && !largeMinHeap.isEmpty() && smallMaxHeap.peek() > largeMinHeap.peek()) {
             var smallHeapValue = smallMaxHeap.poll();
             largeMinHeap.add(smallHeapValue);

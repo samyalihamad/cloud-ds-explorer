@@ -4,7 +4,7 @@ Resources:
     Properties:
       Timeout: 900
       MemorySize: 1152
-      Handler: software.amazon.awscdk.examples.lambda.TwoHeaps
+      Handler: cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler
       CodeUri: Function
       Runtime: java11
       Architectures:

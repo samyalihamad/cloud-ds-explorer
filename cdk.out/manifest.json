@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/39df6e1888db0f19ea20f7d631fdd80db3805008ed76ef9d6ec73ce9d9b51697.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5699d67ac3561194c842c57c24e4353ff71dd91a2af7a6c95c167d7570454f44.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -63,18 +63,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "segmentTreeFunction007D582E"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "twoHeapsFunctionServiceRole9D680415"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "twoHeapsFunction773205BE"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/Resource": [
@@ -134,7 +122,7 @@
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65"
+            "data": "dsexplorerDeployment796B92937195461b5dc5b92c1af5a69825df6f10"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource": [
@@ -179,34 +167,52 @@
             "data": "dsexplorersegmentTreeOPTIONSA3C3E887"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorertwoHeapMedian7387312A"
+            "data": "dsexplorermedianTracker00B88DA5"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorertwoHeapMedianPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedian35CFF4A8"
+            "data": "dsexplorermedianTrackerOPTIONS814DF954"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorertwoHeapMedianPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedianF072ECC3"
+            "data": "dsexplorermedianTrackerPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker30C1E195"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorertwoHeapMedianPOSTC3E60ACE"
+            "data": "dsexplorermedianTrackerPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker94E354A0"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS/Resource": [
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorertwoHeapMedianOPTIONSBCC91405"
+            "data": "dsexplorermedianTrackerPOST6932612A"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorermedianTrackerGETApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker50268231"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorermedianTrackerGETApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker5301ECFE"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dsexplorermedianTrackerGET3A27654A"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/Resource": [
@@ -291,6 +297,30 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "UsagePlanKey"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "twoHeapMedianAddValueFunction56FECB10"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE"
+          }
+        ],
+        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "twoHeapMedianGetMedianFunction5902CC9A"
           }
         ],
         "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default": [
