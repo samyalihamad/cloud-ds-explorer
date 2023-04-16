@@ -1,30 +1,34 @@
 package Repository;
 
 import io.lettuce.core.RedisClient;
-import io.lettuce.core.RedisURI;
 import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import redis.clients.jedis.JedisPooled;
+
+import java.util.UUID;
 
 public class RedisConnection {
 	private static RedisClient redisClient;
 	private static StatefulRedisConnection<String, String> connection;
+	// Track if AWS is reusing the same lambda instance
+	private static String lambdaPoolId;
+	private static JedisPooled pool;
 
 	static {
+		lambdaPoolId = UUID.randomUUID().toString();
 		String redisHost = "host.docker.internal";
 		int redisPort = 6379;
-
-		RedisURI redisURI = RedisURI.create(redisHost, redisPort);
-		redisClient = RedisClient.create(redisURI);
-
-		connection = redisClient.connect();
+		String redisPassword = "redispw";
+		pool = new JedisPooled(new GenericObjectPoolConfig<>(), redisHost, redisPort, "default", redisPassword);
 	}
 
-	public static RedisCommands<String, String> getCommands() {
-		return connection.sync();
+	public static JedisPooled getJediClient() {
+		System.out.println("Pool ID: " + lambdaPoolId);
+		return pool;
 	}
 
 	public static void closeConnection() {
-		connection.close();
-		redisClient.shutdown();
+		if(pool != null)
+			pool.close();
 	}
 }

@@ -13,6 +13,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.lettuce.core.api.sync.RedisCommands;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPooled;
 import util.JsonUtil;
 
 import java.io.IOException;
@@ -29,15 +31,16 @@ public class TwoHeaps implements RequestHandler<Map<String,Object>, GatewayRespo
         String body = (String)input.get("body");
         logger.log("Body is:"+body);
 
-//        var output = execute(body);
 
-        RedisCommands<String, String> redisCommands = RedisConnection.getCommands();
+        try(JedisPooled jedis = RedisConnection.getJediClient())
+        {
+            String agent = jedis.get("007");
+            System.out.println("Agent: " + agent);
+            if(agent == null)
+                jedis.set("007", "James Bond");
 
-        // Example usage
-        redisCommands.set("007", "James Bond");
-
-        var agent = redisCommands.get("007");
-        System.out.println(agent);
+            System.out.println(agent);
+        }
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
