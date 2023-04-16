@@ -123,7 +123,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar"
+     "S3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -150,79 +150,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
-    "aws:asset:path": "asset.a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar",
-    "aws:asset:is-bundled": false,
-    "aws:asset:property": "Code"
-   }
-  },
-  "twoHeapsFunctionServiceRole9D680415": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "Service": "lambda.amazonaws.com"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "ManagedPolicyArns": [
-     {
-      "Fn::Join": [
-       "",
-       [
-        "arn:",
-        {
-         "Ref": "AWS::Partition"
-        },
-        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-       ]
-      ]
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/ServiceRole/Resource"
-   }
-  },
-  "twoHeapsFunction773205BE": {
-   "Type": "AWS::Lambda::Function",
-   "Properties": {
-    "Code": {
-     "S3Bucket": {
-      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
-     },
-     "S3Key": "a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar"
-    },
-    "Role": {
-     "Fn::GetAtt": [
-      "twoHeapsFunctionServiceRole9D680415",
-      "Arn"
-     ]
-    },
-    "Environment": {
-     "Variables": {
-      "TABLE_NAME": {
-       "Ref": "GeoMapsE3CED104"
-      },
-      "PRIMARY_KEY": "point"
-     }
-    },
-    "Handler": "software.amazon.awscdk.examples.lambda.TwoHeaps",
-    "MemorySize": 512,
-    "Runtime": "java11",
-    "Timeout": 30
-   },
-   "DependsOn": [
-    "twoHeapsFunctionServiceRole9D680415"
-   ],
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapsFunction/Resource",
-    "aws:asset:path": "asset.a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar",
+    "aws:asset:path": "asset.7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -315,7 +243,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar"
+     "S3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -342,7 +270,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource",
-    "aws:asset:path": "asset.a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar",
+    "aws:asset:path": "asset.7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -435,7 +363,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar"
+     "S3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -462,7 +390,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource",
-    "aws:asset:path": "asset.a0baf2b5e5eb60e85eaf74af68f0101e408afbbcddd83c0116e9bc69d2512d49.jar",
+    "aws:asset:path": "asset.7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -531,7 +459,7 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account"
    }
   },
-  "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65": {
+  "dsexplorerDeployment796B92937195461b5dc5b92c1af5a69825df6f10": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -547,12 +475,13 @@
     "dsexplorergMapsOPTIONS1AACEF90",
     "dsexplorergMapsPOST6766FA0E",
     "dsexplorergMaps449AB82F",
+    "dsexplorermedianTrackerGET3A27654A",
+    "dsexplorermedianTrackerOPTIONS814DF954",
+    "dsexplorermedianTrackerPOST6932612A",
+    "dsexplorermedianTracker00B88DA5",
     "dsexplorersegmentTreeOPTIONSA3C3E887",
     "dsexplorersegmentTreePOSTCFC39CA9",
-    "dsexplorersegmentTree62E3684E",
-    "dsexplorertwoHeapMedianOPTIONSBCC91405",
-    "dsexplorertwoHeapMedianPOSTC3E60ACE",
-    "dsexplorertwoHeapMedian7387312A"
+    "dsexplorersegmentTree62E3684E"
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource"
@@ -565,7 +494,7 @@
      "Ref": "dsexplorer45F728E1"
     },
     "DeploymentId": {
-     "Ref": "dsexplorerDeployment796B92937193ea05720c2978d794175d0c74ca65"
+     "Ref": "dsexplorerDeployment796B92937195461b5dc5b92c1af5a69825df6f10"
     },
     "StageName": "prod"
    },
@@ -767,7 +696,7 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/OPTIONS/Resource"
    }
   },
-  "dsexplorertwoHeapMedian7387312A": {
+  "dsexplorermedianTracker00B88DA5": {
    "Type": "AWS::ApiGateway::Resource",
    "Properties": {
     "ParentId": {
@@ -776,149 +705,21 @@
       "RootResourceId"
      ]
     },
-    "PathPart": "twoHeapMedian",
+    "PathPart": "medianTracker",
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/Resource"
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/Resource"
    }
   },
-  "dsexplorertwoHeapMedianPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedian35CFF4A8": {
-   "Type": "AWS::Lambda::Permission",
-   "Properties": {
-    "Action": "lambda:InvokeFunction",
-    "FunctionName": {
-     "Fn::GetAtt": [
-      "twoHeapsFunction773205BE",
-      "Arn"
-     ]
-    },
-    "Principal": "apigateway.amazonaws.com",
-    "SourceArn": {
-     "Fn::Join": [
-      "",
-      [
-       "arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":execute-api:",
-       {
-        "Ref": "AWS::Region"
-       },
-       ":",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":",
-       {
-        "Ref": "dsexplorer45F728E1"
-       },
-       "/",
-       {
-        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
-       },
-       "/POST/twoHeapMedian"
-      ]
-     ]
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian"
-   }
-  },
-  "dsexplorertwoHeapMedianPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTtwoHeapMedianF072ECC3": {
-   "Type": "AWS::Lambda::Permission",
-   "Properties": {
-    "Action": "lambda:InvokeFunction",
-    "FunctionName": {
-     "Fn::GetAtt": [
-      "twoHeapsFunction773205BE",
-      "Arn"
-     ]
-    },
-    "Principal": "apigateway.amazonaws.com",
-    "SourceArn": {
-     "Fn::Join": [
-      "",
-      [
-       "arn:",
-       {
-        "Ref": "AWS::Partition"
-       },
-       ":execute-api:",
-       {
-        "Ref": "AWS::Region"
-       },
-       ":",
-       {
-        "Ref": "AWS::AccountId"
-       },
-       ":",
-       {
-        "Ref": "dsexplorer45F728E1"
-       },
-       "/test-invoke-stage/POST/twoHeapMedian"
-      ]
-     ]
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..twoHeapMedian"
-   }
-  },
-  "dsexplorertwoHeapMedianPOSTC3E60ACE": {
-   "Type": "AWS::ApiGateway::Method",
-   "Properties": {
-    "HttpMethod": "POST",
-    "ResourceId": {
-     "Ref": "dsexplorertwoHeapMedian7387312A"
-    },
-    "RestApiId": {
-     "Ref": "dsexplorer45F728E1"
-    },
-    "ApiKeyRequired": true,
-    "AuthorizationType": "NONE",
-    "Integration": {
-     "IntegrationHttpMethod": "POST",
-     "Type": "AWS_PROXY",
-     "Uri": {
-      "Fn::Join": [
-       "",
-       [
-        "arn:",
-        {
-         "Ref": "AWS::Partition"
-        },
-        ":apigateway:",
-        {
-         "Ref": "AWS::Region"
-        },
-        ":lambda:path/2015-03-31/functions/",
-        {
-         "Fn::GetAtt": [
-          "twoHeapsFunction773205BE",
-          "Arn"
-         ]
-        },
-        "/invocations"
-       ]
-      ]
-     }
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/POST/Resource"
-   }
-  },
-  "dsexplorertwoHeapMedianOPTIONSBCC91405": {
+  "dsexplorermedianTrackerOPTIONS814DF954": {
    "Type": "AWS::ApiGateway::Method",
    "Properties": {
     "HttpMethod": "OPTIONS",
     "ResourceId": {
-     "Ref": "dsexplorertwoHeapMedian7387312A"
+     "Ref": "dsexplorermedianTracker00B88DA5"
     },
     "RestApiId": {
      "Ref": "dsexplorer45F728E1"
@@ -955,7 +756,263 @@
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/twoHeapMedian/OPTIONS/Resource"
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/OPTIONS/Resource"
+   }
+  },
+  "dsexplorermedianTrackerPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker30C1E195": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "twoHeapMedianAddValueFunction56FECB10",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/",
+       {
+        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+       },
+       "/POST/medianTracker"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker"
+   }
+  },
+  "dsexplorermedianTrackerPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker94E354A0": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "twoHeapMedianAddValueFunction56FECB10",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/test-invoke-stage/POST/medianTracker"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker"
+   }
+  },
+  "dsexplorermedianTrackerPOST6932612A": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "POST",
+    "ResourceId": {
+     "Ref": "dsexplorermedianTracker00B88DA5"
+    },
+    "RestApiId": {
+     "Ref": "dsexplorer45F728E1"
+    },
+    "ApiKeyRequired": true,
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "twoHeapMedianAddValueFunction56FECB10",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/Resource"
+   }
+  },
+  "dsexplorermedianTrackerGETApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker50268231": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "twoHeapMedianGetMedianFunction5902CC9A",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/",
+       {
+        "Ref": "dsexplorerDeploymentStageprodF5DFB945"
+       },
+       "/GET/medianTracker"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker"
+   }
+  },
+  "dsexplorermedianTrackerGETApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker5301ECFE": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "twoHeapMedianGetMedianFunction5902CC9A",
+      "Arn"
+     ]
+    },
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":",
+       {
+        "Ref": "dsexplorer45F728E1"
+       },
+       "/test-invoke-stage/GET/medianTracker"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker"
+   }
+  },
+  "dsexplorermedianTrackerGET3A27654A": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "GET",
+    "ResourceId": {
+     "Ref": "dsexplorermedianTracker00B88DA5"
+    },
+    "RestApiId": {
+     "Ref": "dsexplorer45F728E1"
+    },
+    "ApiKeyRequired": true,
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:",
+        {
+         "Ref": "AWS::Region"
+        },
+        ":lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "twoHeapMedianGetMedianFunction5902CC9A",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/Resource"
    }
   },
   "dsexplorergMaps449AB82F": {
@@ -1401,10 +1458,154 @@
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/UsagePlanKey"
    }
   },
+  "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/ServiceRole/Resource"
+   }
+  },
+  "twoHeapMedianAddValueFunction56FECB10": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "GeoMapsE3CED104"
+      },
+      "PRIMARY_KEY": "point"
+     }
+    },
+    "Handler": "cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler",
+    "MemorySize": 512,
+    "Runtime": "java11",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/Resource",
+    "aws:asset:path": "asset.7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/ServiceRole/Resource"
+   }
+  },
+  "twoHeapMedianGetMedianFunction5902CC9A": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+     },
+     "S3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "GeoMapsE3CED104"
+      },
+      "PRIMARY_KEY": "point"
+     }
+    },
+    "Handler": "cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler",
+    "MemorySize": 512,
+    "Runtime": "java11",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/Resource",
+    "aws:asset:path": "asset.7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuadgYEuduiAMIUQ04T27iFdMmqZqEqar633HTQcfJ33PiF7/cyvutXK/g7DOl66yhUg5vAVQtuHUcdG/BOM3NdygbFPuTTTCKBkypQQ6P0apAzk5H11xgZ8h7VqMgMHI4uHk+1cI1pPp0L9Eo/PYI3mPwMp8Ka7mLqsawA48CWqog4Bl6NkIf8paS14K5Ui7aIB6wbVxvkJG7V4pTVWmBGXjUxU5hsv8VF8+ZXzB8Oj21LvThebBoIOVbBC/wjCnLQn+nrMdx8U/ZpgXIVtO91xjaGP49y7x3VlNIX/cE33Cz2ci13NytvjxR1nFKMigPc/0BacQFccEBAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQQU/DMAyFf8vuaRjbAa7dEAcQohpwntzEK6ZNUjUJU1X1v+Omg46Tv+fEL37ZyLutXK/g7DOl66yhUg5vAVQtuHUcdG/BOM3NdygbFPuTTTCKBkypQQ6P0apAzk5H11xgZ8h7VqMgMHI4uHk+1cI1pPp0L9Eo/PYI3mPwMp8Ka7mLqsawA48CWqog4Bl6NkIf8paS14K5Ui7aIB6wbVxvkJG7V4pTVWmBGXjUxU5hsv8VF8+ZXzB8Oj21LvThebBoIOVbBC/wjCnLQn+nrMdx8U/ZpgXIVtO91xjaGP49y7x3VlNIX/cE33Bzey/XcrP68kRZxyHJoDzM9QfEumU0wAEAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default"

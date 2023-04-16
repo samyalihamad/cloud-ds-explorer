@@ -51,8 +51,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
 
         Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
-        Function twoHeapMedianFunction = new Function(this, "twoHeapsFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.TwoHeaps"));
+
         Function gMapsDataGeneratorFunction = new Function(this, "gMapsDataGeneratorFunction",
                 getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator"));
         Function gMapsGetShortestPath = new Function(this, "gMapsGetShortestPath",
@@ -102,10 +101,21 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         addCorsOptions(segmentTree);
 
         // Two Heaps
-        IResource twoHeapMedian = api.getRoot().addResource("twoHeapMedian");
-        Integration twoHeapMedianIntegration = new LambdaIntegration(twoHeapMedianFunction);
-        addMethod(twoHeapMedian, "POST", twoHeapMedianIntegration);
-        addCorsOptions(twoHeapMedian);
+        IResource medianTracker = api.getRoot().addResource("medianTracker");
+        addCorsOptions(medianTracker);
+        // Two Heaps Add Value
+        Function twoHeapMedianAddValueFunction = new Function(this, "twoHeapMedianAddValueFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler"));
+
+        Integration twoHeapMedianIntegration = new LambdaIntegration(twoHeapMedianAddValueFunction);
+        addMethod(medianTracker, "POST", twoHeapMedianIntegration);
+
+        // Two Heaps Get Median
+        Function twoHeapMedianGetMedianFunction = new Function(this, "twoHeapMedianGetMedianFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler"));
+
+        Integration twoHeapMedianGetMedianIntegration = new LambdaIntegration(twoHeapMedianGetMedianFunction);
+        addMethod(medianTracker, "GET", twoHeapMedianGetMedianIntegration);
 
         // GMaps
         IResource gMaps = api.getRoot().addResource("gMaps");
