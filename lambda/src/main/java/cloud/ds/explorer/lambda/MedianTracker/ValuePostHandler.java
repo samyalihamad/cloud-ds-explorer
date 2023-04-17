@@ -1,12 +1,17 @@
 package cloud.ds.explorer.lambda.MedianTracker;
 
 import DataStructures.TwoHeapMedian;
+import Models.TwoHeaps.MedianTrackerInput;
 import Models.TwoHeaps.TwoHeapsInput;
+import Repository.RedisConnection;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPooled;
 import software.amazon.awscdk.examples.lambda.GatewayResponse;
 import util.HttpUtil;
 import util.JsonUtil;
@@ -23,36 +28,21 @@ public class ValuePostHandler implements RequestHandler<Map<String, Object>, Gat
 		String body = (String)input.get("body");
 		logger.log("Body is: "+body);
 
-		var response = addValue(body);
+		MedianTrackerInput inputValue = JsonUtil.parseJson(body, MedianTrackerInput.class);
 
-		System.out.println("response: "+response);
+		addValue(inputValue.getValue());
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return HttpUtil.generateResponse(200, gson.toJson(response));
+		return HttpUtil.generateResponse(200, gson.toJson("OK"));
 	}
 
-	private List<Double> addValue(String body) {
-		var output = new ArrayList<Double>();
+	private void addValue(int value) {
 		try {
-			TwoHeapsInput input = JsonUtil.parseJson(body, TwoHeapsInput.class);
-			var twoHeaps = new TwoHeapMedian();
-
-			List<List<Integer>> inputs = input.getInputArray();
-			List<String> commands = input.getCommandArray();
-			for(int i = 0; i < commands.size(); i++) {
-				String cmd = commands.get(i);
-				System.out.println("--------------------");
-				System.out.println("Command: " + cmd);
-
-				if(cmd.equals("addNum")) {
-					twoHeaps.addNum(inputs.get(i).get(0));
-				} else if(cmd.equals("findMedian")) {
-					output.add(twoHeaps.findMedian());
-				}
-			}
-			return output;
+			Jedis jedis = RedisConnection.getJedisFromPool();
+			var twoHeaps = new TwoHeapMedian(jedis);
+			twoHeaps.addNum(value);
 		} catch (Exception e) {
-			return output;
+			e.printStackTrace();
 		}
 	}
 }
