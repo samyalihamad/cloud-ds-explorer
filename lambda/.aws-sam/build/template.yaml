@@ -2,9 +2,9 @@ Resources:
   Function:
     Type: AWS::Serverless::Function
     Properties:
-      Timeout: 900
-      MemorySize: 1152
-      Handler: cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler
+      Timeout: 300
+      MemorySize: 128
+      Handler: cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler
       CodeUri: Function
       Runtime: java11
       Architectures:

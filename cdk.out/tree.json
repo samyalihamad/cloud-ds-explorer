@@ -223,7 +223,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+                      "s3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -415,7 +415,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+                      "s3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -607,7 +607,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+                      "s3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -2160,7 +2160,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+                      "s3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -2290,7 +2290,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "7135b30d942de52b7612fc7615f89bc8041c1dade16ce72e094a2b17b1b9e890.jar"
+                      "s3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
                     },
                     "role": {
                       "Fn::GetAtt": [
