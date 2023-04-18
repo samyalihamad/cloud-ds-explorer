@@ -62,6 +62,18 @@
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
        ]
       ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
      }
     ]
    },
@@ -123,7 +135,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
+     "S3Key": "ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -142,7 +154,22 @@
     "Handler": "software.amazon.awscdk.examples.lambda.SegmentTree",
     "MemorySize": 512,
     "Runtime": "java11",
-    "Timeout": 30
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      },
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      }
+     ]
+    }
    },
    "DependsOn": [
     "segmentTreeFunctionServiceRoleDefaultPolicy8531C241",
@@ -150,7 +177,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource",
-    "aws:asset:path": "asset.8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar",
+    "aws:asset:path": "asset.ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -180,6 +207,18 @@
          "Ref": "AWS::Partition"
         },
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
        ]
       ]
      }
@@ -243,7 +282,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
+     "S3Key": "ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -262,7 +301,22 @@
     "Handler": "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator",
     "MemorySize": 512,
     "Runtime": "java11",
-    "Timeout": 30
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      },
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      }
+     ]
+    }
    },
    "DependsOn": [
     "gMapsDataGeneratorFunctionServiceRoleDefaultPolicyE37B4B03",
@@ -270,7 +324,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource",
-    "aws:asset:path": "asset.8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar",
+    "aws:asset:path": "asset.ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -300,6 +354,18 @@
          "Ref": "AWS::Partition"
         },
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
        ]
       ]
      }
@@ -363,7 +429,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
+     "S3Key": "ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -382,7 +448,22 @@
     "Handler": "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath",
     "MemorySize": 512,
     "Runtime": "java11",
-    "Timeout": 30
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      },
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      }
+     ]
+    }
    },
    "DependsOn": [
     "gMapsGetShortestPathServiceRoleDefaultPolicy6BC9D26B",
@@ -390,7 +471,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource",
-    "aws:asset:path": "asset.8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar",
+    "aws:asset:path": "asset.ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -1485,6 +1566,18 @@
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
        ]
       ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
      }
     ]
    },
@@ -1499,7 +1592,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
+     "S3Key": "ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -1518,14 +1611,29 @@
     "Handler": "cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler",
     "MemorySize": 512,
     "Runtime": "java11",
-    "Timeout": 30
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      },
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      }
+     ]
+    }
    },
    "DependsOn": [
     "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA"
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/Resource",
-    "aws:asset:path": "asset.8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar",
+    "aws:asset:path": "asset.ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -1557,6 +1665,18 @@
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
        ]
       ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
      }
     ]
    },
@@ -1571,7 +1691,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar"
+     "S3Key": "ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -1590,14 +1710,29 @@
     "Handler": "cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler",
     "MemorySize": 512,
     "Runtime": "java11",
-    "Timeout": 30
+    "Timeout": 30,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      },
+      {
+       "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      }
+     ]
+    }
    },
    "DependsOn": [
     "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE"
    ],
    "Metadata": {
     "aws:cdk:path": "cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/Resource",
-    "aws:asset:path": "asset.8ab779dcfb60acbf486a9efd2b870cc3b8911c3b5d39d3a4495be4b0e2240487.jar",
+    "aws:asset:path": "asset.ffdfa8a730bf5a042b1919cfd91ee73e3324f963e39c747b4a6e17d1cf0ac25e.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
