@@ -19,14 +19,19 @@ public class RedisConnection {
 
 	static {
 		lambdaPoolId = UUID.randomUUID().toString();
-		String redisHost = "host.docker.internal";
+		// Access the environment variable
+		String redisEndpoint = System.getenv("REDIS_ENDPOINT");
+
+//		String redisHost = "host.docker.internal";
+//		String redisHost = "cdk-cl-v36wuaoo36zn.n4xc0n.0001.usw1.cache.amazonaws.com";
 		int redisPort = 6379;
 		String redisPassword = "redispw";
 		JedisPoolConfig config = new JedisPoolConfig();
 		config.setMaxTotal(128);
 		config.setMaxIdle(64);
 		config.setMinIdle(16);
-		pool = new JedisPool(config, redisHost, redisPort, 2000, redisPassword);
+		pool = new JedisPool(config, redisEndpoint, redisPort, 2000, redisPassword);
+//		pool = new JedisPool(config, redisEndpoint, redisPort, 2000);
 	}
 
 	public static Jedis getJedisFromPool() {

@@ -1,10 +1,11 @@
 package software.amazon.awscdk.examples;
 
+import software.amazon.awscdk.*;
+import software.amazon.awscdk.Stack;
+import software.amazon.awscdk.services.apigateway.IResource;
+import software.amazon.awscdk.services.ec2.*;
 import software.amazon.awscdk.services.lambda.Runtime;
 import software.constructs.Construct;
-import software.amazon.awscdk.Duration;
-import software.amazon.awscdk.RemovalPolicy;
-import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.services.apigateway.*;
 import software.amazon.awscdk.services.dynamodb.Attribute;
 import software.amazon.awscdk.services.dynamodb.AttributeType;
@@ -12,17 +13,18 @@ import software.amazon.awscdk.services.dynamodb.Table;
 import software.amazon.awscdk.services.dynamodb.TableProps;
 import software.amazon.awscdk.services.lambda.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * CorsLambdaCrudDynamodbStack CDK example for Java!
  */
 class CorsLambdaCrudDynamodbStack extends Stack {
-    public CorsLambdaCrudDynamodbStack(final Construct parent, final String name) {
+    public CorsLambdaCrudDynamodbStack(final Construct parent, final String name, final Vpc vpc, final StackProps props) {
         super(parent, name);
+
+        // Import the Redis endpoint using its export name
+        String redisEndpoint = Fn.importValue("RedisEndpointExport").toString();
+
 
         TableProps gMapsTableProps;
         Attribute gMapsPartitionKey = Attribute.builder()
@@ -48,16 +50,17 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         Map<String, String> lambdaEnvMap = new HashMap<>();
         lambdaEnvMap.put("TABLE_NAME", gMapsTable.getTableName());
         lambdaEnvMap.put("PRIMARY_KEY","point");
+        lambdaEnvMap.put("REDIS_ENDPOINT", redisEndpoint);
+
+        var sg = SecurityGroup.fromSecurityGroupId(this, "ImportedRedisSecurityGroup", vpc.getVpcDefaultSecurityGroup());
 
         Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree"));
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree", vpc, sg));
 
         Function gMapsDataGeneratorFunction = new Function(this, "gMapsDataGeneratorFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator"));
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator", vpc, sg));
         Function gMapsGetShortestPath = new Function(this, "gMapsGetShortestPath",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath"));
-
-
+                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath", vpc, sg));
 
         gMapsTable.grantReadWriteData(gMapsDataGeneratorFunction);
         gMapsTable.grantReadWriteData(gMapsGetShortestPath);
@@ -105,14 +108,14 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         addCorsOptions(medianTracker);
         // Two Heaps Add Value
         Function twoHeapMedianAddValueFunction = new Function(this, "twoHeapMedianAddValueFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler"));
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValuePostHandler", vpc, sg));
 
         Integration twoHeapMedianIntegration = new LambdaIntegration(twoHeapMedianAddValueFunction);
         addMethod(medianTracker, "POST", twoHeapMedianIntegration);
 
         // Two Heaps Get Median
         Function twoHeapMedianGetMedianFunction = new Function(this, "twoHeapMedianGetMedianFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler"));
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.MedianTracker.ValueGetHandler", vpc, sg));
 
         Integration twoHeapMedianGetMedianIntegration = new LambdaIntegration(twoHeapMedianGetMedianFunction);
         addMethod(medianTracker, "GET", twoHeapMedianGetMedianIntegration);
@@ -180,14 +183,20 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         item.addMethod("OPTIONS", methodIntegration, methodOptions);
     }
 
-    private FunctionProps getLambdaFunctionProps(Map<String, String> lambdaEnvMap, String handler) {
+    private FunctionProps getLambdaFunctionProps(Map<String, String> lambdaEnvMap, String handler, Vpc vpc, ISecurityGroup sg) {
+
         return FunctionProps.builder()
-                    .code(Code.fromAsset("./asset/lambda-1.0.0-jar-with-dependencies.jar"))
-                    .handler(handler)
-                    .runtime(Runtime.JAVA_11)
-                    .environment(lambdaEnvMap)
-                    .timeout(Duration.seconds(30))
-                    .memorySize(512)
-                    .build();
+            .code(Code.fromAsset("./asset/lambda-1.0.0-jar-with-dependencies.jar"))
+            .handler(handler)
+            .vpc(vpc)
+            .vpcSubnets(SubnetSelection.builder()
+                .subnetType(SubnetType.PRIVATE_WITH_EGRESS)
+                .build())
+            .securityGroups(Collections.singletonList(sg))
+            .runtime(Runtime.JAVA_11)
+            .environment(lambdaEnvMap)
+            .timeout(Duration.seconds(30))
+            .memorySize(512)
+            .build();
     }
 }

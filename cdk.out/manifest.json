@@ -1,6 +1,293 @@
 {
   "version": "31.0.0",
   "artifacts": {
+    "cdk-cloud-explorer-shared-resources.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cdk-cloud-explorer-shared-resources.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cdk-cloud-explorer-shared-resources": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cdk-cloud-explorer-shared-resources.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/09b7dacc2f2484b2e3a8a68d2ba440bcc1112e5e66a1c9a8a4bfd3ac07fee626.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cdk-cloud-explorer-shared-resources.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "cdk-cloud-explorer-shared-resources.assets"
+      ],
+      "metadata": {
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPC647B5B5E"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1SubnetCCFAE65B"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1RouteTable05352605"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1RouteTableAssociation16CCFCAC"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1DefaultRoute4DE95FFA"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1EIP606691ED"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet1NATGateway3AD24E47"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2Subnet6CAC1145"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2RouteTableD2BA7846"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2RouteTableAssociation34ADB74D"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2DefaultRouteB77BB654"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2EIP12D1257A"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPublicSubnet2NATGatewayAA1B6355"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet1Subnet5D54C8C1"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet1RouteTableD0750348"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet1RouteTableAssociation02ECD23C"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet1DefaultRoute77F68ACD"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet2Subnet3880EF30"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet2RouteTable101F89A4"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet2RouteTableAssociationF802337A"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCPrivateSubnet2DefaultRoute803060D7"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCIGWD8F56477"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerVPCVPCGW743535F9"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudExplorerVPCPrivateSubnet1Subnet5D54C8C1\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudExplorerVPCPrivateSubnet2Subnet3880EF30\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Fn::GetAtt\":[\"CloudExplorerVPC647B5B5E\",\"DefaultSecurityGroup\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cdk-cloud-explorer-shared-resources/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cdk-cloud-explorer-shared-resources"
+    },
+    "cdk-cloud-explorer-elasticache.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cdk-cloud-explorer-elasticache.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cdk-cloud-explorer-elasticache": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cdk-cloud-explorer-elasticache.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5444103c31632aeb62f1b9ca868942a7327c603b42912cc5819c9aab0ca35bdf.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cdk-cloud-explorer-elasticache.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "cdk-cloud-explorer-shared-resources",
+        "cdk-cloud-explorer-elasticache.assets"
+      ],
+      "metadata": {
+        "/cdk-cloud-explorer-elasticache/RedisSubnetGroup": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RedisSubnetGroup"
+          }
+        ],
+        "/cdk-cloud-explorer-elasticache/CloudExplorerRedisCluster": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudExplorerRedisCluster"
+          }
+        ],
+        "/cdk-cloud-explorer-elasticache/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cdk-cloud-explorer-elasticache/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/cdk-cloud-explorer-elasticache/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cdk-cloud-explorer-elasticache/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cdk-cloud-explorer-elasticache"
+    },
     "cdk-cors-lambda-crud-dynamodb-example.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
@@ -17,7 +304,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6195616291ea3d69c96a7abc7fcdbf0b42ad82d453fbd7b5fd68c87fc04bb7cc.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ef4857696456bb0adc0ee63329334db85ca496ba386ae366df0980bf304ba8aa.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -30,6 +317,8 @@
         }
       },
       "dependencies": [
+        "cdk-cloud-explorer-elasticache",
+        "cdk-cloud-explorer-shared-resources",
         "cdk-cors-lambda-crud-dynamodb-example.assets"
       ],
       "metadata": {

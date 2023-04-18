@@ -77,6 +77,9 @@ public class TwoHeapMedian {
     }
 
     public double findMedian() {
+        if(smallMaxHeap.isEmpty() && largeMinHeap.isEmpty())
+            return 0;
+
         if(smallMaxHeap.size() > largeMinHeap.size()) {
             return smallMaxHeap.peek();
         }

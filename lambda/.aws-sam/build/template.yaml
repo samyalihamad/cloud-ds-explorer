@@ -9,5 +9,8 @@ Resources:
       Runtime: java11
       Architectures:
       - x86_64
+      Environment:
+        Variables:
+          REDIS_ENDPOINT: host.docker.internal
     Metadata:
       SamResourceId: Function
