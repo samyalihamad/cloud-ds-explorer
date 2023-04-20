@@ -1,10 +1,10 @@
-package software.amazon.awscdk.examples.lambda.Search;
+package cloud.ds.explorer.lambda.Search;
 
 import DataStructures.BinarySearch;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
+import cloud.ds.explorer.lambda.GatewayResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class LastGoodVersion implements RequestHandler<Map<String,Object>, Gatew
 	@Override
 	public GatewayResponse handleRequest(Map<String, Object> input, Context context) {
 		LambdaLogger logger = context.getLogger();
-		logger.log("Inside software.amazon.awscdk.examples.lambda: getOneItem "+input.getClass()+ " data:"+input);
+		logger.log("Inside software.amazon.awscdk.lambda: getOneItem "+input.getClass()+ " data:"+input);
 
 		String body = (String)input.get("body");
 		logger.log("Body is:"+body);

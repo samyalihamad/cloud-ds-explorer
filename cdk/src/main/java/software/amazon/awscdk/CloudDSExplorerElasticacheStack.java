@@ -1,9 +1,8 @@
-package software.amazon.awscdk.examples;
+package software.amazon.awscdk;
 
 import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.CfnOutputProps;
 import software.amazon.awscdk.Stack;
-import software.amazon.awscdk.Fn;
 import software.amazon.awscdk.services.ec2.*;
 import software.amazon.awscdk.services.elasticache.*;
 import software.constructs.Construct;
@@ -11,13 +10,10 @@ import software.constructs.Construct;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-public class CloudExplorerElasticacheStack extends Stack {
+public class CloudDSExplorerElasticacheStack extends Stack {
 	public final CfnOutput redisEndpoint;
-	public CloudExplorerElasticacheStack(final Construct parent, final String name, Vpc vpc) {
+	public CloudDSExplorerElasticacheStack(final Construct parent, final String name, Vpc vpc) {
 		super(parent, name);
-
-		// Import the VPC ID from CloudExplorerSharedResourcesStack
-
 
 		// Create a Redis Subnet Group
 		CfnSubnetGroup subnetGroup = CfnSubnetGroup.Builder.create(this, "RedisSubnetGroup")
@@ -28,7 +24,7 @@ public class CloudExplorerElasticacheStack extends Stack {
 						.build();
 
 		// Create an ElastiCache Redis Cluster
-		CfnCacheCluster redisCluster = CfnCacheCluster.Builder.create(this, "CloudExplorerRedisCluster")
+		CfnCacheCluster redisCluster = CfnCacheCluster.Builder.create(this, "CloudDSExplorerRedisCluster")
 						.cacheNodeType("cache.t2.micro")
 						.engine("redis")
 						.numCacheNodes(1)

@@ -30,8 +30,8 @@ public class RedisConnection {
 		config.setMaxTotal(128);
 		config.setMaxIdle(64);
 		config.setMinIdle(16);
-		pool = new JedisPool(config, redisEndpoint, redisPort, 2000, redisPassword);
-//		pool = new JedisPool(config, redisEndpoint, redisPort, 2000);
+//		pool = new JedisPool(config, redisEndpoint, redisPort, 2000, redisPassword);
+		pool = new JedisPool(config, redisEndpoint, redisPort, 2000);
 	}
 
 	public static Jedis getJedisFromPool() {

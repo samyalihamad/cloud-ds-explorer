@@ -1,6 +1,6 @@
 package util;
 
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
+import cloud.ds.explorer.lambda.GatewayResponse;
 
 import java.util.HashMap;
 import java.util.Map;

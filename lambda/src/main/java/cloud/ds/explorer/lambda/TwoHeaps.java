@@ -1,26 +1,10 @@
-package software.amazon.awscdk.examples.lambda;
+package cloud.ds.explorer.lambda;
 
-import DataStructures.NumArray;
-import DataStructures.TwoHeapMedian;
-import Models.SegmentTree.SegmentInput;
-import Models.TwoHeaps.TwoHeapsInput;
-import Repository.RedisConnection;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import io.lettuce.core.api.sync.RedisCommands;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPooled;
-import util.JsonUtil;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TwoHeaps implements RequestHandler<Map<String,Object>, GatewayResponse>{

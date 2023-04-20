@@ -38,7 +38,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.amazonaws.cdk.examples.CorsLambdaCrudDynamodbApp</mainClass>
+                            <mainClass>com.amazonaws.cdk.examples.CloudDSExplorerApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,4 +1,4 @@
-package software.amazon.awscdk.examples.lambda;
+package cloud.ds.explorer.lambda;
 
 import java.util.Collections;
 import java.util.HashMap;

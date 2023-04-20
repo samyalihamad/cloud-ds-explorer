@@ -1,4 +1,4 @@
-package software.amazon.awscdk.examples.lambda;
+package cloud.ds.explorer.lambda;
 
 import DataStructures.NumArray;
 import Models.SegmentTree.*;
@@ -16,7 +16,7 @@ public class SegmentTree implements RequestHandler<Map<String,Object>, GatewayRe
     @Override
     public GatewayResponse handleRequest(Map<String, Object> input, Context context) {
         LambdaLogger logger = context.getLogger();
-        logger.log("Inside software.amazon.awscdk.examples.lambda: getOneItem "+input.getClass()+ " data:"+input);
+        logger.log("Inside software.amazon.awscdk.lambda: getOneItem "+input.getClass()+ " data:"+input);
 
         String body = (String)input.get("body");
         logger.log("Body is:"+body);
