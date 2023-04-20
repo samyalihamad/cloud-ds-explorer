@@ -2,11 +2,11 @@ package cloud.ds.explorer.lambda.MedianTracker;
 
 import DataStructures.TwoHeapMedian;
 import Repository.RedisConnection;
+import cloud.ds.explorer.lambda.GatewayResponse;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import redis.clients.jedis.Jedis;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
 import util.HttpUtil;
 
 import java.util.Map;

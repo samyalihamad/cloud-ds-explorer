@@ -1,4 +1,4 @@
-software/amazon/awscdk/examples/CorsLambdaCrudDynamodbStack.class
-software/amazon/awscdk/examples/CorsLambdaCrudDynamodbApp.class
-software/amazon/awscdk/examples/CloudExplorerSharedResourcesStack.class
-software/amazon/awscdk/examples/CloudExplorerElasticacheStack.class
+software/amazon/awscdk/CloudDSExplorerSharedResourcesStack.class
+software/amazon/awscdk/CloudDSExplorerElasticacheStack.class
+software/amazon/awscdk/CloudDSExplorerApp.class
+software/amazon/awscdk/CloudDSExplorerApiGatewayLambdaStack.class

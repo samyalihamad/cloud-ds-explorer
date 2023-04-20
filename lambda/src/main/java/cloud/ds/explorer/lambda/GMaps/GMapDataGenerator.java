@@ -1,4 +1,4 @@
-package software.amazon.awscdk.examples.lambda.GMaps;
+package cloud.ds.explorer.lambda.GMaps;
 
 import DataStructures.PrimMST;
 import DataStructures.QuadTree;
@@ -12,11 +12,10 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
+import cloud.ds.explorer.lambda.GatewayResponse;
 import util.StringUtil;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 // Description:  This lambda function generates a random graph of points and edges
 // Input: Takes in a x1,y1,x2,y2 and a depth value. The x1,y1,x2,y2 values are the coordinates of the main quadtree
@@ -36,7 +35,7 @@ public class GMapDataGenerator implements RequestHandler<Map<String, Object>, Ga
     @Override
     public GatewayResponse handleRequest(Map<String, Object> input, Context context) {
         LambdaLogger logger = context.getLogger();
-        logger.log("Inside software.amazon.awscdk.examples.lambda.GMaps: GMapDataLoader "+input.getClass()+ " data:"+input);
+        logger.log("Inside software.amazon.awscdk.lambda.GMaps: GMapDataLoader "+input.getClass()+ " data:"+input);
 
         String body = (String)input.get("body");
         logger.log("Body is:"+body);

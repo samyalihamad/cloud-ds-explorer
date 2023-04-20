@@ -1,27 +1,27 @@
 {
   "version": "31.0.0",
   "artifacts": {
-    "cdk-cloud-explorer-shared-resources.assets": {
+    "cdk-cloud-ds-explorer-shared-resources.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "cdk-cloud-explorer-shared-resources.assets.json",
+        "file": "cdk-cloud-ds-explorer-shared-resources.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "cdk-cloud-explorer-shared-resources": {
+    "cdk-cloud-ds-explorer-shared-resources": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "cdk-cloud-explorer-shared-resources.template.json",
+        "templateFile": "cdk-cloud-ds-explorer-shared-resources.template.json",
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/09b7dacc2f2484b2e3a8a68d2ba440bcc1112e5e66a1c9a8a4bfd3ac07fee626.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/334ee914b54e905a29e7a283301f8858d2879e9832f9180a11fd28f87ae4b633.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "cdk-cloud-explorer-shared-resources.assets"
+          "cdk-cloud-ds-explorer-shared-resources.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -30,213 +30,213 @@
         }
       },
       "dependencies": [
-        "cdk-cloud-explorer-shared-resources.assets"
+        "cdk-cloud-ds-explorer-shared-resources.assets"
       ],
       "metadata": {
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/Resource": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPC647B5B5E"
+            "data": "CloudDSExplorerVPC8CAE5230"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/Subnet": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1SubnetCCFAE65B"
+            "data": "CloudDSExplorerVPCPublicSubnet1Subnet3752F917"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/RouteTable": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1RouteTable05352605"
+            "data": "CloudDSExplorerVPCPublicSubnet1RouteTable2668D058"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/RouteTableAssociation": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1RouteTableAssociation16CCFCAC"
+            "data": "CloudDSExplorerVPCPublicSubnet1RouteTableAssociation8BA9414A"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/DefaultRoute": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1DefaultRoute4DE95FFA"
+            "data": "CloudDSExplorerVPCPublicSubnet1DefaultRoute5E1DC60E"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/EIP": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/EIP": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1EIP606691ED"
+            "data": "CloudDSExplorerVPCPublicSubnet1EIPCB231001"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet1/NATGateway": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet1/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet1NATGateway3AD24E47"
+            "data": "CloudDSExplorerVPCPublicSubnet1NATGateway507421A2"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/Subnet": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2Subnet6CAC1145"
+            "data": "CloudDSExplorerVPCPublicSubnet2Subnet4311D41D"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/RouteTable": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2RouteTableD2BA7846"
+            "data": "CloudDSExplorerVPCPublicSubnet2RouteTable674F93ED"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/RouteTableAssociation": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2RouteTableAssociation34ADB74D"
+            "data": "CloudDSExplorerVPCPublicSubnet2RouteTableAssociation923547F9"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/DefaultRoute": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2DefaultRouteB77BB654"
+            "data": "CloudDSExplorerVPCPublicSubnet2DefaultRoute205CACC7"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/EIP": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/EIP": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2EIP12D1257A"
+            "data": "CloudDSExplorerVPCPublicSubnet2EIP8156EC35"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PublicSubnet2/NATGateway": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PublicSubnet2/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPublicSubnet2NATGatewayAA1B6355"
+            "data": "CloudDSExplorerVPCPublicSubnet2NATGatewayE8E5B3D3"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/Subnet": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet1Subnet5D54C8C1"
+            "data": "CloudDSExplorerVPCPrivateSubnet1Subnet666248F8"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/RouteTable": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet1RouteTableD0750348"
+            "data": "CloudDSExplorerVPCPrivateSubnet1RouteTableAAB13341"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/RouteTableAssociation": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet1RouteTableAssociation02ECD23C"
+            "data": "CloudDSExplorerVPCPrivateSubnet1RouteTableAssociation96ABA403"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet1/DefaultRoute": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet1DefaultRoute77F68ACD"
+            "data": "CloudDSExplorerVPCPrivateSubnet1DefaultRouteFB311082"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/Subnet": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet2Subnet3880EF30"
+            "data": "CloudDSExplorerVPCPrivateSubnet2Subnet4D7F6036"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/RouteTable": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet2RouteTable101F89A4"
+            "data": "CloudDSExplorerVPCPrivateSubnet2RouteTable0A563B83"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/RouteTableAssociation": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet2RouteTableAssociationF802337A"
+            "data": "CloudDSExplorerVPCPrivateSubnet2RouteTableAssociationA2DF2E84"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/PrivateSubnet2/DefaultRoute": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/PrivateSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCPrivateSubnet2DefaultRoute803060D7"
+            "data": "CloudDSExplorerVPCPrivateSubnet2DefaultRouteF4C8471D"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/IGW": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/IGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCIGWD8F56477"
+            "data": "CloudDSExplorerVPCIGW7627E957"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CloudExplorerVPC/VPCGW": [
+        "/cdk-cloud-ds-explorer-shared-resources/CloudDSExplorerVPC/VPCGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerVPCVPCGW743535F9"
+            "data": "CloudDSExplorerVPCVPCGW3AA42E03"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CDKMetadata/Default": [
+        "/cdk-cloud-ds-explorer-shared-resources/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CDKMetadata/Condition": [
+        "/cdk-cloud-ds-explorer-shared-resources/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudExplorerVPCPrivateSubnet1Subnet5D54C8C1\"}": [
+        "/cdk-cloud-ds-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudDSExplorerVPCPrivateSubnet1Subnet666248F8\"}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+            "data": "ExportsOutputRefCloudDSExplorerVPCPrivateSubnet1Subnet666248F812DDAA75"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudExplorerVPCPrivateSubnet2Subnet3880EF30\"}": [
+        "/cdk-cloud-ds-explorer-shared-resources/Exports/Output{\"Ref\":\"CloudDSExplorerVPCPrivateSubnet2Subnet4D7F6036\"}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+            "data": "ExportsOutputRefCloudDSExplorerVPCPrivateSubnet2Subnet4D7F60362FF058FE"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/Exports/Output{\"Fn::GetAtt\":[\"CloudExplorerVPC647B5B5E\",\"DefaultSecurityGroup\"]}": [
+        "/cdk-cloud-ds-explorer-shared-resources/Exports/Output{\"Fn::GetAtt\":[\"CloudDSExplorerVPC8CAE5230\",\"DefaultSecurityGroup\"]}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+            "data": "ExportsOutputFnGetAttCloudDSExplorerVPC8CAE5230DefaultSecurityGroupA6840BD4"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/BootstrapVersion": [
+        "/cdk-cloud-ds-explorer-shared-resources/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/cdk-cloud-explorer-shared-resources/CheckBootstrapVersion": [
+        "/cdk-cloud-ds-explorer-shared-resources/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "cdk-cloud-explorer-shared-resources"
+      "displayName": "cdk-cloud-ds-explorer-shared-resources"
     },
-    "cdk-cloud-explorer-elasticache.assets": {
+    "cdk-cloud-ds-explorer-elasticache.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "cdk-cloud-explorer-elasticache.assets.json",
+        "file": "cdk-cloud-ds-explorer-elasticache.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "cdk-cloud-explorer-elasticache": {
+    "cdk-cloud-ds-explorer-elasticache": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "cdk-cloud-explorer-elasticache.template.json",
+        "templateFile": "cdk-cloud-ds-explorer-elasticache.template.json",
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5444103c31632aeb62f1b9ca868942a7327c603b42912cc5819c9aab0ca35bdf.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f72928e8a6125e5b0cd8bb103849c3f078bd6c45c2b1a3a3850a18c14c390ad3.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "cdk-cloud-explorer-elasticache.assets"
+          "cdk-cloud-ds-explorer-elasticache.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -245,70 +245,76 @@
         }
       },
       "dependencies": [
-        "cdk-cloud-explorer-shared-resources",
-        "cdk-cloud-explorer-elasticache.assets"
+        "cdk-cloud-ds-explorer-shared-resources",
+        "cdk-cloud-ds-explorer-elasticache.assets"
       ],
       "metadata": {
-        "/cdk-cloud-explorer-elasticache/RedisSubnetGroup": [
+        "/cdk-cloud-ds-explorer-elasticache/RedisSubnetGroup": [
           {
             "type": "aws:cdk:logicalId",
             "data": "RedisSubnetGroup"
           }
         ],
-        "/cdk-cloud-explorer-elasticache/CloudExplorerRedisCluster": [
+        "/cdk-cloud-ds-explorer-elasticache/CloudDSExplorerRedisCluster": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CloudExplorerRedisCluster"
+            "data": "CloudDSExplorerRedisCluster"
           }
         ],
-        "/cdk-cloud-explorer-elasticache/CDKMetadata/Default": [
+        "/cdk-cloud-ds-explorer-elasticache/RedisEndpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RedisEndpoint"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-elasticache/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/cdk-cloud-explorer-elasticache/CDKMetadata/Condition": [
+        "/cdk-cloud-ds-explorer-elasticache/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/cdk-cloud-explorer-elasticache/BootstrapVersion": [
+        "/cdk-cloud-ds-explorer-elasticache/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/cdk-cloud-explorer-elasticache/CheckBootstrapVersion": [
+        "/cdk-cloud-ds-explorer-elasticache/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "cdk-cloud-explorer-elasticache"
+      "displayName": "cdk-cloud-ds-explorer-elasticache"
     },
-    "cdk-cors-lambda-crud-dynamodb-example.assets": {
+    "cdk-cloud-ds-explorer-api-gateway-lambda.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "cdk-cors-lambda-crud-dynamodb-example.assets.json",
+        "file": "cdk-cloud-ds-explorer-api-gateway-lambda.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "cdk-cors-lambda-crud-dynamodb-example": {
+    "cdk-cloud-ds-explorer-api-gateway-lambda": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "cdk-cors-lambda-crud-dynamodb-example.template.json",
+        "templateFile": "cdk-cloud-ds-explorer-api-gateway-lambda.template.json",
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ef4857696456bb0adc0ee63329334db85ca496ba386ae366df0980bf304ba8aa.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/7b113ebf731813b8b56f58504627aa3ee290b7072f3d60c5ee5b1a744dbdcc15.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "cdk-cors-lambda-crud-dynamodb-example.assets"
+          "cdk-cloud-ds-explorer-api-gateway-lambda.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -317,327 +323,327 @@
         }
       },
       "dependencies": [
-        "cdk-cloud-explorer-elasticache",
-        "cdk-cloud-explorer-shared-resources",
-        "cdk-cors-lambda-crud-dynamodb-example.assets"
+        "cdk-cloud-ds-explorer-elasticache",
+        "cdk-cloud-ds-explorer-shared-resources",
+        "cdk-cloud-ds-explorer-api-gateway-lambda.assets"
       ],
       "metadata": {
-        "/cdk-cors-lambda-crud-dynamodb-example/GeoMaps": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/GeoMap": [
           {
             "type": "aws:cdk:hasPhysicalName",
             "data": {
-              "Ref": "GeoMapsE3CED104"
+              "Ref": "GeoMap5538752E"
             }
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/GeoMaps/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/GeoMap/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "GeoMapsE3CED104"
+            "data": "GeoMap5538752E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "segmentTreeFunctionServiceRole03310493"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/segmentTreeFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "segmentTreeFunction007D582E"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsDataGeneratorFunctionServiceRoleABC75C5B"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsDataGeneratorFunctionServiceRoleDefaultPolicyE37B4B03"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsDataGeneratorFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsDataGeneratorFunctionAAFDDEC8"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsGetShortestPathServiceRole46E6B049"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsGetShortestPathServiceRoleDefaultPolicy6BC9D26B"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/gMapsGetShortestPath/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gMapsGetShortestPathF87DA254"
-          }
-        ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorer45F728E1"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/CloudWatchRole/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/CloudWatchRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorerCloudWatchRoleEFE7EED6"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Account": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Account": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorerAccount272FA25F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Deployment/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorerDeployment796B92937195461b5dc5b92c1af5a69825df6f10"
+            "data": "dsexplorerDeployment796B9293c71784ee76e4e6b294080a02c9466b57"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/DeploymentStage.prod/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/DeploymentStage.prod/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorerDeploymentStageprodF5DFB945"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Endpoint": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Endpoint": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorerEndpointB31DEC7F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/segmentTree/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorersegmentTree62E3684E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/segmentTree/POST/ApiPermission.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..segmentTree": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorersegmentTreePOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTsegmentTree37352774"
+            "data": "dsexplorersegmentTreePOSTApiPermissioncdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTsegmentTree5535814E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..segmentTree": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/segmentTree/POST/ApiPermission.Test.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..segmentTree": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorersegmentTreePOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTsegmentTree3F379FF3"
+            "data": "dsexplorersegmentTreePOSTApiPermissionTestcdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTsegmentTree13DDC4A2"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/POST/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/segmentTree/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorersegmentTreePOSTCFC39CA9"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/segmentTree/OPTIONS/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/segmentTree/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorersegmentTreeOPTIONSA3C3E887"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorermedianTracker00B88DA5"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/OPTIONS/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorermedianTrackerOPTIONS814DF954"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/POST/ApiPermission.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorermedianTrackerPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker30C1E195"
+            "data": "dsexplorermedianTrackerPOSTApiPermissioncdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTmedianTracker97B15E2D"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..medianTracker": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/POST/ApiPermission.Test.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorermedianTrackerPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTmedianTracker94E354A0"
+            "data": "dsexplorermedianTrackerPOSTApiPermissionTestcdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTmedianTracker386B8E6A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/POST/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorermedianTrackerPOST6932612A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/GET/ApiPermission.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.GET..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorermedianTrackerGETApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker50268231"
+            "data": "dsexplorermedianTrackerGETApiPermissioncdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0GETmedianTracker89536994"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..medianTracker": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/GET/ApiPermission.Test.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.GET..medianTracker": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorermedianTrackerGETApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31GETmedianTracker5301ECFE"
+            "data": "dsexplorermedianTrackerGETApiPermissionTestcdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0GETmedianTrackerBFC5DE4A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/medianTracker/GET/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/medianTracker/GET/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorermedianTrackerGET3A27654A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMaps449AB82F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..gMaps": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/POST/ApiPermission.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..gMaps": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorergMapsPOSTApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTgMaps6331CB64"
+            "data": "dsexplorergMapsPOSTApiPermissioncdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTgMapsCECB70E2"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.POST..gMaps": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/POST/ApiPermission.Test.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.POST..gMaps": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorergMapsPOSTApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31POSTgMaps1DF25385"
+            "data": "dsexplorergMapsPOSTApiPermissionTestcdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0POSTgMaps6753F200"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/POST/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/POST/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapsPOST6766FA0E"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/OPTIONS/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapsOPTIONS1AACEF90"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapssrcC50F70EF"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/{dest}/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapssrcdest73447F59"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.GET..gMaps.{src}.{dest}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorergMapssrcdestGETApiPermissioncdkcorslambdacruddynamodbexampledsexplorer311ABC31GETgMapssrcdestFE9C2F17"
+            "data": "dsexplorergMapssrcdestGETApiPermissioncdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0GETgMapssrcdestA70EF6AB"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.Test.cdkcorslambdacruddynamodbexampledsexplorer311ABC31.GET..gMaps.{src}.{dest}": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/{dest}/GET/ApiPermission.Test.cdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0.GET..gMaps.{src}.{dest}": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "dsexplorergMapssrcdestGETApiPermissionTestcdkcorslambdacruddynamodbexampledsexplorer311ABC31GETgMapssrcdest2D5C633A"
+            "data": "dsexplorergMapssrcdestGETApiPermissionTestcdkclouddsexplorerapigatewaylambdadsexplorer067A0FC0GETgMapssrcdest8A8F0462"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/GET/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/{dest}/GET/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapssrcdestGET79121287"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/Default/gMaps/{src}/{dest}/OPTIONS/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorergMapssrcdestOPTIONSFA61D73F"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/ds-explorer/dsExplorerUsagePlan/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/ds-explorer/dsExplorerUsagePlan/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "dsexplorerdsExplorerUsagePlanA6AA7D29"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/freeTier/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/freeTier/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "freeTier72956893"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/UsagePlanKey": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/UsagePlanKey": [
           {
             "type": "aws:cdk:logicalId",
             "data": "UsagePlanKey"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/ServiceRole/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/segmentTreeFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "segmentTreeFunctionServiceRole03310493"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/segmentTreeFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "segmentTreeFunctionServiceRoleDefaultPolicy8531C241"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/segmentTreeFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "segmentTreeFunction007D582E"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/twoHeapMedianAddValueFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "twoHeapMedianAddValueFunctionServiceRoleFC0B61BA"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianAddValueFunction/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/twoHeapMedianAddValueFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "twoHeapMedianAddValueFunction56FECB10"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/ServiceRole/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/twoHeapMedianGetMedianFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "twoHeapMedianGetMedianFunctionServiceRole5D47FDDE"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/twoHeapMedianGetMedianFunction/Resource": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/twoHeapMedianGetMedianFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "twoHeapMedianGetMedianFunction5902CC9A"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Default": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsDataGeneratorFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsDataGeneratorFunctionServiceRoleABC75C5B"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsDataGeneratorFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsDataGeneratorFunctionServiceRoleDefaultPolicyE37B4B03"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsDataGeneratorFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsDataGeneratorFunctionAAFDDEC8"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsGetShortestPath/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathServiceRole46E6B049"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsGetShortestPath/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathServiceRoleDefaultPolicy6BC9D26B"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/gMapsGetShortestPath/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gMapsGetShortestPathF87DA254"
+          }
+        ],
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/CDKMetadata/Condition": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/BootstrapVersion": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/cdk-cors-lambda-crud-dynamodb-example/CheckBootstrapVersion": [
+        "/cdk-cloud-ds-explorer-api-gateway-lambda/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "cdk-cors-lambda-crud-dynamodb-example"
+      "displayName": "cdk-cloud-ds-explorer-api-gateway-lambda"
     },
     "Tree": {
       "type": "cdk:tree",

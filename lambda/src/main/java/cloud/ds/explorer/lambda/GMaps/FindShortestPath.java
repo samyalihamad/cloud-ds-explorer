@@ -1,4 +1,4 @@
-package software.amazon.awscdk.examples.lambda.GMaps;
+package cloud.ds.explorer.lambda.GMaps;
 import DataStructures.Dijkstra;
 import Factories.DIFactory;
 import Interfaces.MapsRepository;
@@ -13,12 +13,11 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.util.Pair;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
+import cloud.ds.explorer.lambda.GatewayResponse;
 import util.HttpUtil;
 import util.StringUtil;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

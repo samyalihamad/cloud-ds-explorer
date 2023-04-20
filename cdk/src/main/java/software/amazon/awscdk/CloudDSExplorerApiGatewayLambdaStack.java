@@ -1,7 +1,5 @@
-package software.amazon.awscdk.examples;
+package software.amazon.awscdk;
 
-import software.amazon.awscdk.*;
-import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.services.apigateway.IResource;
 import software.amazon.awscdk.services.ec2.*;
 import software.amazon.awscdk.services.lambda.Runtime;
@@ -15,16 +13,12 @@ import software.amazon.awscdk.services.lambda.*;
 
 import java.util.*;
 
-/**
- * CorsLambdaCrudDynamodbStack CDK example for Java!
- */
-class CorsLambdaCrudDynamodbStack extends Stack {
-    public CorsLambdaCrudDynamodbStack(final Construct parent, final String name, final Vpc vpc, final StackProps props) {
+class CloudDSExplorerApiGatewayLambdaStack extends Stack {
+    public CloudDSExplorerApiGatewayLambdaStack(final Construct parent, final String name, final Vpc vpc, final StackProps props) {
         super(parent, name);
 
         // Import the Redis endpoint using its export name
         String redisEndpoint = Fn.importValue("RedisEndpointExport").toString();
-
 
         TableProps gMapsTableProps;
         Attribute gMapsPartitionKey = Attribute.builder()
@@ -45,7 +39,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
                 // DESTROY, cdk destroy will delete the table (even if it has data in it)
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .build();
-        Table gMapsTable = new Table(this, "GeoMaps", gMapsTableProps);
+        Table gMapsTable = new Table(this, "GeoMap", gMapsTableProps);
 
         Map<String, String> lambdaEnvMap = new HashMap<>();
         lambdaEnvMap.put("TABLE_NAME", gMapsTable.getTableName());
@@ -53,18 +47,6 @@ class CorsLambdaCrudDynamodbStack extends Stack {
         lambdaEnvMap.put("REDIS_ENDPOINT", redisEndpoint);
 
         var sg = SecurityGroup.fromSecurityGroupId(this, "ImportedRedisSecurityGroup", vpc.getVpcDefaultSecurityGroup());
-
-        Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.SegmentTree", vpc, sg));
-
-        Function gMapsDataGeneratorFunction = new Function(this, "gMapsDataGeneratorFunction",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.GMapDataGenerator", vpc, sg));
-        Function gMapsGetShortestPath = new Function(this, "gMapsGetShortestPath",
-                getLambdaFunctionProps(lambdaEnvMap, "software.amazon.awscdk.examples.lambda.GMaps.FindShortestPath", vpc, sg));
-
-        gMapsTable.grantReadWriteData(gMapsDataGeneratorFunction);
-        gMapsTable.grantReadWriteData(gMapsGetShortestPath);
-        gMapsTable.grantReadWriteData(segmentTreeFunction);
 
         // Create the API Gateway
         RestApi api = new RestApi(this, "ds-explorer",
@@ -98,6 +80,9 @@ class CorsLambdaCrudDynamodbStack extends Stack {
 
 
         // Segment Tree
+        Function segmentTreeFunction = new Function(this, "segmentTreeFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.SegmentTree", vpc, sg));
+        gMapsTable.grantReadWriteData(segmentTreeFunction);
         IResource segmentTree = api.getRoot().addResource("segmentTree");
         Integration segmentTreeIntegration = new LambdaIntegration(segmentTreeFunction);
         addMethod(segmentTree, "POST", segmentTreeIntegration);
@@ -122,12 +107,19 @@ class CorsLambdaCrudDynamodbStack extends Stack {
 
         // GMaps
         IResource gMaps = api.getRoot().addResource("gMaps");
+
         // GMapsDataGenerator
+        Function gMapsDataGeneratorFunction = new Function(this, "gMapsDataGeneratorFunction",
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.GMaps.GMapDataGenerator", vpc, sg));
+        gMapsTable.grantReadWriteData(gMapsDataGeneratorFunction);
         Integration gMapsIntegration = new LambdaIntegration(gMapsDataGeneratorFunction);
         addMethod(gMaps, "POST", gMapsIntegration);
         addCorsOptions(gMaps);
 
         // GMapsGetShortestPath
+        Function gMapsGetShortestPath = new Function(this, "gMapsGetShortestPath",
+                getLambdaFunctionProps(lambdaEnvMap, "cloud.ds.explorer.lambda.GMaps.FindShortestPath", vpc, sg));
+        gMapsTable.grantReadWriteData(gMapsGetShortestPath);
         IResource gMapsGetShortestPathSrcResource = gMaps.addResource("{src}");
         IResource gMapsGetShortestPathDestResource = gMapsGetShortestPathSrcResource.addResource("{dest}");
         Integration gMapsGetShortestPathIntegration = new LambdaIntegration(gMapsGetShortestPath);
@@ -158,8 +150,7 @@ class CorsLambdaCrudDynamodbStack extends Stack {
                 .build());
         MethodOptions methodOptions = MethodOptions.builder()
                 .methodResponses(methoedResponses)
-                .build()
-                ;
+                .build();
 
         Map<String, String> requestTemplate = new HashMap<>();
         requestTemplate.put("application/json","{\"statusCode\": 200}");

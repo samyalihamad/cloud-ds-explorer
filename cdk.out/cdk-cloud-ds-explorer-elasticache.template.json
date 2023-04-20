@@ -6,19 +6,19 @@
     "Description": "Subnet group for Redis",
     "SubnetIds": [
      {
-      "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet1Subnet5D54C8C11F937279"
+      "Fn::ImportValue": "cdk-cloud-ds-explorer-shared-resources:ExportsOutputRefCloudDSExplorerVPCPrivateSubnet1Subnet666248F812DDAA75"
      },
      {
-      "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputRefCloudExplorerVPCPrivateSubnet2Subnet3880EF30CDB84203"
+      "Fn::ImportValue": "cdk-cloud-ds-explorer-shared-resources:ExportsOutputRefCloudDSExplorerVPCPrivateSubnet2Subnet4D7F60362FF058FE"
      }
     ],
     "CacheSubnetGroupName": "RedisSubnetGroup"
    },
    "Metadata": {
-    "aws:cdk:path": "cdk-cloud-explorer-elasticache/RedisSubnetGroup"
+    "aws:cdk:path": "cdk-cloud-ds-explorer-elasticache/RedisSubnetGroup"
    }
   },
-  "CloudExplorerRedisCluster": {
+  "CloudDSExplorerRedisCluster": {
    "Type": "AWS::ElastiCache::CacheCluster",
    "Properties": {
     "CacheNodeType": "cache.t2.micro",
@@ -27,7 +27,7 @@
     "CacheSubnetGroupName": "RedisSubnetGroup",
     "VpcSecurityGroupIds": [
      {
-      "Fn::ImportValue": "cdk-cloud-explorer-shared-resources:ExportsOutputFnGetAttCloudExplorerVPC647B5B5EDefaultSecurityGroup2B73032C"
+      "Fn::ImportValue": "cdk-cloud-ds-explorer-shared-resources:ExportsOutputFnGetAttCloudDSExplorerVPC8CAE5230DefaultSecurityGroupA6840BD4"
      }
     ]
    },
@@ -35,7 +35,7 @@
     "RedisSubnetGroup"
    ],
    "Metadata": {
-    "aws:cdk:path": "cdk-cloud-explorer-elasticache/CloudExplorerRedisCluster"
+    "aws:cdk:path": "cdk-cloud-ds-explorer-elasticache/CloudDSExplorerRedisCluster"
    }
   },
   "CDKMetadata": {
@@ -44,7 +44,7 @@
     "Analytics": "v2:deflate64:H4sIAAAAAAAA/yWKsQ7CMAxEv6V7akoZYM+AxILUfgByUyNMQ1IlNgxV/50Gpnv37lo4HqCp8JNrN0615wGWXtBNZlM38piFHboHwWLvodchkJxT1Nls1ZbBes1CaS3iqjKrFOooR02OfrcYRhaOYTUXfONuf4IG2uqZmeukQfhF0P3zC5HqtmCPAAAA"
    },
    "Metadata": {
-    "aws:cdk:path": "cdk-cloud-explorer-elasticache/CDKMetadata/Default"
+    "aws:cdk:path": "cdk-cloud-ds-explorer-elasticache/CDKMetadata/Default"
    },
    "Condition": "CDKMetadataAvailable"
   }
@@ -53,7 +53,7 @@
   "RedisEndpoint": {
    "Value": {
     "Fn::GetAtt": [
-     "CloudExplorerRedisCluster",
+     "CloudDSExplorerRedisCluster",
      "RedisEndpoint.Address"
     ]
    },

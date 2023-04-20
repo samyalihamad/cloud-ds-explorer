@@ -1,9 +1,8 @@
-package software.amazon.awscdk.examples.lambda.authorizer;
+package cloud.ds.explorer.lambda.authorizer;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ public class SymmetricKeyAuthorizer implements RequestHandler<Map<String, Object
     @Override
     public Map<String, Object> handleRequest(Map<String, Object> input, Context context) {
         LambdaLogger logger = context.getLogger();
-        logger.log("Inside software.amazon.awscdk.examples.lambda: Authorizer "+input.getClass()+ " data:"+input);
+        logger.log("Inside software.amazon.awscdk.lambda: Authorizer "+input.getClass()+ " data:"+input);
 
         // Get the API key from the request
         String apiKey = (String) input.get("authorizationToken");

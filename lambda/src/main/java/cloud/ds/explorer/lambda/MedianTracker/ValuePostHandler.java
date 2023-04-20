@@ -2,22 +2,17 @@ package cloud.ds.explorer.lambda.MedianTracker;
 
 import DataStructures.TwoHeapMedian;
 import Models.TwoHeaps.MedianTrackerInput;
-import Models.TwoHeaps.TwoHeapsInput;
 import Repository.RedisConnection;
+import cloud.ds.explorer.lambda.GatewayResponse;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPooled;
-import software.amazon.awscdk.examples.lambda.GatewayResponse;
 import util.HttpUtil;
 import util.JsonUtil;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ValuePostHandler implements RequestHandler<Map<String, Object>, GatewayResponse> {
